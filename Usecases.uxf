@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>0</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>72</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>CRUD Customer</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>50</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>117</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>CRUD Employee</panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>100</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>162</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>CUD Product</panel_attributes>
     <additional_attributes/>
@@ -37,10 +37,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>200</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>252</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Provide statistics</panel_attributes>
     <additional_attributes/>
@@ -48,10 +48,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>400</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>432</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Create order</panel_attributes>
     <additional_attributes/>
@@ -59,10 +59,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>600</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>612</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Create rental</panel_attributes>
     <additional_attributes/>
@@ -70,43 +70,21 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>320</x>
-      <y>20</y>
-      <w>80</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>Manager</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>320</x>
-      <y>230</y>
-      <w>80</w>
-      <h>110</h>
+      <x>450</x>
+      <y>342</y>
+      <w>72</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Cashier</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>300</x>
-      <y>130</y>
-      <w>120</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>Administrator</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>650</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>657</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Return rental</panel_attributes>
     <additional_attributes/>
@@ -114,34 +92,21 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>150</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>207</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Read Product</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>1100</x>
-      <y>220</y>
-      <w>270</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>bg=blue
-"Locate Product" is
-just "read SKU" aka "Read Product"</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>250</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>297</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>CUD Discount</panel_attributes>
     <additional_attributes/>
@@ -149,10 +114,10 @@ just "read SKU" aka "Read Product"</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>300</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>342</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Read Discount</panel_attributes>
     <additional_attributes/>
@@ -160,10 +125,10 @@ just "read SKU" aka "Read Product"</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>350</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>387</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Make sale</panel_attributes>
     <additional_attributes/>
@@ -171,10 +136,10 @@ just "read SKU" aka "Read Product"</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>310</x>
-      <y>340</y>
-      <w>100</w>
-      <h>120</h>
+      <x>441</x>
+      <y>486</y>
+      <w>90</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Warehouse 
 employee</panel_attributes>
@@ -183,10 +148,10 @@ employee</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>700</x>
-      <y>350</y>
-      <w>130</w>
-      <h>40</h>
+      <x>738</x>
+      <y>387</y>
+      <w>108</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>at cash register
 bg=yellow
@@ -196,10 +161,10 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>450</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>477</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Pick order</panel_attributes>
     <additional_attributes/>
@@ -207,10 +172,10 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>500</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>522</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Pack order</panel_attributes>
     <additional_attributes/>
@@ -218,10 +183,10 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>550</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>567</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Ship order</panel_attributes>
     <additional_attributes/>
@@ -229,10 +194,10 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>750</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>747</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Restock product</panel_attributes>
     <additional_attributes/>
@@ -240,10 +205,10 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>570</x>
-      <y>700</y>
-      <w>120</w>
-      <h>40</h>
+      <x>621</x>
+      <y>702</y>
+      <w>108</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Order restock</panel_attributes>
     <additional_attributes/>
@@ -251,18 +216,137 @@ bg=yellow
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>360</x>
-      <y>540</y>
-      <w>140</w>
-      <h>110</h>
+      <x>414</x>
+      <y>72</y>
+      <w>126</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>adding a new 
 product to the 
 store involves
 1) create product
-2) restock product
+2) order restock
 bg=yellow
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>621</x>
+      <y>882</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>CRUD Location</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>621</x>
+      <y>927</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>CRUD Warehouse</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>621</x>
+      <y>792</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Handle return</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>621</x>
+      <y>837</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Handle warranty
+claim</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>450</x>
+      <y>198</y>
+      <w>72</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>54</y>
+      <w>90</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Payment
+handler</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>459</x>
+      <y>9</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Actors
+
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>783</x>
+      <y>9</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>External Actors
+
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>54</y>
+      <w>162</w>
+      <h>927</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>126</y>
+      <w>90</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Accounting
+system</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
