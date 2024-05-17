@@ -4,7 +4,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>63</y>
       <w>108</w>
       <h>36</h>
@@ -15,7 +15,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>108</y>
       <w>108</w>
       <h>36</h>
@@ -26,7 +26,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>153</y>
       <w>108</w>
       <h>36</h>
@@ -37,7 +37,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>243</y>
       <w>108</w>
       <h>36</h>
@@ -48,7 +48,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>423</y>
       <w>108</w>
       <h>36</h>
@@ -59,7 +59,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>603</y>
       <w>108</w>
       <h>36</h>
@@ -70,7 +70,7 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>396</x>
+      <x>405</x>
       <y>333</y>
       <w>72</w>
       <h>99</h>
@@ -81,7 +81,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>648</y>
       <w>108</w>
       <h>36</h>
@@ -92,7 +92,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>198</y>
       <w>108</w>
       <h>36</h>
@@ -103,7 +103,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>288</y>
       <w>108</w>
       <h>36</h>
@@ -114,7 +114,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>333</y>
       <w>108</w>
       <h>36</h>
@@ -125,18 +125,18 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>378</y>
       <w>108</w>
       <h>36</h>
     </coordinates>
-    <panel_attributes>Make sale</panel_attributes>
+    <panel_attributes>Store sale</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>387</x>
+      <x>396</x>
       <y>477</y>
       <w>90</w>
       <h>108</h>
@@ -148,7 +148,7 @@ employee</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>684</x>
+      <x>693</x>
       <y>378</y>
       <w>108</w>
       <h>27</h>
@@ -161,7 +161,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>468</y>
       <w>108</w>
       <h>36</h>
@@ -172,7 +172,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>513</y>
       <w>108</w>
       <h>36</h>
@@ -183,7 +183,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>558</y>
       <w>108</w>
       <h>36</h>
@@ -194,7 +194,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>738</y>
       <w>108</w>
       <h>36</h>
@@ -205,7 +205,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>693</y>
       <w>108</w>
       <h>36</h>
@@ -216,7 +216,7 @@ bg=yellow
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>360</x>
+      <x>369</x>
       <y>63</y>
       <w>126</w>
       <h>99</h>
@@ -233,7 +233,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>873</y>
       <w>108</w>
       <h>36</h>
@@ -244,7 +244,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>918</y>
       <w>108</w>
       <h>36</h>
@@ -255,7 +255,7 @@ bg=yellow
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>783</y>
       <w>108</w>
       <h>36</h>
@@ -267,7 +267,7 @@ product</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>567</x>
+      <x>576</x>
       <y>828</y>
       <w>108</w>
       <h>36</h>
@@ -279,7 +279,7 @@ claim</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>396</x>
+      <x>405</x>
       <y>189</y>
       <w>72</w>
       <h>99</h>
@@ -290,7 +290,7 @@ claim</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>738</x>
+      <x>747</x>
       <y>45</y>
       <w>90</w>
       <h>45</h>
@@ -302,7 +302,7 @@ handler</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>405</x>
+      <x>414</x>
       <y>0</y>
       <w>108</w>
       <h>36</h>
@@ -316,7 +316,7 @@ bg=yellow
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>729</x>
+      <x>738</x>
       <y>0</y>
       <w>108</w>
       <h>36</h>
@@ -330,7 +330,7 @@ bg=yellow
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>540</x>
+      <x>549</x>
       <y>45</y>
       <w>162</w>
       <h>927</h>
@@ -341,7 +341,7 @@ bg=yellow
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>738</x>
+      <x>747</x>
       <y>117</y>
       <w>90</w>
       <h>45</h>
