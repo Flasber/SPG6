@@ -819,7 +819,7 @@ m2=1
 m1=0..1
 m2=0..*
 made-to v</panel_attributes>
-    <additional_attributes>60.0;870.0;60.0;730.0;220.0;730.0;210.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>60.0;870.0;60.0;730.0;210.0;730.0;210.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -910,7 +910,8 @@ quantityOrdered</panel_attributes>
     <panel_attributes>Copy
 --
 itemNumber
-warranty</panel_attributes>
+warranty
+timesSold</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -1696,14 +1697,14 @@ price</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>455</x>
-      <y>275</y>
-      <w>90</w>
-      <h>80</h>
+      <y>280</y>
+      <w>95</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>&lt;&lt;temporal&gt;&gt;
 lt=-
 m1=1
 m2=0..*</panel_attributes>
-    <additional_attributes>140.0;140.0;140.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>100.0;130.0;100.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
