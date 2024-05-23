@@ -1041,7 +1041,7 @@ m2=0..*</panel_attributes>
     </coordinates>
     <panel_attributes>InStoreSale
 --
-cashRegister</panel_attributes>
+cashRegisterNO</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
