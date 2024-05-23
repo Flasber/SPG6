@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>10</x>
+      <y>10</y>
+      <w>80</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Employee</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>490</x>
+      <y>60</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>System
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>110</y>
+      <w>30</w>
+      <h>850</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;830.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>90</y>
+      <w>30</w>
+      <h>860</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;840.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>120</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+createInStoreSale(registerNo,employeeId)</panel_attributes>
+    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>200</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+addProductToSale(barcode)</panel_attributes>
+    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>290</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+product added,product price</panel_attributes>
+    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>390</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+addCustomerToSale(tlf)</panel_attributes>
+    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>470</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+customer added,total price</panel_attributes>
+    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>560</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+isPayed()</panel_attributes>
+    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>640</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+confirmation,sale added,stock updated</panel_attributes>
+    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>710</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+printReceipt()</panel_attributes>
+    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>790</y>
+      <w>520</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+print</panel_attributes>
+    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>0</x>
+      <y>190</y>
+      <w>580</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Loop</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>0</y>
+      <w>380</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Operation:createInStoreSale(registerNo,employeeId)
+--
+preconditions:none
+postconditions:
+An object s of type InStoreSale is created
+s.registerNo became registerNo
+s.employeeId became employeeId
+s.createdDate became currentDate
+s.billableId became a unique id
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>240</y>
+      <w>640</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Operation:addProductToSale(barcode)
+--
+preconditions:an object s of InStoreSale was created and a p object of type product exists
+postconditions:
+an object ol of type OrderLine exists
+ol.quantity became the quantity of the product in sale
+s.registerNo became registerNo
+s.employeeId became employeeId
+ol is associated with s and p
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>440</y>
+      <w>740</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Operation:addCustomerToSale(tlf)
+--
+preconditions:an object s of InStoreSale exists, a p object exists and the c object of type Customer with the tlf exists
+postconditions:
+c is associated to s
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>570</x>
+      <y>620</y>
+      <w>740</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Operation:isPayed()
+--
+preconditions:an object s of InStoreSale exists
+// a p object exists and the c object of type Customer with the tlf exists
+postconditions:
+s is persisted
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
