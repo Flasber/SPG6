@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>623</x>
-      <y>0</y>
+      <y>35</y>
       <w>308</w>
       <h>112</h>
     </coordinates>
@@ -24,7 +24,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>553</x>
-      <y>161</y>
+      <y>196</y>
       <w>154</w>
       <h>140</h>
     </coordinates>
@@ -35,17 +35,17 @@
 - scannedCopy: Copy
 
 --
-createInStoreSale(registerNo: int, employeeId: int): void
-addProductToSale(barcode: String, quantity: int): void
-addCustomerToSale(tlf: String): boolean
-finishedSale=isPaid(): InStoreSale</panel_attributes>
++ createInStoreSale(registerNo: int, employeeId: int): void
++ addProductToSale(barcode: String, quantity: int): void
++ addCustomerToSale(tlf: String): boolean
++ finishedSale=isPaid(): InStoreSale</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>539</x>
-      <y>532</y>
+      <y>567</y>
       <w>196</w>
       <h>105</h>
     </coordinates>
@@ -62,7 +62,7 @@ __+ getInstance(): CustomerContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>602</x>
-      <y>679</y>
+      <y>714</y>
       <w>119</w>
       <h>70</h>
     </coordinates>
@@ -78,7 +78,7 @@ __+ getInstance(): CustomerContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>763</x>
-      <y>343</y>
+      <y>378</y>
       <w>238</w>
       <h>126</h>
     </coordinates>
@@ -93,7 +93,7 @@ __+ getInstance(): CustomerContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>322</x>
-      <y>924</y>
+      <y>959</y>
       <w>203</w>
       <h>147</h>
     </coordinates>
@@ -115,7 +115,7 @@ __+ getInstance(): CustomerContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>1036</x>
-      <y>322</y>
+      <y>357</y>
       <w>175</w>
       <h>133</h>
     </coordinates>
@@ -130,7 +130,7 @@ __+ getInstance(): CustomerContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>994</x>
-      <y>525</y>
+      <y>560</y>
       <w>245</w>
       <h>105</h>
     </coordinates>
@@ -150,7 +150,7 @@ __+ getInstance(): ProductContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>987</x>
-      <y>679</y>
+      <y>714</y>
       <w>196</w>
       <h>112</h>
     </coordinates>
@@ -168,7 +168,7 @@ __+ getInstance(): ProductContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>756</x>
-      <y>532</y>
+      <y>567</y>
       <w>196</w>
       <h>126</h>
     </coordinates>
@@ -184,7 +184,7 @@ __+ getInstance(): EmployeeContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>784</x>
-      <y>686</y>
+      <y>721</y>
       <w>175</w>
       <h>70</h>
     </coordinates>
@@ -201,7 +201,7 @@ __+ getInstance(): EmployeeContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>609</x>
-      <y>336</y>
+      <y>371</y>
       <w>112</w>
       <h>133</h>
     </coordinates>
@@ -216,7 +216,7 @@ __+ getInstance(): EmployeeContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>322</x>
-      <y>469</y>
+      <y>504</y>
       <w>189</w>
       <h>112</h>
     </coordinates>
@@ -232,7 +232,7 @@ __+ getInstance(): BillableContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>910</x>
-      <y>1001</y>
+      <y>1036</y>
       <w>154</w>
       <h>84</h>
     </coordinates>
@@ -249,7 +249,7 @@ __+ getInstance(): BillableContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>112</x>
-      <y>1099</y>
+      <y>1134</y>
       <w>189</w>
       <h>140</h>
     </coordinates>
@@ -265,7 +265,7 @@ __+ getInstance(): BillableContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>1029</y>
+      <y>1064</y>
       <w>98</w>
       <h>140</h>
     </coordinates>
@@ -280,7 +280,7 @@ __+ getInstance(): BillableContainer__
     <id>UMLClass</id>
     <coordinates>
       <x>336</x>
-      <y>805</y>
+      <y>840</y>
       <w>147</w>
       <h>91</h>
     </coordinates>
@@ -298,7 +298,7 @@ Sale
     <id>Relation</id>
     <coordinates>
       <x>392</x>
-      <y>889</y>
+      <y>924</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
@@ -309,7 +309,7 @@ Sale
     <id>UMLClass</id>
     <coordinates>
       <x>301</x>
-      <y>700</y>
+      <y>735</y>
       <w>196</w>
       <h>84</h>
     </coordinates>
@@ -327,7 +327,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>364</x>
-      <y>777</y>
+      <y>812</y>
       <w>35</w>
       <h>42</h>
     </coordinates>
@@ -338,7 +338,7 @@ Billable
     <id>UMLClass</id>
     <coordinates>
       <x>105</x>
-      <y>840</y>
+      <y>875</y>
       <w>98</w>
       <h>77</h>
     </coordinates>
@@ -352,7 +352,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>154</x>
-      <y>910</y>
+      <y>945</y>
       <w>63</w>
       <h>203</h>
     </coordinates>
@@ -363,7 +363,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>42</x>
-      <y>910</y>
+      <y>945</y>
       <w>133</w>
       <h>133</h>
     </coordinates>
@@ -374,7 +374,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>105</y>
+      <y>140</y>
       <w>49</w>
       <h>70</h>
     </coordinates>
@@ -385,7 +385,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>595</x>
-      <y>294</y>
+      <y>329</y>
       <w>49</w>
       <h>56</h>
     </coordinates>
@@ -396,7 +396,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>700</x>
-      <y>189</y>
+      <y>224</y>
       <w>77</w>
       <h>168</h>
     </coordinates>
@@ -407,7 +407,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>700</x>
-      <y>175</y>
+      <y>210</y>
       <w>350</w>
       <h>182</h>
     </coordinates>
@@ -418,7 +418,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>399</x>
-      <y>231</y>
+      <y>266</y>
       <w>168</w>
       <h>252</h>
     </coordinates>
@@ -429,7 +429,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>490</x>
-      <y>294</y>
+      <y>329</y>
       <w>98</w>
       <h>644</h>
     </coordinates>
@@ -440,7 +440,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>196</x>
-      <y>875</y>
+      <y>910</y>
       <w>140</w>
       <h>98</h>
     </coordinates>
@@ -451,7 +451,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>84</x>
-      <y>987</y>
+      <y>1022</y>
       <w>252</w>
       <h>56</h>
     </coordinates>
@@ -462,7 +462,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>294</x>
-      <y>1008</y>
+      <y>1043</y>
       <w>42</w>
       <h>112</h>
     </coordinates>
@@ -473,7 +473,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>854</x>
-      <y>651</y>
+      <y>686</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
@@ -484,7 +484,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>644</x>
-      <y>630</y>
+      <y>665</y>
       <w>21</w>
       <h>63</h>
     </coordinates>
@@ -495,7 +495,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>1064</x>
-      <y>623</y>
+      <y>658</y>
       <w>35</w>
       <h>70</h>
     </coordinates>
@@ -506,7 +506,7 @@ Billable
     <id>Relation</id>
     <coordinates>
       <x>952</x>
-      <y>910</y>
+      <y>945</y>
       <w>49</w>
       <h>105</h>
     </coordinates>
@@ -519,7 +519,7 @@ m2=0..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1092</x>
-      <y>448</y>
+      <y>483</y>
       <w>35</w>
       <h>91</h>
     </coordinates>
@@ -530,7 +530,7 @@ m2=0..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>861</x>
-      <y>462</y>
+      <y>497</y>
       <w>21</w>
       <h>84</h>
     </coordinates>
@@ -541,7 +541,7 @@ m2=0..*</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>1211</x>
-      <y>462</y>
+      <y>497</y>
       <w>98</w>
       <h>49</h>
     </coordinates>
@@ -553,7 +553,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>644</x>
-      <y>462</y>
+      <y>497</y>
       <w>28</w>
       <h>84</h>
     </coordinates>
@@ -564,7 +564,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>910</x>
-      <y>868</y>
+      <y>903</y>
       <w>98</w>
       <h>49</h>
     </coordinates>
@@ -577,7 +577,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1043</x>
-      <y>861</y>
+      <y>896</y>
       <w>105</w>
       <h>42</h>
     </coordinates>
@@ -590,7 +590,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>931</x>
-      <y>784</y>
+      <y>819</y>
       <w>168</w>
       <h>98</h>
     </coordinates>
@@ -601,7 +601,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1176</x>
-      <y>868</y>
+      <y>903</y>
       <w>105</w>
       <h>42</h>
     </coordinates>
@@ -614,7 +614,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1141</x>
-      <y>784</y>
+      <y>819</y>
       <w>91</w>
       <h>98</h>
     </coordinates>
@@ -625,7 +625,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1085</x>
-      <y>784</y>
+      <y>819</y>
       <w>28</w>
       <h>91</h>
     </coordinates>
@@ -636,7 +636,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1204</x>
-      <y>959</y>
+      <y>994</y>
       <w>84</w>
       <h>49</h>
     </coordinates>
@@ -648,7 +648,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1295</x>
-      <y>1057</y>
+      <y>1092</y>
       <w>126</w>
       <h>35</h>
     </coordinates>
@@ -661,7 +661,7 @@ quantity</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1148</x>
-      <y>1064</y>
+      <y>1099</y>
       <w>105</w>
       <h>35</h>
     </coordinates>
@@ -673,7 +673,7 @@ quantity</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1183</x>
-      <y>1001</y>
+      <y>1036</y>
       <w>63</w>
       <h>77</h>
     </coordinates>
@@ -684,7 +684,7 @@ quantity</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1253</x>
-      <y>1001</y>
+      <y>1036</y>
       <w>56</w>
       <h>84</h>
     </coordinates>
@@ -695,7 +695,7 @@ quantity</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1232</x>
-      <y>903</y>
+      <y>938</y>
       <w>35</w>
       <h>70</h>
     </coordinates>
@@ -708,7 +708,7 @@ m2=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1001</x>
-      <y>1071</y>
+      <y>1106</y>
       <w>161</w>
       <h>35</h>
     </coordinates>
@@ -721,7 +721,7 @@ m2=0...*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1176</x>
-      <y>728</y>
+      <y>763</y>
       <w>217</w>
       <h>343</h>
     </coordinates>
@@ -734,7 +734,7 @@ m2=0...*</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1281</x>
-      <y>637</y>
+      <y>672</y>
       <w>98</w>
       <h>42</h>
     </coordinates>
@@ -747,7 +747,7 @@ price</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1176</x>
-      <y>672</y>
+      <y>707</y>
       <w>168</w>
       <h>63</h>
     </coordinates>
@@ -761,7 +761,7 @@ m2=0..*</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>1400</x>
-      <y>700</y>
+      <y>735</y>
       <w>168</w>
       <h>28</h>
     </coordinates>
@@ -773,7 +773,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>539</x>
-      <y>812</y>
+      <y>847</y>
       <w>70</w>
       <h>56</h>
     </coordinates>
@@ -786,7 +786,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>623</x>
-      <y>819</y>
+      <y>854</y>
       <w>98</w>
       <h>56</h>
     </coordinates>
@@ -799,7 +799,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>728</x>
-      <y>812</y>
+      <y>847</y>
       <w>147</w>
       <h>49</h>
     </coordinates>
@@ -815,7 +815,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>574</x>
-      <y>742</y>
+      <y>777</y>
       <w>91</w>
       <h>84</h>
     </coordinates>
@@ -826,7 +826,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>658</x>
-      <y>742</y>
+      <y>777</y>
       <w>21</w>
       <h>91</h>
     </coordinates>
@@ -837,7 +837,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>693</x>
-      <y>742</y>
+      <y>777</y>
       <w>126</w>
       <h>84</h>
     </coordinates>
