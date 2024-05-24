@@ -1,4 +1,6 @@
 *.classpath
 *.project
-/.settings/
-/bin/
+SPG6vestbjerg/.settings
+SPG6vestbjerg/bin
+.metadata
+
