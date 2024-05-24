@@ -73,4 +73,6 @@ public class InStoreSale {
 		}
 	}
 
+	public List<OrderLine> getProducts;
+//start From here
 }
