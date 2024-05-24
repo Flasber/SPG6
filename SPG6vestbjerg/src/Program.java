@@ -6,5 +6,4 @@ public class Program {
 		System.out.println("888888888!");
 		new Copy(0, null, 0);
 	}
-
 }
