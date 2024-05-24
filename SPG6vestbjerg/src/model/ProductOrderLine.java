@@ -1,5 +1,8 @@
 package model;
 
-public class ProductOrderLine {
+public class ProductOrderLine extends OrderLine {
 
+	public Product getProduct() {
+
+	}
 }
