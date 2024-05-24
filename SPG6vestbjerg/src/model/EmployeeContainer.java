@@ -1,14 +1,14 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EmployeeContainer {
 	private static EmployeeContainer instance;
-	private List<Employee> employees;
+	private Map<Integer, Employee> employees;
 
 	private EmployeeContainer() {
-		employees = new ArrayList<>();
+		employees = new HashMap<>();
 	}
 
 //singleton pattern.
@@ -22,17 +22,11 @@ public class EmployeeContainer {
 // to add a employee to the list
 
 	public void addEmployee(Employee employee) {
-		employees.add(employee);
+		employees.put(employee.getEmployeeId(), employee);
 	}
 //find an employee with their employeeID
 
 	public Employee findEmployee(int employeeId) {
-		for (Employee employee : employees) {
-			if (employee.getEmployeeId() == employeeId) {
-				return employee;
-			}
-		}
-		return null;
+		return employees.get(employeeId);
 	}
-
 }
