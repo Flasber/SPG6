@@ -141,16 +141,16 @@ places v</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>693</x>
-      <y>216</y>
-      <w>198</w>
-      <h>423</h>
+      <x>729</x>
+      <y>45</y>
+      <w>108</w>
+      <h>378</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=0..*
 </panel_attributes>
-    <additional_attributes>10.0;450.0;10.0;340.0;180.0;340.0;180.0;10.0</additional_attributes>
+    <additional_attributes>10.0;400.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1583,20 +1583,6 @@ quantity</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>54</y>
-      <w>441</w>
-      <h>1026</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1
-m2=0..*
-</panel_attributes>
-    <additional_attributes>460.0;1110.0;10.0;1110.0;10.0;360.0;450.0;360.0;450.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>702</x>
       <y>27</y>
       <w>117</w>
@@ -1698,5 +1684,40 @@ m2=0..*</panel_attributes>
 m1=1
 m2=0...*</panel_attributes>
     <additional_attributes>380.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>405</y>
+      <w>126</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>BillableItem
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>684</x>
+      <y>477</y>
+      <w>72</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>477</y>
+      <w>54</w>
+      <h>558</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;600.0</additional_attributes>
   </element>
 </diagram>
