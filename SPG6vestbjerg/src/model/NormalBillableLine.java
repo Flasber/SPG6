@@ -1,6 +1,6 @@
 package model;
 
-public class NormalBillableLine extends OrderLine {
+public class NormalBillableLine extends BillableLine {
 	int quantity;
 	Product product;
 

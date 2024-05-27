@@ -1,6 +1,6 @@
 package model;
 
-public class CopyOrderLine extends OrderLine {
+public class WarrantyBillableLine extends BillableLine {
 
 	private WarrantyProduct.Copy copy;
 
@@ -8,7 +8,7 @@ public class CopyOrderLine extends OrderLine {
 		return copy;
 	}
 
-	public CopyOrderLine(WarrantyProduct.Copy copy) {
+	public WarrantyBillableLine(WarrantyProduct.Copy copy) {
 		super();
 		this.copy = copy;
 	}
