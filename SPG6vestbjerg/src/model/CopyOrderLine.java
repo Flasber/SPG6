@@ -1,6 +1,10 @@
 package model;
 
-public class CopyOrderLine extends OrderLine {
+
+import java.math.BigDecimal;
+
+public class WarrantyBillableLine extends BillableLine {
+
 
 	private WarrantyProduct.Copy copy;
 
@@ -11,6 +15,12 @@ public class CopyOrderLine extends OrderLine {
 	public CopyOrderLine(WarrantyProduct.Copy copy) {
 		super();
 		this.copy = copy;
+	}
+
+	@Override
+	protected BigDecimal getSubTotal() {
+		return copy.getProduct().getPrice().getPrice();
+
 	}
 
 }
