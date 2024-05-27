@@ -1,10 +1,8 @@
 package model;
 
-
 import java.math.BigDecimal;
 
 public class WarrantyBillableLine extends BillableLine {
-
 
 	private WarrantyProduct.Copy copy;
 
@@ -18,9 +16,18 @@ public class WarrantyBillableLine extends BillableLine {
 	}
 
 	@Override
-	protected BigDecimal getSubTotal() {
+	public BigDecimal getSubTotal() {
 		return copy.getProduct().getPrice().getPrice();
 
 	}
 
+	@Override
+	public WarrantyProduct.Copy getItem() {
+		return copy;
+	}
+
+	@Override
+	public int getQuantity() {
+		return 1;
+	}
 }

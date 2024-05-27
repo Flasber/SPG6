@@ -1,5 +1,6 @@
 package model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -8,5 +9,7 @@ public interface Billable {
 
 	public int getBillableId();
 
-	public List<BillableLine> getOrderLines();
+	public List<BillableLine> getBillableLines();
+
+	public BigDecimal getTotal();
 }

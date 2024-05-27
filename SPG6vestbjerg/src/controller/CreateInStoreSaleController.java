@@ -37,7 +37,7 @@ public class CreateInStoreSaleController {
 
 	public InStoreSale isPaid() {
 		BillableContainer bc = BillableContainer.getInstance();
-		if (bc.add(saleInProgress)) {
+		if (bc.addSale(saleInProgress)) {
 			return saleInProgress;
 		} else
 			return null;

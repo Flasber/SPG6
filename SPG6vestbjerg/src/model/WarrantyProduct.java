@@ -8,7 +8,7 @@ public class WarrantyProduct extends Product {
 	private List<Copy> copies;
 	private Copy currentCopy;
 
-	public class Copy {
+	public class Copy implements BillableItem {
 		private int copyId;
 		private String warranty;
 		private int timesReturned;

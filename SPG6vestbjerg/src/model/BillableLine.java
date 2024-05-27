@@ -4,6 +4,14 @@ import java.math.BigDecimal;
 
 public abstract class BillableLine {
 
-	protected abstract BigDecimal getSubTotal();
+	public abstract BigDecimal getSubTotal();
+
+	public String toString() {
+		return String.format(" %dx %s", getQuantity(), getItem().getName());
+	}
+
+	protected abstract BillableItem getItem();
+
+	protected abstract int getQuantity();
 
 }

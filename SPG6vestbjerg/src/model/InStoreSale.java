@@ -1,27 +1,28 @@
 package model;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class InStoreSale {
+public class InStoreSale implements Billable, Sale {
 	private int registerNo;
-	private Employee e;
-	private Customer c;
-	private LocalDate createdDate;
+	private Employee employee;
+	private Customer customer;
+	private LocalDateTime createdDate;
 	private List<BillableLine> orderLines;
+	private int id;
 
 	public InStoreSale(int registerNo, Employee e) {
 		this.registerNo = registerNo;
-		this.e = e;
+		this.employee = e;
 		orderLines = new ArrayList<>();
-		createdDate = LocalDate.now();
+		createdDate = LocalDateTime.now();
 	}
 
 	public void setCustomer(Customer c) {
-		this.c = c;
+		this.customer = c;
 	}
 
 	public void addItem(BillableItem i, int q) throws Exception {
@@ -32,24 +33,24 @@ public class InStoreSale {
 			addCopy((WarrantyProduct.Copy) i);
 
 		} else if (i instanceof NonWarrantyProduct) {
-			addProduct((Product) i, q);
+			addProduct((NonWarrantyProduct) i, q);
 		} else {
 			throw new UnsupportedOperationException();
 		}
 	}
 
-	public void addItem(BillableItem i) throws IllegalArgumentException, UnsupportedOperationException {
+	public void addItem(BillableItem i) throws Exception {
 		addItem(i, 1);
 	}
 
-	private void addProduct(Product p, int qu) {
+	private void addProduct(NonWarrantyProduct p, int qu) throws Exception {
 		Iterator<BillableLine> it = orderLines.iterator();
 		boolean isFound = false;
 		NormalBillableLine bol = null;
 		while (it.hasNext() && !isFound) {
 			BillableLine ol = it.next();
 			if (it.next() instanceof NormalBillableLine) {
-				Product product = ((NormalBillableLine) ol).getProduct();
+				NonWarrantyProduct product = ((NormalBillableLine) ol).getProduct();
 				if (product == p) {
 					isFound = true;
 					bol = ((NormalBillableLine) ol);
@@ -65,7 +66,7 @@ public class InStoreSale {
 		}
 	}
 
-	public void addProduct(Product p) {
+	public void addProduct(NonWarrantyProduct p) throws Exception {
 		addProduct(p, 1);
 	}
 
@@ -92,10 +93,12 @@ public class InStoreSale {
 		}
 	}
 
+	@Override
 	public List<BillableLine> getBillableLines() {
-		return new ArrayList<BillableLine>(orderLines);
+		return new ArrayList<>(orderLines);
 	}
 
+	@Override
 	public BigDecimal getTotal() {
 
 		BigDecimal sum = new BigDecimal(0);
@@ -106,5 +109,23 @@ public class InStoreSale {
 		return sum;
 	}
 
-//start From here
+	@Override
+	public LocalDateTime getCreateDate() {
+		return createdDate;
+	}
+
+	@Override
+	public int getBillableId() {
+		return id;
+	}
+
+	@Override
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	@Override
+	public Employee getEmployee() {
+		return employee;
+	}
 }
