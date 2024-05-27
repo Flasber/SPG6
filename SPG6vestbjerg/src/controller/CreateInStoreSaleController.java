@@ -5,14 +5,10 @@ import model.BillableItem;
 import model.Customer;
 import model.Employee;
 import model.InStoreSale;
-import model.Product;
-import model.WarrantyProduct;
 
 public class CreateInStoreSaleController {
 
 	private InStoreSale saleInProgress;
-	private Product scannedItem;
-	private WarrantyProduct.Copy scannedCopy;
 
 	public void createInStoreSale(int registerNo, int employeeId) {
 		EmployeeController ectrl = new EmployeeController();
@@ -20,7 +16,7 @@ public class CreateInStoreSaleController {
 		saleInProgress = new InStoreSale(registerNo, e);
 	}
 
-	public BillableItem addItemToSale(String barcode, int quantity) {
+	public BillableItem addItemToSale(String barcode, int quantity) throws Exception {
 		BillableItemController bictrl = new BillableItemController();
 		BillableItem bi = bictrl.findItem(barcode);
 		saleInProgress.addItem(bi, quantity);
