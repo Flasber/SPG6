@@ -1,8 +1,10 @@
 package model;
 
+
 import java.math.BigDecimal;
 
 public class WarrantyBillableLine extends BillableLine {
+
 
 	private WarrantyProduct.Copy copy;
 
@@ -10,7 +12,7 @@ public class WarrantyBillableLine extends BillableLine {
 		return copy;
 	}
 
-	public WarrantyBillableLine(WarrantyProduct.Copy copy) {
+	public CopyOrderLine(WarrantyProduct.Copy copy) {
 		super();
 		this.copy = copy;
 	}

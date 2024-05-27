@@ -1,8 +1,10 @@
 package model;
 
+
 import java.math.BigDecimal;
 
 public class NormalBillableLine extends BillableLine {
+
 	int quantity;
 	Product product;
 
@@ -10,7 +12,7 @@ public class NormalBillableLine extends BillableLine {
 		return product;
 	}
 
-	public NormalBillableLine(int quantity, Product product) {
+	public ProductOrderLine(int quantity, Product product) {
 		super();
 		this.quantity = quantity;
 		this.product = product;
