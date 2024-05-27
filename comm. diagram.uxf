@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>9</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>351</x>
-      <y>9</y>
-      <w>108</w>
-      <h>27</h>
+      <x>371</x>
+      <y>7</y>
+      <w>84</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>InStoreSaleUI</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>306</x>
-      <y>153</y>
-      <w>225</w>
-      <h>27</h>
+      <x>336</x>
+      <y>119</y>
+      <w>175</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>CreateInStoreSaleController</panel_attributes>
     <additional_attributes/>
@@ -26,14 +26,14 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>9</x>
+      <x>105</x>
       <y>0</y>
-      <w>360</w>
-      <h>81</h>
+      <w>280</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 1: createInStoreSale(registerNo, employeeId)
-2: addProductToSale(barcode)
+2: addItemToSale(barcode)
 3: addCustomerToSale(tlf)
 4: isPaid()
 5: printReceipt()</panel_attributes>
@@ -42,37 +42,37 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
-      <y>27</y>
-      <w>405</w>
-      <h>144</h>
+      <x>413</x>
+      <y>21</y>
+      <w>280</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 1.1: createInStoreSale(registerNo: int, employeeId: int): void
-2.1: addProductToSale(barcode: String, quantity: int): void
+2.1: addItemToSale(barcode: String, quantity: int): void
 3.1: addCustomerToSale(tlf: String): boolean
-4.1: finishedSale=isPaid(): InStoreSale</panel_attributes>
+4.1: isPaid(): InStoreSale</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>495</x>
-      <y>162</y>
-      <w>333</w>
-      <h>81</h>
+      <x>497</x>
+      <y>126</y>
+      <w>231</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 1.1.1: e=findEmployee(employeeId: int): Employee</panel_attributes>
-    <additional_attributes>320.0;70.0;40.0;10.0</additional_attributes>
+    <additional_attributes>300.0;70.0;20.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>306</y>
-      <w>135</w>
-      <h>27</h>
+      <x>707</x>
+      <y>238</y>
+      <w>105</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>EmployeeContainer</panel_attributes>
     <additional_attributes/>
@@ -80,10 +80,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>828</x>
-      <y>378</y>
-      <w>81</w>
-      <h>27</h>
+      <x>742</x>
+      <y>294</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Employee</panel_attributes>
     <additional_attributes/>
@@ -91,10 +91,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>783</x>
-      <y>216</y>
-      <w>144</w>
-      <h>27</h>
+      <x>707</x>
+      <y>168</y>
+      <w>112</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>EmployeeController</panel_attributes>
     <additional_attributes/>
@@ -102,10 +102,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>846</x>
-      <y>234</y>
-      <w>342</w>
-      <h>90</h>
+      <x>756</x>
+      <y>182</y>
+      <w>238</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 1.1.1.1: findEmployee(employeeId: int): Employee</panel_attributes>
@@ -114,10 +114,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>846</x>
-      <y>324</y>
-      <w>216</w>
-      <h>72</h>
+      <x>756</x>
+      <y>252</y>
+      <w>147</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 1.1.1.1.1: *[i=1..n] getId(): int</panel_attributes>
@@ -126,23 +126,25 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>153</x>
-      <y>171</y>
-      <w>270</w>
-      <h>189</h>
+      <x>224</x>
+      <y>133</y>
+      <w>203</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 1.1.2: s=&lt;&lt;create&gt;&gt;(registerNo, e)
+2.1.2.a: addProduct(i, quantity)
+2.1.2.b: addCopy(i)
 3.1.2: setCustomer(c)</panel_attributes>
-    <additional_attributes>10.0;190.0;280.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;270.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>126</x>
-      <y>342</y>
-      <w>81</w>
-      <h>27</h>
+      <x>196</x>
+      <y>266</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>InStoreSale</panel_attributes>
     <additional_attributes/>
@@ -150,10 +152,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>90</x>
-      <y>171</y>
-      <w>324</w>
-      <h>45</h>
+      <x>168</x>
+      <y>133</y>
+      <w>252</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 4.1.1: add(s): boolean</panel_attributes>
@@ -162,21 +164,21 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>594</x>
-      <y>657</y>
-      <w>126</w>
-      <h>27</h>
+      <x>560</x>
+      <y>441</y>
+      <w>112</w>
+      <h>21</h>
     </coordinates>
-    <panel_attributes>ProductController</panel_attributes>
+    <panel_attributes>BillableItemController</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>576</x>
-      <y>729</y>
-      <w>144</w>
-      <h>27</h>
+      <x>546</x>
+      <y>567</y>
+      <w>112</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>ProductContainer</panel_attributes>
     <additional_attributes/>
@@ -184,10 +186,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>603</x>
-      <y>801</y>
-      <w>81</w>
-      <h>27</h>
+      <x>567</x>
+      <y>623</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Product</panel_attributes>
     <additional_attributes/>
@@ -195,10 +197,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>639</x>
-      <y>747</y>
-      <w>315</w>
-      <h>72</h>
+      <x>595</x>
+      <y>581</y>
+      <w>217</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 2.1.1a.1.1: *[i=1..n] getBarcode(): int
@@ -208,23 +210,23 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>639</x>
-      <y>675</y>
-      <w>360</w>
-      <h>72</h>
+      <x>595</x>
+      <y>455</y>
+      <w>252</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 2.1.1a.1: findProduct(barcode: String): Product
 2.1.1b.1: findCopy(barcode: String, copyId: int): Copy</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>981</x>
-      <y>171</y>
-      <w>135</w>
-      <h>27</h>
+      <x>861</x>
+      <y>133</y>
+      <w>105</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>CustomerContainer</panel_attributes>
     <additional_attributes/>
@@ -232,10 +234,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1107</x>
-      <y>243</y>
-      <w>81</w>
-      <h>27</h>
+      <x>959</x>
+      <y>189</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Customer</panel_attributes>
     <additional_attributes/>
@@ -243,10 +245,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>927</x>
-      <y>108</y>
-      <w>144</w>
-      <h>27</h>
+      <x>819</x>
+      <y>84</y>
+      <w>112</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>CustomerController</panel_attributes>
     <additional_attributes/>
@@ -254,34 +256,34 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>126</y>
-      <w>297</w>
-      <h>63</h>
+      <x>798</x>
+      <y>98</y>
+      <w>203</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 3.1.1.1: findCustomer(tlf: String): Customer</panel_attributes>
-    <additional_attributes>190.0;50.0;130.0;10.0</additional_attributes>
+    <additional_attributes>170.0;50.0;110.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>990</x>
-      <y>189</y>
-      <w>225</w>
-      <h>72</h>
+      <x>875</x>
+      <y>147</y>
+      <w>161</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 3.1.1.1.1: *[i=1..n] getTlf(): String</panel_attributes>
-    <additional_attributes>170.0;60.0;70.0;10.0</additional_attributes>
+    <additional_attributes>160.0;60.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>522</x>
-      <y>108</y>
-      <w>423</w>
-      <h>72</h>
+      <x>504</x>
+      <y>84</y>
+      <w>329</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 3.1.1: c=findCustomer(tlf: String): Customer</panel_attributes>
@@ -290,10 +292,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>36</x>
-      <y>198</y>
-      <w>117</w>
-      <h>27</h>
+      <x>126</x>
+      <y>154</y>
+      <w>91</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>BillableContainer</panel_attributes>
     <additional_attributes/>
@@ -301,10 +303,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>603</x>
-      <y>864</y>
-      <w>81</w>
-      <h>27</h>
+      <x>567</x>
+      <y>672</y>
+      <w>63</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Copy</panel_attributes>
     <additional_attributes/>
@@ -312,10 +314,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>639</x>
-      <y>819</y>
-      <w>252</w>
-      <h>63</h>
+      <x>595</x>
+      <y>637</y>
+      <w>175</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 2.1.1b.1.2: *[i=1..n] getCopyId(): int</panel_attributes>
@@ -324,23 +326,22 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>432</x>
-      <y>171</y>
-      <w>585</w>
-      <h>504</h>
+      <x>434</x>
+      <y>133</y>
+      <w>308</w>
+      <h>322</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-2.1.1a [barcode is of a product]: i=findProduct(barcode: String): Product
-2.1.1b [barcode is of a copy]: i=findCopy(barcode: String): Copy</panel_attributes>
-    <additional_attributes>240.0;540.0;10.0;10.0</additional_attributes>
+2.1.1: bi = findItem(barcode:String):BillableItem</panel_attributes>
+    <additional_attributes>240.0;440.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
-      <y>468</y>
-      <w>126</w>
-      <h>27</h>
+      <x>238</x>
+      <y>385</y>
+      <w>98</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>ProductOrderLine</panel_attributes>
     <additional_attributes/>
@@ -348,10 +349,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>306</x>
-      <y>405</y>
-      <w>126</w>
-      <h>27</h>
+      <x>77</x>
+      <y>392</y>
+      <w>98</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>CopyOrderLine</panel_attributes>
     <additional_attributes/>
@@ -359,34 +360,34 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>171</y>
-      <w>189</w>
-      <h>315</h>
+      <x>217</x>
+      <y>280</y>
+      <w>161</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-2.1.2a: &lt;&lt;create&gt;&gt;(s, i, qnt)</panel_attributes>
-    <additional_attributes>20.0;330.0;10.0;10.0</additional_attributes>
+2.1.2a.1: &lt;&lt;create&gt;&gt;(i, qnt)</panel_attributes>
+    <additional_attributes>100.0;150.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>333</x>
-      <y>171</y>
-      <w>198</w>
-      <h>252</h>
+      <x>98</x>
+      <y>280</y>
+      <w>140</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-2.1.2.b: &lt;&lt;create&gt;&gt;(s, i)</panel_attributes>
-    <additional_attributes>10.0;260.0;100.0;10.0</additional_attributes>
+2.1.2.b.1: &lt;&lt;create&gt;&gt;(i)</panel_attributes>
+    <additional_attributes>10.0;160.0;180.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>441</y>
-      <w>315</w>
-      <h>144</h>
+      <y>462</y>
+      <w>245</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Tjek om det ikke går fra controller til sale til orderline
 Larman 282 vedr. creator/GRASP

@@ -4,14 +4,10 @@ import model.BillableContainer;
 import model.Customer;
 import model.Employee;
 import model.InStoreSale;
-import model.Product;
-import model.WarrantyProduct;
 
 public class CreateInStoreSaleController {
 
 	private InStoreSale saleInProgress;
-	private Product scannedItem;
-	private WarrantyProduct.Copy scannedCopy;
 
 	public void createInStoreSale(int registerNo, int employeeId) {
 		EmployeeController ectrl = new EmployeeController();
@@ -19,17 +15,10 @@ public class CreateInStoreSaleController {
 		saleInProgress = new InStoreSale(registerNo, e);
 	}
 
-	public void addProductToSale(String barcode, int quantity) {
-		ProductController pctrl = new ProductController();
-		String copyId = pctrl.findCopy(barcode);
-		if (copyId == null) {
-			Product p = pctrl.findProduct(barcode);
-			saleInProgress.addProduct(p, quantity);
-		} else {
-			WarrantyProduct.Copy c = pctrl.findCopy(barcode);
-			saleInProgress.addCopy(c);
-		}
-
+	public void addItemToSale(String barcode, int quantity) {
+		BillableItemController bictrl = new BillableItemController();
+		BillableItem bi = bictrl.findItem(barcode);
+		saleInProgress.addItem(bi, quantity);
 	}
 
 	public boolean addCustomerToSale(String tlf) {
