@@ -1,10 +1,11 @@
 package model;
 
-public class Sale {
+public interface Sale extends Billable {
 
-	public boolean isReturned() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public void setCustomer(Customer c);
+
+	public Customer getCustomer();
+
+	public Employee getEmployee();
 
 }
