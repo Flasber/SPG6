@@ -45,6 +45,10 @@ public class WarrantyProduct extends Product {
 		public String getName() {
 			return product.getName();
 		}
+
+		public String getWarranty() {
+			return warranty;
+		}
 	}
 
 	public Copy createCopy(int copyId, String warranty, int timesReturned) {
@@ -60,7 +64,7 @@ public class WarrantyProduct extends Product {
 
 	}
 
-	public boolean addCopy(Copy c) {
+	private boolean addCopy(Copy c) {
 		boolean isAdded = false;
 		if (c != null) {
 			copies.add(c);

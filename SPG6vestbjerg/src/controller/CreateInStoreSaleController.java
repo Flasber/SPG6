@@ -13,6 +13,9 @@ public class CreateInStoreSaleController {
 	public void createInStoreSale(int registerNo, int employeeId) {
 		EmployeeController ectrl = new EmployeeController();
 		Employee e = ectrl.findEmployee(employeeId);
+		if (e == null) {
+			throw new IllegalArgumentException("no employee has that id");
+		}
 		saleInProgress = new InStoreSale(registerNo, e);
 	}
 
@@ -23,15 +26,13 @@ public class CreateInStoreSaleController {
 		return bi;
 	}
 
-	public boolean addCustomerToSale(String tlf) {
+	public Customer addCustomerToSale(String tlf) {
 		CustomerController cctrl = new CustomerController();
 		Customer c = cctrl.findCustomer(tlf);
-		if (c == null) {
-			return false;
-		} else {
+		if (c != null) {
 			saleInProgress.setCustomer(c);
-			return true;
 		}
+		return c;
 
 	}
 

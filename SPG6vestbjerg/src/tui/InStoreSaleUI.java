@@ -1,8 +1,12 @@
 package tui;
 
 import java.util.Scanner;
+
 import controller.CreateInStoreSaleController;
-import model.Product;
+import model.BillableItem;
+import model.Customer;
+import model.InStoreSale;
+import model.PrivateCustomer;
 
 public class InStoreSaleUI {
 	private CreateInStoreSaleController controller;
@@ -51,7 +55,7 @@ public class InStoreSaleUI {
 		return keyboard.nextInt();
 	}
 
-	private void createSaleFlow() {
+	private void createSaleFlow() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		boolean saleRunning = true;
 		int step = 1;
@@ -71,7 +75,7 @@ public class InStoreSaleUI {
 				step++;
 				break;
 			case 4:
-				checkIfPaid();
+				confirmPayment();
 				step++;
 				break;
 			case 5:
@@ -95,7 +99,7 @@ public class InStoreSaleUI {
 		controller.createInStoreSale(registerNo, employeeId);
 	}
 
-	private void addProductToSale(Scanner scanner) {
+	private void addProductToSale(Scanner scanner) throws Exception {
 		System.out.println("\nTilføjer produkter til salget...");
 
 		boolean addingProducts = true;
@@ -103,11 +107,17 @@ public class InStoreSaleUI {
 			System.out.print("indtast barcode her: ");
 			String barcode = scanner.next();
 
-			Product product = controller.findProductByBarcode(barcode);
-
+			BillableItem product = null;
+			try {
+				product = controller.addItemToSale(barcode, 1);
+			} catch (IllegalArgumentException e) {
+				System.out.println("Man kan ikke indtaste andet qnt en 1 for WarrantyProeducts");
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw e;
+			}
 			if (product != null) {
 				System.out.println("Produkt fundet: " + product.getName() + " - " + product.getPrice());
-				controller.addProductToSale(product);
 			} else {
 				System.out.println("Produkt med barcode " + barcode + " not found.");
 			}
@@ -125,23 +135,27 @@ public class InStoreSaleUI {
 	private void addCustomerToSale(Scanner scanner) {
 		System.out.println("\nTilføj Kunder...");
 		System.out.print("Indtast Kundens telefonummer: ");
-		String phoneNumber = scanner.next();
-		Customer customer = controller.findCustomer(tlf);
+		String phoneNumber = scanner.nextLine();
+		Customer customer = controller.addCustomerToSale(phoneNumber);
 
 		if (customer != null) {
-			System.out.println("Kunden blev fundet: " + customer.getName() + " - " + customer.getEmail());
-			controller.addCustomerToSale(customer);
+			if (customer instanceof PrivateCustomer pc) {
+				System.out.println("Kunden blev fundet: " + pc.getName() + " - " + pc.getEmail());
+			} else {
+				System.out.println("Kunden blev fundet: " + customer.getName());
+
+			}
 		} else {
 			System.out.println("Kunde med telefon nummer " + phoneNumber + " er ikke fundet.");
 		}
 	}
 
-	}
-
-	private void checkIfPaid() {
+	private void confirmPayment() {
 		System.out.println("\nBetaling....");
-		if (controller.isPaid()) {
+		final InStoreSale sale = controller.isPaid();
+		if (sale != null) {
 			System.out.println("Confirmed");
+			System.out.println(sale);
 		} else {
 			System.out.println("Afvist");
 		}
