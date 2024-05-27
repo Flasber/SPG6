@@ -1,26 +1,23 @@
 package controller;
 
-import model.Product;
-import model.ProductContainer;
-import model.WarrantyProduct;
+import model.BillableItem;
+import model.BillableItemContainer;
 
 public class BillableItemController {
-	public WarrantyProduct.Copy findCopy(String barcode) {
-		WarrantyProduct.Copy c = null;
 
-		ProductContainer pc = ProductContainer.getInstance();
+	public BillableItem findItem(String barcode) {
+		BillableItem bi = null;
 
-		c = pc.findCopy(barcode);
-		return c;
-	}
+		BillableItemContainer bic = BillableItemContainer.getInstance();
 
-	public Product findProduct(String barcode) {
-		Product p = null;
+		BillableItem copy = bic.findCopy(barcode);
 
-		ProductContainer pc = ProductContainer.getInstance();
-		p = pc.findProduct(barcode);
-
-		return p;
+		if (copy != null) {
+			bi = copy;
+		} else {
+			bi = bic.findProduct(barcode);
+		}
+		return bi;
 	}
 
 }

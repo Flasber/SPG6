@@ -3,18 +3,18 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductContainer {
+public class BillableItemContainer {
 
-	private static ProductContainer instance;
+	private static BillableItemContainer instance;
 	private List<Product> products;
 
-	private ProductContainer() {
+	private BillableItemContainer() {
 		products = new ArrayList<>();
 	}
 
-	public static ProductContainer getInstance() {
+	public static BillableItemContainer getInstance() {
 		if (instance == null) {
-			instance = new ProductContainer();
+			instance = new BillableItemContainer();
 		}
 		return instance;
 	}
@@ -45,7 +45,7 @@ public class ProductContainer {
 	 * }
 	 */
 
-	public WarrantyProduct.Copy findCopy(String barcode) {
+	public BillableItem findCopy(String barcode) {
 		WarrantyProduct.Copy kopi = null;
 		Product pr = null;
 		boolean searching = true;
@@ -71,11 +71,11 @@ public class ProductContainer {
 			}
 		}
 
-		return kopi;
+		return (BillableItem) kopi;
 
 	}
 
-	public Product findProduct(String barcode) {
+	public BillableItem findProduct(String barcode) {
 		Product p = null;
 		boolean searching = true;
 		if (barcode.length() == 5) {
