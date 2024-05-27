@@ -1,13 +1,12 @@
 package model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public abstract class Product {
+public abstract class Product implements BillableItem {
 	private String description;
 	private String name;
 	private String sku;
@@ -33,6 +32,10 @@ public abstract class Product {
 		return barcode;
 	}
 
+	public Price getPrice() {
+		return getPriceForDate(LocalDateTime.now());
+	}
+
 	public Price getPriceForDate(LocalDateTime date) {
 		Collection<Price> allPrices = prices.values();
 		Iterator<Price> iterator = allPrices.iterator();
@@ -43,6 +46,10 @@ public abstract class Product {
 			}
 		}
 		return null;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 }

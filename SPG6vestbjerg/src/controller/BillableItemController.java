@@ -4,7 +4,7 @@ import model.Product;
 import model.ProductContainer;
 import model.WarrantyProduct;
 
-public class ProductController {
+public class BillableItemController {
 	public WarrantyProduct.Copy findCopy(String barcode) {
 		WarrantyProduct.Copy c = null;
 

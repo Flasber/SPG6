@@ -176,18 +176,18 @@
     <id>UMLClass</id>
     <coordinates>
       <x>546</x>
-      <y>567</y>
-      <w>112</w>
+      <y>602</y>
+      <w>133</w>
       <h>21</h>
     </coordinates>
-    <panel_attributes>ProductContainer</panel_attributes>
+    <panel_attributes>BillableItemContainer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>567</x>
-      <y>623</y>
+      <y>728</y>
       <w>63</w>
       <h>21</h>
     </coordinates>
@@ -198,27 +198,27 @@
     <id>Relation</id>
     <coordinates>
       <x>595</x>
-      <y>581</y>
-      <w>217</w>
-      <h>56</h>
+      <y>616</y>
+      <w>364</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-2.1.1a.1.1: *[i=1..n] getBarcode(): int
-2.1.1b.1.1: findCopy(copyId: int): List&lt;Copy&gt;</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+2.1.1.1.1a [barcode is of a product]: i=findProduct(barcode: String):BillableItem
+2.1.1.1.1b [barcode is of a copy]: i=findCopy(barcode: String): BillableItem</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>595</x>
       <y>455</y>
-      <w>252</w>
-      <h>126</h>
+      <w>217</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-2.1.1a.1: findProduct(barcode: String): Product
-2.1.1b.1: findCopy(barcode: String, copyId: int): Copy</panel_attributes>
-    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+2.1.1.1: findItem(barcode: String): BillableItem
+</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -304,7 +304,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>567</x>
-      <y>672</y>
+      <y>819</y>
       <w>63</w>
       <h>21</h>
     </coordinates>
@@ -315,13 +315,13 @@
     <id>Relation</id>
     <coordinates>
       <x>595</x>
-      <y>637</y>
-      <w>175</w>
-      <h>49</h>
+      <y>742</y>
+      <w>182</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-2.1.1b.1.2: *[i=1..n] getCopyId(): int</panel_attributes>
-    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+2.1.1.1.1b.1: *[i=1..n] getCopyId(): int</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

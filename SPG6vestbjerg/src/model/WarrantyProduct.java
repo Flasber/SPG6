@@ -16,7 +16,6 @@ public class WarrantyProduct extends Product {
 		private boolean isSold;
 
 		private Copy(WarrantyProduct product, int copyId, String warranty, int timesReturned) {
-			super();
 			this.product = product; // assc. part 1
 			this.copyId = copyId;
 			this.warranty = warranty;
@@ -33,6 +32,18 @@ public class WarrantyProduct extends Product {
 
 		public int getCopyId() {
 			return copyId;
+		}
+
+		public WarrantyProduct getProduct() {
+			return product;
+		}
+
+		public Price getPrice() {
+			return product.getPrice();
+		}
+
+		public String getName() {
+			return product.getName();
 		}
 	}
 
@@ -63,16 +74,26 @@ public class WarrantyProduct extends Product {
 	}
 
 	public Copy findCopyByCopyId(int cId) {
-
+		Copy foundCopy = null;
 		boolean searching = true;
 		for (int i = 0; i < copies.size() && searching; i++) {
 			Copy c = copies.get(i);
 			if (c.getCopyId() == cId) {
-				currentCopy = c;
+				foundCopy = c;
 				searching = false;
 			}
 		}
-		return currentCopy;
+		return foundCopy;
+	}
+
+	@Override
+	public Price getPrice() {
+		return super.getPrice();
+	}
+
+	@Override
+	public String getName() {
+		return super.getName();
 	}
 
 }

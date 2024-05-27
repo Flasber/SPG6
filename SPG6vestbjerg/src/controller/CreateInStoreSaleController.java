@@ -1,6 +1,7 @@
 package controller;
 
 import model.BillableContainer;
+import model.BillableItem;
 import model.Customer;
 import model.Employee;
 import model.InStoreSale;
@@ -15,10 +16,11 @@ public class CreateInStoreSaleController {
 		saleInProgress = new InStoreSale(registerNo, e);
 	}
 
-	public void addItemToSale(String barcode, int quantity) {
+	public BillableItem addItemToSale(String barcode, int quantity) {
 		BillableItemController bictrl = new BillableItemController();
 		BillableItem bi = bictrl.findItem(barcode);
 		saleInProgress.addItem(bi, quantity);
+		return bi;
 	}
 
 	public boolean addCustomerToSale(String tlf) {
