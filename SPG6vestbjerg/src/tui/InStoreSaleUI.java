@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 import controller.CreateInStoreSaleController;
 import model.BillableItem;
+import model.BillableItemContainer;
 import model.Customer;
-import model.InStoreSale;
-import model.PrivateCustomer;
+import model.WarrantyProduct;
 
 public class InStoreSaleUI {
 	private CreateInStoreSaleController controller;
@@ -16,25 +16,9 @@ public class InStoreSaleUI {
 	}
 
 	public void start() {
+		TryMe tryMe = new TryMe();
+		tryMe.generateTestData();
 		InStoreSaleUI();
-	}
-
-	private void InStoreSaleUI() {
-		boolean running = true;
-		while (running) {
-			int choice = writeInStoreSaleUI();
-			switch (choice) {
-			case 1:
-				System.out.println(" Denne er ikke implementeret endnu!");
-				break;
-			case 0:
-				running = false;
-				break;
-			default:
-				System.out.println("En uforklarlig fejl er sket med choice = " + choice);
-				break;
-			}
-		}
 	}
 
 	private int writeInStoreSaleUI() {
@@ -55,7 +39,7 @@ public class InStoreSaleUI {
 		return keyboard.nextInt();
 	}
 
-	private void createSaleFlow() throws Exception {
+	private void InStoreSaleUI() {
 		Scanner scanner = new Scanner(System.in);
 		boolean saleRunning = true;
 		int step = 1;
@@ -67,7 +51,7 @@ public class InStoreSaleUI {
 				step++;
 				break;
 			case 2:
-				addProductToSale(scanner);
+				addItemToSale(scanner);
 				step++;
 				break;
 			case 3:
@@ -75,7 +59,7 @@ public class InStoreSaleUI {
 				step++;
 				break;
 			case 4:
-				confirmPayment();
+				checkIfPaid();
 				step++;
 				break;
 			case 5:
@@ -99,65 +83,66 @@ public class InStoreSaleUI {
 		controller.createInStoreSale(registerNo, employeeId);
 	}
 
-	private void addProductToSale(Scanner scanner) throws Exception {
+	private void addItemToSale(Scanner scanner) {
 		System.out.println("\nTilføjer produkter til salget...");
 
-		boolean addingProducts = true;
-		while (addingProducts) {
-			System.out.print("indtast barcode her: ");
+		boolean addingItems = true;
+		while (addingItems) {
+			System.out.print("Indtast stregkode: ");
 			String barcode = scanner.next();
 
-			BillableItem product = null;
 			try {
-				product = controller.addItemToSale(barcode, 1);
-			} catch (IllegalArgumentException e) {
-				System.out.println("Man kan ikke indtaste andet qnt en 1 for WarrantyProeducts");
+				System.out.print("Indtast antal: ");
+				int quantity = scanner.nextInt();
+
+				BillableItem billableItem = null;
+				WarrantyProduct.Copy warrantyCopy = BillableItemContainer.getInstance().findCopy(barcode);
+				if (warrantyCopy != null) {
+					billableItem = warrantyCopy;
+				} else {
+					BillableItem basicProduct = BillableItemContainer.getInstance().findProduct(barcode);
+					if (basicProduct != null) {
+						billableItem = basicProduct;
+					}
+				}
+
+				if (billableItem != null) {
+
+					System.out.println("Produkt tilføjet: " + billableItem.getName() + " - " + billableItem.getPrice());
+				} else {
+					System.out.println("Produkt med stregkode " + barcode + " blev ikke fundet.");
+				}
 			} catch (Exception e) {
-				e.printStackTrace();
-				throw e;
-			}
-			if (product != null) {
-				System.out.println("Produkt fundet: " + product.getName() + " - " + product.getPrice());
-			} else {
-				System.out.println("Produkt med barcode " + barcode + " not found.");
+				System.out.println("Fejl ved tilføjelse af produkt: " + e.getMessage());
 			}
 
-			System.out.print("vil du gerne tilføje flere varer): ja/nej ");
+			System.out.print("Vil du tilføje flere varer? (ja/nej): ");
 			String choice = scanner.next().toLowerCase();
 			if (!choice.equals("ja")) {
-				{
-					addingProducts = false;
-				}
+				addingItems = false;
 			}
 		}
 	}
 
 	private void addCustomerToSale(Scanner scanner) {
 		System.out.println("\nTilføj Kunder...");
-		System.out.print("Indtast Kundens telefonummer: ");
-		String phoneNumber = scanner.nextLine();
+		System.out.print("Indtast Kundens telefonnummer: ");
+		String phoneNumber = scanner.next();
 		Customer customer = controller.addCustomerToSale(phoneNumber);
 
 		if (customer != null) {
-			if (customer instanceof PrivateCustomer pc) {
-				System.out.println("Kunden blev fundet: " + pc.getName() + " - " + pc.getEmail());
-			} else {
-				System.out.println("Kunden blev fundet: " + customer.getName());
-
-			}
+			System.out.println("Kunden blev fundet: " + customer.getName() + " - " + customer.getTlf());
 		} else {
-			System.out.println("Kunde med telefon nummer " + phoneNumber + " er ikke fundet.");
+			System.out.println("Kunde med telefonnummer " + phoneNumber + " blev ikke fundet.");
 		}
 	}
 
-	private void confirmPayment() {
+	private void checkIfPaid() {
 		System.out.println("\nBetaling....");
-		final InStoreSale sale = controller.isPaid();
-		if (sale != null) {
-			System.out.println("Confirmed");
-			System.out.println(sale);
+		if (controller.isPaid() != null) {
+			System.out.println("Betaling bekræftet");
 		} else {
-			System.out.println("Afvist");
+			System.out.println("Betaling afvist");
 		}
 	}
 
