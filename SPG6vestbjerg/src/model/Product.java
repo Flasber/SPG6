@@ -1,13 +1,12 @@
 package model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public abstract class Product {
+public abstract class Product extends BillableItem {
 	private String description;
 	private String name;
 	private String sku;

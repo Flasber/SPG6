@@ -1,6 +1,6 @@
 package model;
 
-public class ProductOrderLine extends OrderLine {
+public class NormalBillableLine extends OrderLine {
 	int quantity;
 	Product product;
 
@@ -8,7 +8,7 @@ public class ProductOrderLine extends OrderLine {
 		return product;
 	}
 
-	public ProductOrderLine(int quantity, Product product) {
+	public NormalBillableLine(int quantity, Product product) {
 		super();
 		this.quantity = quantity;
 		this.product = product;

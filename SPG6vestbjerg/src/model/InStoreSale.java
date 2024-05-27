@@ -23,17 +23,28 @@ public class InStoreSale {
 		this.c = c;
 	}
 
-	public void addProduct(Product p, int qu) {
+	public void addItem(BillableItem i) throws Exception {
+		if (i instanceof WarrantyProduct.Copy) {
+			addCopy((WarrantyProduct.Copy) i);
+
+		} else if (i instanceof NonWarrantyProduct) {
+			addProduct((Product) i);
+		} else {
+			throw new Exception();
+		}
+	}
+
+	private void addProduct(Product p, int qu) {
 		Iterator<OrderLine> it = orderLines.iterator();
 		boolean isFound = false;
-		ProductOrderLine pol = null;
+		NormalBillableLine bol = null;
 		while (it.hasNext() && !isFound) {
 			OrderLine ol = it.next();
-			if (it.next() instanceof ProductOrderLine) {
-				Product product = ((ProductOrderLine) ol).getProduct();
+			if (it.next() instanceof NormalBillableLine) {
+				Product product = ((NormalBillableLine) ol).getProduct();
 				if (product == p) {
 					isFound = true;
-					pol = ((ProductOrderLine) ol);
+					bol = ((NormalBillableLine) ol);
 				}
 
 			}
@@ -42,7 +53,7 @@ public class InStoreSale {
 		if (pol != null) {
 			pol.increaseQuantity(qu);
 		} else {
-			orderLines.add(new ProductOrderLine(qu, p));
+			orderLines.add(new NormalBillableLine(qu, p));
 		}
 	}
 
@@ -50,7 +61,7 @@ public class InStoreSale {
 		addProduct(p, 1);
 	}
 
-	public void addCopy(WarrantyProduct.Copy c) throws Exception {
+	private void addCopy(WarrantyProduct.Copy c) throws Exception {
 		Iterator<OrderLine> it = orderLines.iterator();
 		boolean isFound = false;
 		CopyOrderLine col = null;
