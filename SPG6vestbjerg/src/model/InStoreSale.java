@@ -1,5 +1,6 @@
 package model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -89,6 +90,19 @@ public class InStoreSale {
 		}
 	}
 
-	public List<BillableLine> getProducts;
+	public List<BillableLine> getBillableLines() {
+		return new ArrayList<BillableLine>(orderLines);
+	}
+
+	public BigDecimal getTotal() {
+
+		BigDecimal sum = new BigDecimal(0);
+		for (int i = 0; i < orderLines.size(); i++) {
+			BillableLine b = orderLines.get(i);
+			sum = sum.add(b.getSubTotal());
+		}
+		return sum;
+	}
+
 //start From here
 }
