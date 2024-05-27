@@ -12,7 +12,7 @@ public class WarrantyBillableLine extends BillableLine {
 		return copy;
 	}
 
-	public CopyOrderLine(WarrantyProduct.Copy copy) {
+	public WarrantyBillableLine(WarrantyProduct.Copy copy) {
 		super();
 		this.copy = copy;
 	}
