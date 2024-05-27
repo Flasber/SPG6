@@ -25,19 +25,21 @@ public class InStoreSale {
 	}
 
 	public void addItem(BillableItem i, int q) throws Exception {
-		if
-
-		(i instanceof WarrantyProduct.Copy) {
+		if (i instanceof WarrantyProduct.Copy) {
 			if (q != 1) {
-				throw new Exception();
+				throw new IllegalArgumentException("can't have more than 1 in a WarrantyBillableLine");
 			}
 			addCopy((WarrantyProduct.Copy) i);
 
 		} else if (i instanceof NonWarrantyProduct) {
 			addProduct((Product) i, q);
 		} else {
-			throw new Exception();
+			throw new UnsupportedOperationException();
 		}
+	}
+
+	public void addItem(BillableItem i) throws IllegalArgumentException, UnsupportedOperationException {
+		addItem(i, 1);
 	}
 
 	private void addProduct(Product p, int qu) {
