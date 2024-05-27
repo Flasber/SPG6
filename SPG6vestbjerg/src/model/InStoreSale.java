@@ -50,14 +50,14 @@ public class InStoreSale {
 		addProduct(p, 1);
 	}
 
-	public void addCopy(Copy c) throws Exception {
+	public void addCopy(WarrantyProduct.Copy c) throws Exception {
 		Iterator<OrderLine> it = orderLines.iterator();
 		boolean isFound = false;
 		CopyOrderLine col = null;
 		while (it.hasNext() && !isFound) {
 			OrderLine ol = it.next();
 			if (it.next() instanceof CopyOrderLine) {
-				Copy copy = ((CopyOrderLine) ol).getCopy();
+				WarrantyProduct.Copy copy = ((CopyOrderLine) ol).getCopy();
 				if (copy == c) {
 					isFound = true;
 					col = ((CopyOrderLine) ol);

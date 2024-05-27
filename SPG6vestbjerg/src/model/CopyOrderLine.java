@@ -2,13 +2,13 @@ package model;
 
 public class CopyOrderLine extends OrderLine {
 
-	private Copy copy;
+	private WarrantyProduct.Copy copy;
 
-	public Copy getCopy() {
+	public WarrantyProduct.Copy getCopy() {
 		return copy;
 	}
 
-	public CopyOrderLine(Copy copy) {
+	public CopyOrderLine(WarrantyProduct.Copy copy) {
 		super();
 		this.copy = copy;
 	}

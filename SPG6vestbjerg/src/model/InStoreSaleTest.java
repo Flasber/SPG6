@@ -10,15 +10,15 @@ import org.junit.jupiter.api.Test;
 
 public class InStoreSaleTest {
 	private class TryMe {
-		public static Copy c1;
-		public static Copy c2;
+		public static WarrantyProduct.Copy c1;
+		public static WarrantyProduct.Copy c2;
 		public static Product p1;
 		public static Product p2;
 		public static Employee e1;
 
 		public static void makeData() {
-			c1 = new Copy(1, "test", 99);
-			c2 = new Copy(2, "test2", 2);
+			// c1 = new Copy(1, "test", 99);
+			// c2 = new Copy(2, "test2", 2);
 			p1 = new Product("kills Nails", "hammer", "1.1.1.1", "123456789");
 			p2 = new Product("kills more Nails", "better hammer", "1.1.1.2", "987654321");
 			e1 = new Employee("billybob", "job", 20, 11);

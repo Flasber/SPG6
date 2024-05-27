@@ -1,17 +1,17 @@
 package controller;
 
 import model.BillableContainer;
-import model.Copy;
 import model.Customer;
 import model.Employee;
 import model.InStoreSale;
 import model.Product;
+import model.WarrantyProduct;
 
 public class CreateInStoreSaleController {
 
 	private InStoreSale saleInProgress;
 	private Product scannedItem;
-	private Copy scannedCopy;
+	private WarrantyProduct.Copy scannedCopy;
 
 	public void createInStoreSale(int registerNo, int employeeId) {
 		EmployeeController ectrl = new EmployeeController();
@@ -26,7 +26,7 @@ public class CreateInStoreSaleController {
 			Product p = pctrl.findProduct(barcode);
 			saleInProgress.addProduct(p, quantity);
 		} else {
-			Copy c = pctrl.findCopy(barcode);
+			WarrantyProduct.Copy c = pctrl.findCopy(barcode);
 			saleInProgress.addCopy(c);
 		}
 
