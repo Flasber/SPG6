@@ -21,7 +21,7 @@ public class CreateInStoreSaleController {
 
 	public void addProductToSale(String barcode, int quantity) {
 		ProductController pctrl = new ProductController();
-		String copyId = pctrl.copyIdFromBarcode(barcode);
+		String copyId = pctrl.findCopy(barcode);
 		if (copyId == null) {
 			Product p = pctrl.findProduct(barcode);
 			saleInProgress.addProduct(p, quantity);

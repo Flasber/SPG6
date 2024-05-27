@@ -1,12 +1,12 @@
 package controller;
 
-import model.Copy;
 import model.Product;
 import model.ProductContainer;
+import model.WarrantyProduct;
 
 public class ProductController {
-	public Copy findCopy(String barcode) {
-		Copy c = null;
+	public WarrantyProduct.Copy findCopy(String barcode) {
+		WarrantyProduct.Copy c = null;
 
 		ProductContainer pc = ProductContainer.getInstance();
 

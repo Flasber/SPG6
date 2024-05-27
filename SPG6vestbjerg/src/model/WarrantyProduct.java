@@ -30,6 +30,10 @@ public class WarrantyProduct extends Product {
 		public void setIsSold(boolean state) {
 			this.isSold = state;
 		}
+
+		public int getCopyId() {
+			return copyId;
+		}
 	}
 
 	public Copy createCopy(int copyId, String warranty, int timesReturned) {

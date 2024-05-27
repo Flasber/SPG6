@@ -45,8 +45,8 @@ public class ProductContainer {
 	 * }
 	 */
 
-	public Copy findCopy(String barcode) {
-		Copy kopi = null;
+	public WarrantyProduct.Copy findCopy(String barcode) {
+		WarrantyProduct.Copy kopi = null;
 		Product pr = null;
 		boolean searching = true;
 		if (barcode.length() == 8) {
@@ -60,7 +60,7 @@ public class ProductContainer {
 				if (pr instanceof WarrantyProduct) {
 					WarrantyProduct p = (WarrantyProduct) pr;
 					if (p.getBarcode().equals(bar)) {
-						Copy c = p.findCopyByCopyId(cId);
+						WarrantyProduct.Copy c = p.findCopyByCopyId(cId);
 						if (c != null) {
 							kopi = c;
 							searching = false;
