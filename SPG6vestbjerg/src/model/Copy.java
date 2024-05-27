@@ -6,10 +6,16 @@ public class Copy {
 	private int timesReturned;
 
 	public Copy(int copyId, String warranty, int timesReturned) {
-		super();
 		this.copyId = copyId;
 		this.warranty = warranty;
 		this.timesReturned = timesReturned;
 	}
 
+	public int getCopyId() {
+		return copyId;
+	}
+
+	public String getWarranty() {
+		return warranty;
+	}
 }

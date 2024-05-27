@@ -33,4 +33,9 @@ public class Price {
 		this.endTime = endTime;
 	}
 
+	public boolean isInTheRange(LocalDateTime date) {
+		return (date.isEqual(startTime) || date.isAfter(startTime))
+				&& (date.isEqual(endTime) || date.isBefore(endTime));
+	}
+
 }

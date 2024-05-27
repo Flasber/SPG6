@@ -1,48 +1,47 @@
-import java.math.BigDecimal;
+package model;
 
-public class Product {
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
+public abstract class Product {
 	private String description;
 	private String name;
 	private String sku;
 	private String barcode;
-	private BigDecimal price;
+	private Map<LocalDateTime, Price> prices;
 
 	public Product(String description, String name, String sku, String barcode) {
-		super();
 		this.description = description;
 		this.name = name;
 		this.sku = sku;
-		this.barcode = barcode;
+		if (barcode.length() == 5) {
+			this.barcode = barcode;
+		}
+		prices = new HashMap<>();
 
 	}
 
-	public String getName() {
-		return name;
+	public void addPrice(Price pr) {
+		prices.put(pr.getStartTime(), pr);
 	}
 
-	public String getSku() {
-		return sku;
+	public String getBarcode() {
+		return barcode;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setSku(String sku) {
-		this.sku = sku;
-	}
-
-	public void setBarcode(String barcode) {
-		this.barcode = barcode;
+	public Price getPriceForDate(LocalDateTime date) {
+		Collection<Price> allPrices = prices.values();
+		Iterator<Price> iterator = allPrices.iterator();
+		while (iterator.hasNext()) {
+			Price price = iterator.next();
+			if (price.isInTheRange(date)) {
+				return price;
+			}
+		}
+		return null;
 	}
 
 }
