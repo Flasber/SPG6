@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 import controller.CreateInStoreSaleController;
 import model.BillableItem;
-import model.BillableItemContainer;
 import model.Customer;
-import model.WarrantyProduct;
+import model.InStoreSale.AddWarrantyProductException;
 
 public class InStoreSaleUI {
 	private CreateInStoreSaleController controller;
@@ -18,7 +17,7 @@ public class InStoreSaleUI {
 	public void start() {
 		TryMe tryMe = new TryMe();
 		tryMe.generateTestData();
-		InStoreSaleUI();
+		inStoreSaleUI();
 	}
 
 	private int writeInStoreSaleUI() {
@@ -39,7 +38,7 @@ public class InStoreSaleUI {
 		return keyboard.nextInt();
 	}
 
-	private void InStoreSaleUI() {
+	private void inStoreSaleUI() {
 		Scanner scanner = new Scanner(System.in);
 		boolean saleRunning = true;
 		int step = 1;
@@ -90,28 +89,22 @@ public class InStoreSaleUI {
 		while (addingItems) {
 			System.out.print("Indtast stregkode: ");
 			String barcode = scanner.next();
+			System.out.print("Indtast antal: ");
+			int quantity = scanner.nextInt();
 
 			try {
-				System.out.print("Indtast antal: ");
-				int quantity = scanner.nextInt();
+				//
+				BillableItem addedItem = controller.addItemToSale(barcode, quantity);
 
-				BillableItem billableItem = null;
-				WarrantyProduct.Copy warrantyCopy = BillableItemContainer.getInstance().findCopy(barcode);
-				if (warrantyCopy != null) {
-					billableItem = warrantyCopy;
-				} else {
-					BillableItem basicProduct = BillableItemContainer.getInstance().findProduct(barcode);
-					if (basicProduct != null) {
-						billableItem = basicProduct;
-					}
-				}
-
-				if (billableItem != null) {
-
-					System.out.println("Produkt tilføjet: " + billableItem.getName() + " - " + billableItem.getPrice());
-				} else {
+				//
+				if (addedItem == null) {
 					System.out.println("Produkt med stregkode " + barcode + " blev ikke fundet.");
+				} else {
+					System.out.println("Produkt tilføjet: " + addedItem.getName() + " - " + addedItem.getPrice());
 				}
+			} catch (AddWarrantyProductException ae) {
+				System.out.println(
+						"Garantiprodukter skal ikke skannes med produktstregkoden. Scan venlights kopistregkoden.");
 			} catch (Exception e) {
 				System.out.println("Fejl ved tilføjelse af produkt: " + e.getMessage());
 			}

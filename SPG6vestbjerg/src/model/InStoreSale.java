@@ -25,6 +25,12 @@ public class InStoreSale implements Billable, Sale {
 		this.customer = c;
 	}
 
+	public class AddWarrantyProductException extends Exception {
+
+		private static final long serialVersionUID = 7617915006698276761L;
+
+	}
+
 	public void addItem(BillableItem i, int q) throws Exception {
 		if (i instanceof WarrantyProduct.Copy) {
 			if (q != 1) {
@@ -34,6 +40,8 @@ public class InStoreSale implements Billable, Sale {
 
 		} else if (i instanceof NonWarrantyProduct) {
 			addProduct((NonWarrantyProduct) i, q);
+		} else if (i instanceof WarrantyProduct) {
+			throw new AddWarrantyProductException();
 		} else {
 			throw new UnsupportedOperationException();
 		}
@@ -77,7 +85,7 @@ public class InStoreSale implements Billable, Sale {
 		while (it.hasNext() && !isFound) {
 			BillableLine ol = it.next();
 			if (it.next() instanceof WarrantyBillableLine) {
-				WarrantyProduct.Copy copy = ((WarrantyBillableLine) ol).getCopy();
+				WarrantyProduct.Copy copy = ((WarrantyBillableLine) ol).getItem();
 				if (copy == c) {
 					isFound = true;
 					col = ((WarrantyBillableLine) ol);

@@ -49,20 +49,21 @@ public class BillableItemContainer {
 		WarrantyProduct.Copy kopi = null;
 		Product product = null;
 		boolean searching = true;
-		if (barcode.length() == 8) {
-			String bar = barcode.substring(0, 5);
-			String code = barcode.substring(5);
-			int copyId = Integer.parseInt(code);
+		if (barcode.length() != 8) {
+			return null;
+		}
 
-			for (int i = 0; i < products.size() && searching; i++) {
+		String bar = barcode.substring(0, 5);
+		String code = barcode.substring(5);
+		int copyId = Integer.parseInt(code);
 
-				product = products.get(i);
-				if (product instanceof WarrantyProduct p && p.getBarcode().equals(bar)) {
-					WarrantyProduct.Copy c = p.findCopyByCopyId(copyId);
-					if (c != null) {
-						kopi = c;
-						searching = false;
-					}
+		for (int i = 0; i < products.size() && searching; i++) {
+			product = products.get(i);
+			if (product instanceof WarrantyProduct p && p.getBarcode().equals(bar)) {
+				WarrantyProduct.Copy c = p.findCopyByCopyId(copyId);
+				if (c != null) {
+					kopi = c;
+					searching = false;
 				}
 			}
 		}

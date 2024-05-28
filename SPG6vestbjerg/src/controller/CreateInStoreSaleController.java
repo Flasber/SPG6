@@ -22,7 +22,9 @@ public class CreateInStoreSaleController {
 	public BillableItem addItemToSale(String barcode, int quantity) throws Exception {
 		BillableItemController bictrl = new BillableItemController();
 		BillableItem bi = bictrl.findItem(barcode);
-		saleInProgress.addItem(bi, quantity);
+		if (bi != null) {
+			saleInProgress.addItem(bi, quantity);
+		}
 		return bi;
 	}
 
@@ -40,9 +42,9 @@ public class CreateInStoreSaleController {
 		BillableContainer bc = BillableContainer.getInstance();
 		if (bc.addSale(saleInProgress)) {
 			return saleInProgress;
-		} else
+		} else {
 			return null;
-
+		}
 	}
 
 }

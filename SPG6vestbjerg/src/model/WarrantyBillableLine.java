@@ -6,10 +6,6 @@ public class WarrantyBillableLine extends BillableLine {
 
 	private WarrantyProduct.Copy copy;
 
-	public WarrantyProduct.Copy getCopy() {
-		return copy;
-	}
-
 	public WarrantyBillableLine(WarrantyProduct.Copy copy) {
 		super();
 		this.copy = copy;
@@ -18,16 +14,15 @@ public class WarrantyBillableLine extends BillableLine {
 	@Override
 	public BigDecimal getSubTotal() {
 		return copy.getProduct().getPrice().getPrice();
-
-	}
-
-	@Override
-	public WarrantyProduct.Copy getItem() {
-		return copy;
 	}
 
 	@Override
 	public int getQuantity() {
 		return 1;
+	}
+
+	@Override
+	protected WarrantyProduct.Copy getItem() {
+		return copy;
 	}
 }
