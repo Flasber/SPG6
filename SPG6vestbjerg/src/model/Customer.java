@@ -1,22 +1,19 @@
 package model;
 
-public class Customer {
-	private String customerId;
+public abstract class Customer {
+	private static int nextId = 0;
+	private int id;
 	private String name;
 	private String tlf;
 
-	public Customer(String customerId, String name, String tlf) {
-		this.customerId = customerId;
+	public Customer(String name, String tlf) {
+		this.id = nextId++;
 		this.name = name;
 		this.tlf = tlf;
 	}
 
-	public String getTlf(String tlf) {
-		return tlf;
-	}
-
-	public String getCustomerId() {
-		return customerId;
+	public int getId() {
+		return id;
 	}
 
 	public String getName() {

@@ -68,6 +68,7 @@ __+ getInstance(): CustomerContainer__
     <panel_attributes>/Customer/
 --
 - tlf: String
+- id: String
 --
 + &lt;&lt;create&gt;&gt;(tlf: String)
 + getTlf(): String</panel_attributes>
@@ -720,7 +721,8 @@ bg=blue</panel_attributes>
     </coordinates>
     <panel_attributes>Business
 --
-</panel_attributes>
+- cvr: String
+- ean: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

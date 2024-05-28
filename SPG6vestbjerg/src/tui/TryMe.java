@@ -2,10 +2,12 @@ package tui;
 
 import model.BasicProduct;
 import model.BillableItemContainer;
+import model.BusinessCustomer;
 import model.Customer;
 import model.CustomerContainer;
 import model.Employee;
 import model.EmployeeContainer;
+import model.PrivateCustomer;
 import model.WarrantyProduct;
 import model.WarrantyProduct.Copy;
 
@@ -63,15 +65,13 @@ public class TryMe {
 	}
 
 	private void generateCustomers() {
-
-		Customer psycho = new Customer("12345", "Crazy8", "12345678");
-		Customer wack = new Customer("67890", "Wack", "98765432");
-		Customer crazy8 = new Customer("13579", "Psycho", "55555555");
 		CustomerContainer customerContainer = CustomerContainer.getInstance();
+		Customer psycho = new PrivateCustomer("Crazy8", "12345678", "a@b.com", 0);
+		Customer crazy8 = new PrivateCustomer("13579", "Psycho", "55555555", 1);
+		Customer wack = new BusinessCustomer("67890", "Wack", "98765432", "ean1");
 		customerContainer.addCustomer(psycho);
 		customerContainer.addCustomer(wack);
 		customerContainer.addCustomer(crazy8);
-
 	}
 
 }

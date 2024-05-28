@@ -9,6 +9,7 @@ public class Program {
 	public static void main(String[] args) throws Exception {
 		// testFindEmployee();
 
+		System.out.println("Program.main");
 		var con = new CreateInStoreSaleController();
 		con.createInStoreSale(1, 1234);
 		con.addItemToSale("1234-5678", 1);
