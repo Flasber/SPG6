@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>4</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>544</x>
-      <y>104</y>
-      <w>32</w>
-      <h>44</h>
+      <x>207</x>
+      <y>63</y>
+      <w>72</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Employee</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>640</x>
-      <y>132</y>
-      <w>32</w>
-      <h>16</h>
+      <x>423</x>
+      <y>126</y>
+      <w>72</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>System
 valign=center</panel_attributes>
@@ -27,10 +27,10 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>144</y>
-      <w>108</w>
-      <h>20</h>
+      <x>234</x>
+      <y>153</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 createInStoreSale
@@ -40,10 +40,10 @@ createInStoreSale
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>168</y>
-      <w>108</w>
-      <h>20</h>
+      <x>234</x>
+      <y>207</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 addProductToSale
@@ -53,10 +53,10 @@ addProductToSale
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>188</y>
-      <w>108</w>
-      <h>20</h>
+      <x>234</x>
+      <y>252</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 product added, 
@@ -66,10 +66,10 @@ product price</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>220</y>
-      <w>108</w>
-      <h>16</h>
+      <x>234</x>
+      <y>324</y>
+      <w>243</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 addCustomerToSale(tlf)</panel_attributes>
@@ -78,10 +78,10 @@ addCustomerToSale(tlf)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>240</y>
-      <w>108</w>
-      <h>20</h>
+      <x>234</x>
+      <y>369</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 customer added,
@@ -91,10 +91,10 @@ total price</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>276</y>
-      <w>108</w>
-      <h>16</h>
+      <x>234</x>
+      <y>450</y>
+      <w>243</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 isPaid()</panel_attributes>
@@ -103,10 +103,10 @@ isPaid()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>288</y>
-      <w>108</w>
-      <h>24</h>
+      <x>234</x>
+      <y>477</y>
+      <w>243</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 confirmation,
@@ -117,10 +117,10 @@ stock updated</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>324</y>
-      <w>108</w>
-      <h>16</h>
+      <x>234</x>
+      <y>558</y>
+      <w>243</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 printReceipt()</panel_attributes>
@@ -129,10 +129,10 @@ printReceipt()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>336</y>
-      <w>108</w>
-      <h>16</h>
+      <x>234</x>
+      <y>585</y>
+      <w>243</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 receipt</panel_attributes>
@@ -141,10 +141,10 @@ receipt</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>536</x>
-      <y>164</y>
-      <w>132</w>
-      <h>96</h>
+      <x>189</x>
+      <y>198</y>
+      <w>297</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>Loop
 </panel_attributes>
@@ -153,10 +153,10 @@ receipt</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>92</y>
-      <w>152</w>
-      <h>56</h>
+      <x>603</x>
+      <y>36</y>
+      <w>342</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Operation:createInStoreSale(registerNo,employeeId)
 --
@@ -174,12 +174,12 @@ s.billableId became a unique id
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>152</y>
-      <w>256</w>
-      <h>56</h>
+      <x>603</x>
+      <y>171</y>
+      <w>576</w>
+      <h>126</h>
     </coordinates>
-    <panel_attributes>Operation:addProductToSale(barcode)
+    <panel_attributes>Operation:addProductToSale(barcode, quantity)
 --
 preconditions:an object s of InStoreSale was created and a p object of type product exists
 postconditions:
@@ -192,10 +192,10 @@ ol is associated with s and p
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>212</y>
-      <w>296</w>
-      <h>56</h>
+      <x>603</x>
+      <y>306</y>
+      <w>666</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Operation:addCustomerToSale(tlf)
 --
@@ -208,12 +208,12 @@ c is associated to s
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>272</y>
-      <w>296</w>
-      <h>56</h>
+      <x>603</x>
+      <y>441</y>
+      <w>666</w>
+      <h>126</h>
     </coordinates>
-    <panel_attributes>Operation:isPayed()
+    <panel_attributes>Operation:isPaid()
 --
 preconditions:an object s of InStoreSale exists
 // a p object exists and the c object of type Customer with the tlf exists
@@ -225,10 +225,10 @@ s is persisted
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>652</x>
-      <y>144</y>
-      <w>12</w>
-      <h>220</h>
+      <x>450</x>
+      <y>153</y>
+      <w>27</w>
+      <h>495</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;530.0</additional_attributes>
@@ -236,10 +236,10 @@ s is persisted
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>556</x>
-      <y>144</y>
-      <w>12</w>
-      <h>220</h>
+      <x>234</x>
+      <y>153</y>
+      <w>27</w>
+      <h>495</h>
     </coordinates>
     <panel_attributes>lt=.&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;530.0</additional_attributes>
