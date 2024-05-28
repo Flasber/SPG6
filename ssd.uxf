@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>9</x>
-      <y>9</y>
+      <x>414</x>
+      <y>72</y>
       <w>72</w>
       <h>99</h>
     </coordinates>
@@ -15,161 +15,168 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>441</x>
-      <y>54</y>
-      <w>90</w>
+      <x>630</x>
+      <y>135</y>
+      <w>72</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>System
-halign=left</panel_attributes>
+valign=center</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>99</y>
+      <x>441</x>
+      <y>162</y>
       <w>27</w>
-      <h>765</h>
+      <h>486</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;830.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;520.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>81</y>
+      <x>657</x>
+      <y>162</y>
       <w>27</w>
-      <h>774</h>
+      <h>486</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;840.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;520.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>108</y>
-      <w>468</w>
-      <h>36</h>
+      <x>441</x>
+      <y>162</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-createInStoreSale(registerNo,employeeId)</panel_attributes>
-    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+createInStoreSale
+(registerNo,employeeId)</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>180</y>
-      <w>468</w>
-      <h>36</h>
+      <x>441</x>
+      <y>216</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
-addProductToSale(barcode, quantity)</panel_attributes>
-    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+addProductToSale
+(barcode, quantity)</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
+      <x>441</x>
       <y>261</y>
-      <w>468</w>
-      <h>36</h>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-product added,product price</panel_attributes>
-    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+product added, 
+product price</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>351</y>
-      <w>468</w>
+      <x>441</x>
+      <y>333</y>
+      <w>243</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 addCustomerToSale(tlf)</panel_attributes>
-    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>423</y>
-      <w>468</w>
-      <h>36</h>
+      <x>441</x>
+      <y>378</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-customer added,total price</panel_attributes>
-    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+customer added,
+total price</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>504</y>
-      <w>468</w>
+      <x>441</x>
+      <y>459</y>
+      <w>243</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 isPaid()</panel_attributes>
-    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>576</y>
-      <w>468</w>
-      <h>36</h>
+      <x>441</x>
+      <y>486</y>
+      <w>243</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-confirmation,sale added,stock updated</panel_attributes>
-    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+confirmation,
+sale added,
+stock updated</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>639</y>
-      <w>468</w>
+      <x>441</x>
+      <y>567</y>
+      <w>243</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 printReceipt()</panel_attributes>
-    <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>36</x>
-      <y>711</y>
-      <w>468</w>
+      <x>441</x>
+      <y>594</y>
+      <w>243</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-print</panel_attributes>
-    <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
+receipt</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>0</x>
-      <y>171</y>
-      <w>522</w>
-      <h>153</h>
+      <x>396</x>
+      <y>207</y>
+      <w>297</w>
+      <h>216</h>
     </coordinates>
-    <panel_attributes>Loop</panel_attributes>
+    <panel_attributes>Loop
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>684</x>
-      <y>0</y>
+      <x>1089</x>
+      <y>63</y>
       <w>342</w>
       <h>126</h>
     </coordinates>
@@ -189,8 +196,8 @@ s.billableId became a unique id
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>549</x>
-      <y>216</y>
+      <x>954</x>
+      <y>279</y>
       <w>576</w>
       <h>126</h>
     </coordinates>
@@ -207,8 +214,8 @@ ol is associated with s and p
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>396</y>
+      <x>909</x>
+      <y>459</y>
       <w>666</w>
       <h>126</h>
     </coordinates>
@@ -223,8 +230,8 @@ c is associated to s
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>513</x>
-      <y>558</y>
+      <x>918</x>
+      <y>621</y>
       <w>666</w>
       <h>126</h>
     </coordinates>
