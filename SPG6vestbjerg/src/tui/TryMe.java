@@ -47,7 +47,7 @@ public class TryMe {
 	private void generateProducts() {
 		WarrantyProduct p = new WarrantyProduct("et køleskab fra boch", "køleskab", new Price(100), "1.2.2.1", "98765",
 				"000000001");
-		WarrantyProduct s = new WarrantyProduct("en fryser fra samsung", "fryser", new Price(1.0), "1.2.2.2", "98764",
+		WarrantyProduct s = new WarrantyProduct("en fryser fra samsung", "fryser", new Price(120), "1.2.2.2", "98764",
 				"000000002");
 		BasicProduct c = new BasicProduct("en hammer god til søm", "nail killer 3000", new Price(2), "1.1.1.1",
 				"12345");
