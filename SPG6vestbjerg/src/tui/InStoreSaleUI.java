@@ -28,24 +28,6 @@ public class InStoreSaleUI {
 		inStoreSaleUI();
 	}
 
-	private int writeInStoreSaleUI() {
-		Scanner keyboard = new Scanner(System.in);
-		println("******InStoreSaleUI******");
-		println(" (1) Opret salg");
-		println(" (0) Tilbage");
-		print("\n Vælg:");
-		int choice = getIntegerFromUser(keyboard);
-		return choice;
-	}
-
-	private int getIntegerFromUser(Scanner keyboard) {
-		while (!keyboard.hasNextInt()) {
-			println("Input skal være et tal - prøv igen");
-			keyboard.nextLine();
-		}
-		return keyboard.nextInt();
-	}
-
 	private void inStoreSaleUI() {
 		Scanner scanner = new Scanner(System.in);
 		boolean saleRunning = true;
