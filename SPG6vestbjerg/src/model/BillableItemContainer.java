@@ -45,7 +45,7 @@ public class BillableItemContainer {
 	 * }
 	 */
 
-	public WarrantyProduct.Copy findCopy(String barcode) {
+	public BillableItem findCopy(String barcode) {
 		WarrantyProduct.Copy kopi = null;
 		Product product = null;
 		boolean searching = true;
