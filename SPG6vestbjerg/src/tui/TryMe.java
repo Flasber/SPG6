@@ -45,16 +45,20 @@ public class TryMe {
 	}
 
 	private void generateProducts() {
-		WarrantyProduct p = new WarrantyProduct("is milky", "milk", new Price(100), "56788", "12345", "yghjh");
-		WarrantyProduct s = new WarrantyProduct("is nany", "banana", new Price(1.0), "56789", "22994", "ygjhjhjj");
-		BasicProduct c = new BasicProduct("is cucumby", "cucumber", new Price(2), "56789", "22995");
-		BasicProduct l = new BasicProduct("is milky", "milk", new Price(5.5), "56788", "32994");
+		WarrantyProduct p = new WarrantyProduct("et køleskab fra boch", "køleskab", new Price(100), "1.2.2.1", "98765",
+				"000000001");
+		WarrantyProduct s = new WarrantyProduct("en fryser fra samsung", "fryser", new Price(1.0), "1.2.2.2", "98764",
+				"000000002");
+		BasicProduct c = new BasicProduct("en hammer god til søm", "nail killer 3000", new Price(2), "1.1.1.1",
+				"12345");
+		BasicProduct l = new BasicProduct("en hammer beder til søm", "Nail killer 4000", new Price(5.5), "1.1.1.2",
+				"12346");
 		// CompositeProduct cp1 = new CompositeProduct();
 
-		Copy a = p.createCopy(202, "pis", 5);
-		Copy b = p.createCopy(301, "blah", 2);
-		Copy n = s.createCopy(230, "blah", 4);
-		Copy d = s.createCopy(991, "blah", 1);
+		Copy a = p.createCopy(202, "0000001", 5);
+		Copy b = p.createCopy(301, "0000002", 2);
+		Copy n = s.createCopy(230, "0000003", 4);
+		Copy d = s.createCopy(991, "0000004", 1);
 
 		BillableItemContainer billableItemContainer = BillableItemContainer.getInstance();
 		billableItemContainer.addProduct(p);
@@ -68,9 +72,9 @@ public class TryMe {
 
 	private void generateCustomers() {
 		CustomerContainer customerContainer = CustomerContainer.getInstance();
-		Customer psycho = new PrivateCustomer("Crazy8", "12345678", "a@b.com");
-		Customer crazy8 = new PrivateCustomer("13579", "Psycho", "55555555");
-		Customer wack = new BusinessCustomer("67890", "Wack", "98765432", "ean1");
+		Customer psycho = new PrivateCustomer("bob", "12345678", "a@b.com");
+		Customer crazy8 = new PrivateCustomer("billy", "88888888", "b@a.com");
+		Customer wack = new BusinessCustomer("billybob TømmerHandel", "87654321", "98765432", "ean1");
 		customerContainer.addCustomer(psycho);
 		customerContainer.addCustomer(wack);
 		customerContainer.addCustomer(crazy8);
