@@ -13,7 +13,7 @@ public class WarrantyBillableLine extends BillableLine {
 
 	@Override
 	public BigDecimal getSubTotal() {
-		return copy.getProduct().getPrice().getPrice();
+		return copy.getPrice().getPrice();
 	}
 
 	@Override
