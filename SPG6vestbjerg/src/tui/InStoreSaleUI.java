@@ -150,7 +150,13 @@ public class InStoreSaleUI {
 				System.out.println(bl.toString() + " " + bl.getSubTotal() + " ,-");
 			}
 			System.out.println("Totalbeløb: " + sale.getTotal() + " ,-");
-			System.out.println("\uD83D\uDD28");
+			System.out.println("""
+					,
+					 /(  ___
+					|  >:===========`
+					 )(
+					 ""
+					""");
 		} else if (answer.toLowerCase().trim().equals("nej")) {
 			System.out.println("Okay! Fortsat god dag!");
 		}
