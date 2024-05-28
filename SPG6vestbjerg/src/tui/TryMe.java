@@ -68,8 +68,8 @@ public class TryMe {
 
 	private void generateCustomers() {
 		CustomerContainer customerContainer = CustomerContainer.getInstance();
-		Customer psycho = new PrivateCustomer("Crazy8", "12345678", "a@b.com", 0);
-		Customer crazy8 = new PrivateCustomer("13579", "Psycho", "55555555", 1);
+		Customer psycho = new PrivateCustomer("Crazy8", "12345678", "a@b.com");
+		Customer crazy8 = new PrivateCustomer("13579", "Psycho", "55555555");
 		Customer wack = new BusinessCustomer("67890", "Wack", "98765432", "ean1");
 		customerContainer.addCustomer(psycho);
 		customerContainer.addCustomer(wack);
