@@ -13,7 +13,7 @@ public abstract class Product implements BillableItem {
 	private String barcode;
 	private Map<LocalDateTime, Price> prices;
 
-	public Product(String description, String name, String sku, String barcode) {
+	public Product(String description, String name, Price price, String sku, String barcode) {
 		this.description = description;
 		this.name = name;
 		this.sku = sku;
@@ -21,7 +21,7 @@ public abstract class Product implements BillableItem {
 			this.barcode = barcode;
 		}
 		prices = new HashMap<>();
-
+		addPrice(price);
 	}
 
 	public void addPrice(Price pr) {
@@ -33,19 +33,40 @@ public abstract class Product implements BillableItem {
 	}
 
 	public Price getPrice() {
-		return getPriceForDate(LocalDateTime.now());
+		return getPrice(LocalDateTime.now());
+	}
+
+	public Price getPrice(LocalDateTime dateTime) {
+		return getPriceForDate(dateTime);
 	}
 
 	public Price getPriceForDate(LocalDateTime date) {
 		Collection<Price> allPrices = prices.values();
 		Iterator<Price> iterator = allPrices.iterator();
+
+		// All dateTimes are after this
+		Price latestPriceSoFar = null;
+		LocalDateTime latestDateTimeSoFar = LocalDateTime.MIN;
+
+		// Visit each pair of price and startTime
 		while (iterator.hasNext()) {
 			Price price = iterator.next();
-			if (price.isInTheRange(date)) {
-				return price;
+			LocalDateTime priceStartTime = price.getStartTime();
+
+			// If price's startTime is in the future, it's not valid (yet)
+			boolean isInTheFuture = priceStartTime.isAfter(date);
+			boolean isLatestSoFar = priceStartTime.isAfter(latestDateTimeSoFar);
+
+			if (!isInTheFuture && isLatestSoFar) {
+				// This price is the latest so far
+				latestPriceSoFar = price;
+				latestDateTimeSoFar = priceStartTime;
 			}
 		}
-		return null;
+
+		// Every pair has been checked, so latestPriceSoFar is THE latest price (or
+		// null).
+		return latestPriceSoFar;
 	}
 
 	public String getName() {

@@ -7,6 +7,7 @@ import model.Customer;
 import model.CustomerContainer;
 import model.Employee;
 import model.EmployeeContainer;
+import model.Price;
 import model.PrivateCustomer;
 import model.WarrantyProduct;
 import model.WarrantyProduct.Copy;
@@ -44,10 +45,11 @@ public class TryMe {
 	}
 
 	private void generateProducts() {
-		WarrantyProduct p = new WarrantyProduct("is milky", "milk", "56788", "12345", "yghjh");
-		WarrantyProduct s = new WarrantyProduct("is nany", "banana", "56789", "22994", "ygjhjhjj");
-		BasicProduct c = new BasicProduct("is cucumby", "cucumber", "56789", "22995");
-		BasicProduct l = new BasicProduct("is milky", "milk", "56788", "32994");
+		WarrantyProduct p = new WarrantyProduct("is milky", "milk", new Price(100), "56788", "12345", "yghjh");
+		WarrantyProduct s = new WarrantyProduct("is nany", "banana", new Price(1.0), "56789", "22994", "ygjhjhjj");
+		BasicProduct c = new BasicProduct("is cucumby", "cucumber", new Price(2), "56789", "22995");
+		BasicProduct l = new BasicProduct("is milky", "milk", new Price(5.5), "56788", "32994");
+		// CompositeProduct cp1 = new CompositeProduct();
 
 		Copy a = p.createCopy(202, "pis", 5);
 		Copy b = p.createCopy(301, "blah", 2);

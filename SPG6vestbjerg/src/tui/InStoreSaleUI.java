@@ -100,7 +100,8 @@ public class InStoreSaleUI {
 				if (addedItem == null) {
 					System.out.println("Produkt med stregkode " + barcode + " blev ikke fundet.");
 				} else {
-					System.out.println("Produkt tilføjet: " + addedItem.getName() + " - " + addedItem.getPrice());
+					System.out.println(
+							"Produkt tilføjet: " + addedItem.getName() + " @ " + addedItem.getPrice().getPrice());
 				}
 			} catch (AddWarrantyProductException ae) {
 				System.out.println(

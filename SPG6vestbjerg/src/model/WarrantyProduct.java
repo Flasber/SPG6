@@ -57,8 +57,8 @@ public class WarrantyProduct extends Product {
 		return copy;
 	}
 
-	public WarrantyProduct(String description, String name, String sku, String barcode, String warranty) {
-		super(description, name, sku, barcode);
+	public WarrantyProduct(String description, String name, Price price, String sku, String barcode, String warranty) {
+		super(description, name, price, sku, barcode);
 		this.warranty = warranty;
 		copies = new ArrayList<>();
 

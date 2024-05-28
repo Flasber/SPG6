@@ -7,17 +7,18 @@ public class Price {
 
 	private BigDecimal price;
 	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+
+	public Price(Number price) {
+		super();
+		this.price = new BigDecimal(price.doubleValue());
+		this.startTime = LocalDateTime.now();
+	}
 
 	public BigDecimal getPrice() {
 		return price;
 	}
 
 	public LocalDateTime getStartTime() {
-		return startTime;
-	}
-
-	public LocalDateTime getEndTime() {
 		return startTime;
 	}
 
@@ -28,14 +29,4 @@ public class Price {
 	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
-
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
-	}
-
-	public boolean isInTheRange(LocalDateTime date) {
-		return (date.isEqual(startTime) || date.isAfter(startTime))
-				&& (date.isEqual(endTime) || date.isBefore(endTime));
-	}
-
 }

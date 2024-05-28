@@ -2,8 +2,7 @@ package model;
 
 public interface BillableItem {
 
-	Price getPrice();
+	public Price getPrice();
 
-	String getName();
-
+	public String getName();
 }
