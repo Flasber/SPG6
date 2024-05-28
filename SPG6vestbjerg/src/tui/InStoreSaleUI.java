@@ -56,9 +56,11 @@ public class InStoreSaleUI {
 				step++;
 				break;
 			case 5:
-				// TODO recipt
+				printReceipt();
+				step++;
+				break;
 			default:
-				println("Tast noget andet");
+
 				saleRunning = false;
 				break;
 			}
@@ -128,20 +130,31 @@ public class InStoreSaleUI {
 		InStoreSale sale = controller.isPaid();
 		if (sale != null) {
 			println("Betaling bekræftet");
-			printReceipt(sale);
+
 		} else {
 			println("Betaling afvist");
 		}
 
 	}
 
-	private void printReceipt(InStoreSale sale) {
-		sale.getTotal();
-		ArrayList<BillableLine> billableLines = (ArrayList<BillableLine>) sale.getBillableLines();
-		for (BillableLine bl : billableLines) {
-			System.out.println(bl.getSubTotal());
-			System.out.println(bl.toString());
+	private void printReceipt() {
+		System.out.println("Vil du have en kvittering?");
+		Scanner scanner = new Scanner(System.in);
+		String answer = scanner.next();
+
+		if (answer.toLowerCase().trim().equals("ja")) {
+			InStoreSale sale = controller.getLastSale();
+			ArrayList<BillableLine> billableLines = (ArrayList<BillableLine>) sale.getBillableLines();
+			System.out.println("\uD83D\uDD28");
+			for (BillableLine bl : billableLines) {
+				System.out.println(bl.toString() + " " + bl.getSubTotal() + " ,-");
+			}
+			System.out.println("Totalbeløb: " + sale.getTotal() + " ,-");
+			System.out.println("\uD83D\uDD28");
+		} else if (answer.toLowerCase().trim().equals("nej")) {
+			System.out.println("Okay! Fortsat god dag!");
 		}
+
 	}
 
 	public static void main(String[] args) throws Exception {
