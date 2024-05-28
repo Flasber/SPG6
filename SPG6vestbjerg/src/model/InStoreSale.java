@@ -56,7 +56,7 @@ public class InStoreSale implements Billable, Sale {
 		NormalBillableLine bol = null;
 		while (it.hasNext() && !isFound) {
 			BillableLine ol = it.next();
-			if (it.next() instanceof NormalBillableLine) {
+			if (ol instanceof NormalBillableLine) {
 				NonWarrantyProduct product = ((NormalBillableLine) ol).getProduct();
 				if (product == p) {
 					isFound = true;
@@ -83,7 +83,7 @@ public class InStoreSale implements Billable, Sale {
 		WarrantyBillableLine col = null;
 		while (it.hasNext() && !isFound) {
 			BillableLine ol = it.next();
-			if (it.next() instanceof WarrantyBillableLine) {
+			if (ol instanceof WarrantyBillableLine) {
 				WarrantyProduct.Copy copy = ((WarrantyBillableLine) ol).getItem();
 				if (copy == c) {
 					isFound = true;
