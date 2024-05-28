@@ -51,7 +51,7 @@ public class TryMe {
 				"000000002");
 		BasicProduct c = new BasicProduct("en hammer god til søm", "nail killer 3000", new Price(2), "1.1.1.1",
 				"12345");
-		BasicProduct l = new BasicProduct("en hammer beder til søm", "Nail killer 4000", new Price(5.5), "1.1.1.2",
+		BasicProduct l = new BasicProduct("en hammer bedre til søm", "Nail killer 4000", new Price(5.5), "1.1.1.2",
 				"12346");
 		// CompositeProduct cp1 = new CompositeProduct();
 
@@ -66,7 +66,7 @@ public class TryMe {
 		billableItemContainer.addProduct(c);
 		billableItemContainer.addProduct(l);
 
-		Copy t = billableItemContainer.findCopy("12345202");
+		Copy t = billableItemContainer.findCopy("98765202");
 		System.out.println(t.getWarranty());
 	}
 

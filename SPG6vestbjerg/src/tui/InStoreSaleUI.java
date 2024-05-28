@@ -1,10 +1,13 @@
 package tui;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.CreateInStoreSaleController;
 import model.BillableItem;
+import model.BillableLine;
 import model.Customer;
+import model.InStoreSale;
 import model.InStoreSale.AddWarrantyProductException;
 
 public class InStoreSaleUI {
@@ -121,10 +124,23 @@ public class InStoreSaleUI {
 
 	private void checkIfPaid() {
 		println("\nBetaling....");
-		if (controller.isPaid() != null) {
+		InStoreSale sale = controller.isPaid();
+		if (sale != null) {
 			println("Betaling bekræftet");
+			printReceipt(sale);
 		} else {
 			println("Betaling afvist");
+		}
+
+	}
+
+	private void printReceipt(InStoreSale sale) {
+		sale.getTotal();
+		ArrayList<BillableLine> billableLines = (ArrayList<BillableLine>) sale.getBillableLines();
+		for (BillableLine bl : billableLines) {
+			System.out.println(bl.getSubTotal());
+			System.out.println(bl.toString());
+
 		}
 	}
 
