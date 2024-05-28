@@ -9,6 +9,7 @@ import model.BillableLine;
 import model.Customer;
 import model.InStoreSale;
 import model.InStoreSale.AddWarrantyProductException;
+import model.InStoreSale.UnexpectedClassException;
 
 public class InStoreSaleUI {
 	private CreateInStoreSaleController controller;
@@ -25,13 +26,13 @@ public class InStoreSaleUI {
 		System.out.println(s);
 	}
 
-	public void start() {
+	public void start() throws Exception {
 		TryMe tryMe = new TryMe();
 		tryMe.generateTestData();
 		inStoreSaleUI();
 	}
 
-	private void inStoreSaleUI() {
+	private void inStoreSaleUI() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 		boolean saleRunning = true;
 		int step = 1;
@@ -75,7 +76,7 @@ public class InStoreSaleUI {
 		controller.createInStoreSale(registerNo, employeeId);
 	}
 
-	private void addItemToSale(Scanner scanner) {
+	private void addItemToSale(Scanner scanner) throws Exception {
 		println("\nTilføjer produkter til salget...");
 
 		boolean addingItems = true;
@@ -97,7 +98,7 @@ public class InStoreSaleUI {
 				}
 			} catch (AddWarrantyProductException ae) {
 				println("Garantiprodukter skal ikke skannes med produktstregkoden. Scan venlights kopistregkoden.");
-			} catch (Exception e) {
+			} catch (UnexpectedClassException e) {
 				println("Fejl ved tilføjelse af produkt: " + e.getMessage());
 			}
 
@@ -140,11 +141,10 @@ public class InStoreSaleUI {
 		for (BillableLine bl : billableLines) {
 			System.out.println(bl.getSubTotal());
 			System.out.println(bl.toString());
-
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		CreateInStoreSaleController controller = new CreateInStoreSaleController();
 		InStoreSaleUI ui = new InStoreSaleUI(controller);
 		ui.start();

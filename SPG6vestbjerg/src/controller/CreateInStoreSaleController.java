@@ -9,6 +9,7 @@ import model.InStoreSale;
 public class CreateInStoreSaleController {
 
 	private InStoreSale saleInProgress;
+	private InStoreSale lastSale;
 
 	public void createInStoreSale(int registerNo, int employeeId) {
 		EmployeeController ectrl = new EmployeeController();
@@ -38,13 +39,18 @@ public class CreateInStoreSaleController {
 
 	}
 
+	// Signal to the controller that the saleInProgress has been paid for,
+	// completing the sale.
 	public InStoreSale isPaid() {
 		BillableContainer bc = BillableContainer.getInstance();
-		if (bc.addSale(saleInProgress)) {
-			return saleInProgress;
-		} else {
-			return null;
-		}
+		bc.addSale(saleInProgress);
+		lastSale = saleInProgress;
+		saleInProgress = null;
+		return lastSale;
+	}
+
+	public InStoreSale getLastSale() {
+		return lastSale;
 	}
 
 }

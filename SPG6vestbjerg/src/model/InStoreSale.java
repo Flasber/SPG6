@@ -30,19 +30,22 @@ public class InStoreSale implements Billable, Sale {
 		private static final long serialVersionUID = 7617915006698276761L;
 	}
 
+	public class UnexpectedClassException extends Exception {
+		private static final long serialVersionUID = 7194603038292464598L;
+	}
+
 	public void addItem(BillableItem i, int q) throws Exception {
 		if (i instanceof WarrantyProduct.Copy) {
 			if (q != 1) {
 				throw new IllegalArgumentException("can't have more than 1 in a WarrantyBillableLine");
 			}
 			addCopy((WarrantyProduct.Copy) i);
-
 		} else if (i instanceof NonWarrantyProduct) {
 			addProduct((NonWarrantyProduct) i, q);
 		} else if (i instanceof WarrantyProduct) {
 			throw new AddWarrantyProductException();
 		} else {
-			throw new UnsupportedOperationException();
+			throw new UnexpectedClassException();
 		}
 	}
 
