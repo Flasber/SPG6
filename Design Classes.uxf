@@ -31,6 +31,7 @@
     <panel_attributes>CreateInStoreSaleController
 --
 - saleInProgess: InStoreSale
+- lastSale: InStoreSale
 - scannedItem: BillableItem
 
 --

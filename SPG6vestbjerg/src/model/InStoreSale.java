@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class InStoreSale implements Billable, Sale {
+	private static int nextId = 0;
+
 	private int registerNo;
 	private Employee employee;
 	private Customer customer;
@@ -18,6 +20,7 @@ public class InStoreSale implements Billable, Sale {
 	public InStoreSale(int registerNo, Employee e) {
 		this.registerNo = registerNo;
 		this.employee = e;
+		this.id = nextId++;
 		orderLines = new ArrayList<>();
 		createdDate = LocalDateTime.now();
 	}

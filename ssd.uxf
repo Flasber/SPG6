@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>207</x>
-      <y>63</y>
+      <x>198</x>
+      <y>117</y>
       <w>72</w>
       <h>99</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>423</x>
-      <y>126</y>
+      <x>414</x>
+      <y>180</y>
       <w>72</w>
       <h>36</h>
     </coordinates>
@@ -27,8 +27,8 @@ valign=center</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>153</y>
+      <x>225</x>
+      <y>207</y>
       <w>243</w>
       <h>45</h>
     </coordinates>
@@ -40,8 +40,8 @@ createInStoreSale
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>207</y>
+      <x>225</x>
+      <y>261</y>
       <w>243</w>
       <h>45</h>
     </coordinates>
@@ -53,8 +53,8 @@ addProductToSale
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>252</y>
+      <x>225</x>
+      <y>306</y>
       <w>243</w>
       <h>45</h>
     </coordinates>
@@ -66,8 +66,8 @@ product price</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>324</y>
+      <x>225</x>
+      <y>378</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -78,8 +78,8 @@ addCustomerToSale(tlf)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>369</y>
+      <x>225</x>
+      <y>423</y>
       <w>243</w>
       <h>45</h>
     </coordinates>
@@ -91,8 +91,8 @@ total price</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>450</y>
+      <x>225</x>
+      <y>504</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -103,8 +103,8 @@ isPaid()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>477</y>
+      <x>225</x>
+      <y>531</y>
       <w>243</w>
       <h>54</h>
     </coordinates>
@@ -117,8 +117,8 @@ stock updated</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>558</y>
+      <x>225</x>
+      <y>612</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -129,8 +129,8 @@ printReceipt()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>585</y>
+      <x>225</x>
+      <y>639</y>
       <w>243</w>
       <h>36</h>
     </coordinates>
@@ -141,8 +141,8 @@ receipt</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>189</x>
-      <y>198</y>
+      <x>180</x>
+      <y>252</y>
       <w>297</w>
       <h>216</h>
     </coordinates>
@@ -153,8 +153,8 @@ receipt</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>603</x>
-      <y>36</y>
+      <x>594</x>
+      <y>90</y>
       <w>342</w>
       <h>126</h>
     </coordinates>
@@ -174,8 +174,8 @@ s.billableId became a unique id
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>603</x>
-      <y>171</y>
+      <x>594</x>
+      <y>225</y>
       <w>576</w>
       <h>126</h>
     </coordinates>
@@ -192,8 +192,8 @@ ol is associated with s and p
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>603</x>
-      <y>306</y>
+      <x>594</x>
+      <y>360</y>
       <w>666</w>
       <h>126</h>
     </coordinates>
@@ -208,8 +208,8 @@ c is associated to s
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>603</x>
-      <y>441</y>
+      <x>594</x>
+      <y>495</y>
       <w>666</w>
       <h>126</h>
     </coordinates>
@@ -225,8 +225,8 @@ s is persisted
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>153</y>
+      <x>441</x>
+      <y>207</y>
       <w>27</w>
       <h>495</h>
     </coordinates>
@@ -236,8 +236,8 @@ s is persisted
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>153</y>
+      <x>225</x>
+      <y>207</y>
       <w>27</w>
       <h>495</h>
     </coordinates>
