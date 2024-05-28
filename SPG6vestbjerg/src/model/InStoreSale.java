@@ -26,9 +26,7 @@ public class InStoreSale implements Billable, Sale {
 	}
 
 	public class AddWarrantyProductException extends Exception {
-
 		private static final long serialVersionUID = 7617915006698276761L;
-
 	}
 
 	public void addItem(BillableItem i, int q) throws Exception {
