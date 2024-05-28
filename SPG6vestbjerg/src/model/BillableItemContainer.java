@@ -21,8 +21,8 @@ public class BillableItemContainer {
 
 	public boolean addProduct(Product p) {
 		boolean addProduct = false;
-		if (p != null && p instanceof Product) {
-			products.add((Product) p);
+		if (p != null) {
+			products.add(p);
 			addProduct = true;
 		}
 		return addProduct;
