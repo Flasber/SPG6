@@ -14,6 +14,14 @@ public class InStoreSaleUI {
 		this.controller = controller;
 	}
 
+	private void println(String s) {
+		System.out.println(s);
+	}
+
+	private void print(String s) {
+		System.out.println(s);
+	}
+
 	public void start() {
 		TryMe tryMe = new TryMe();
 		tryMe.generateTestData();
@@ -22,17 +30,17 @@ public class InStoreSaleUI {
 
 	private int writeInStoreSaleUI() {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("******InStoreSaleUI******");
-		System.out.println(" (1) Opret salg");
-		System.out.println(" (0) Tilbage");
-		System.out.print("\n Vælg:");
+		println("******InStoreSaleUI******");
+		println(" (1) Opret salg");
+		println(" (0) Tilbage");
+		print("\n Vælg:");
 		int choice = getIntegerFromUser(keyboard);
 		return choice;
 	}
 
 	private int getIntegerFromUser(Scanner keyboard) {
 		while (!keyboard.hasNextInt()) {
-			System.out.println("Input skal være et tal - prøv igen");
+			println("Input skal være et tal - prøv igen");
 			keyboard.nextLine();
 		}
 		return keyboard.nextInt();
@@ -64,32 +72,32 @@ public class InStoreSaleUI {
 			case 5:
 				// TODO recipt
 			default:
-				System.out.println("Tast noget andet");
+				println("Tast noget andet");
 				saleRunning = false;
 				break;
 			}
 		}
 
-		System.out.println("\nSalget er lavet.");
+		println("\nSalget er lavet.");
 	}
 
 	private void createInStoreSale(Scanner scanner) {
-		System.out.println("\nLaver et salg...");
-		System.out.print("Kassenummer");
+		println("\nLaver et salg...");
+		print("Kassenummer");
 		int registerNo = scanner.nextInt();
-		System.out.print("Medarbejder Nummer: ");
+		print("Medarbejder Nummer: ");
 		int employeeId = scanner.nextInt();
 		controller.createInStoreSale(registerNo, employeeId);
 	}
 
 	private void addItemToSale(Scanner scanner) {
-		System.out.println("\nTilføjer produkter til salget...");
+		println("\nTilføjer produkter til salget...");
 
 		boolean addingItems = true;
 		while (addingItems) {
-			System.out.print("Indtast stregkode: ");
+			print("Indtast stregkode: ");
 			String barcode = scanner.next();
-			System.out.print("Indtast antal: ");
+			print("Indtast antal: ");
 			int quantity = scanner.nextInt();
 
 			try {
@@ -98,19 +106,17 @@ public class InStoreSaleUI {
 
 				//
 				if (addedItem == null) {
-					System.out.println("Produkt med stregkode " + barcode + " blev ikke fundet.");
+					println("Produkt med stregkode " + barcode + " blev ikke fundet.");
 				} else {
-					System.out.println(
-							"Produkt tilføjet: " + addedItem.getName() + " @ " + addedItem.getPrice().getPrice());
+					println("Produkt tilføjet: " + addedItem.getName() + " @ " + addedItem.getPrice().getPrice());
 				}
 			} catch (AddWarrantyProductException ae) {
-				System.out.println(
-						"Garantiprodukter skal ikke skannes med produktstregkoden. Scan venlights kopistregkoden.");
+				println("Garantiprodukter skal ikke skannes med produktstregkoden. Scan venlights kopistregkoden.");
 			} catch (Exception e) {
-				System.out.println("Fejl ved tilføjelse af produkt: " + e.getMessage());
+				println("Fejl ved tilføjelse af produkt: " + e.getMessage());
 			}
 
-			System.out.print("Vil du tilføje flere varer? (ja/nej): ");
+			print("Vil du tilføje flere varer? (ja/nej): ");
 			String choice = scanner.next().toLowerCase();
 			if (!choice.equals("ja")) {
 				addingItems = false;
@@ -119,24 +125,24 @@ public class InStoreSaleUI {
 	}
 
 	private void addCustomerToSale(Scanner scanner) {
-		System.out.println("\nTilføj Kunder...");
-		System.out.print("Indtast Kundens telefonnummer: ");
+		println("\nTilføj Kunder...");
+		print("Indtast Kundens telefonnummer: ");
 		String phoneNumber = scanner.next();
 		Customer customer = controller.addCustomerToSale(phoneNumber);
 
 		if (customer != null) {
-			System.out.println("Kunden blev fundet: " + customer.getName() + " - " + customer.getTlf());
+			println("Kunden blev fundet: " + customer.getName() + " - " + customer.getTlf());
 		} else {
-			System.out.println("Kunde med telefonnummer " + phoneNumber + " blev ikke fundet.");
+			println("Kunde med telefonnummer " + phoneNumber + " blev ikke fundet.");
 		}
 	}
 
 	private void checkIfPaid() {
-		System.out.println("\nBetaling....");
+		println("\nBetaling....");
 		if (controller.isPaid() != null) {
-			System.out.println("Betaling bekræftet");
+			println("Betaling bekræftet");
 		} else {
-			System.out.println("Betaling afvist");
+			println("Betaling afvist");
 		}
 	}
 
