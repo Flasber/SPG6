@@ -6,6 +6,7 @@ import java.util.List;
 public class WarrantyProduct extends Product {
 	private String warranty;
 	private List<Copy> copies;
+	private Copy currentCopy;
 
 	public class Copy implements BillableItem {
 		private int copyId;
@@ -56,17 +57,17 @@ public class WarrantyProduct extends Product {
 		}
 	}
 
-	public Copy createCopy(int copyId, String warranty, int timesReturned) {
-		Copy copy = new Copy(this, copyId, warranty, timesReturned);
-		copies.add(copy); // assc. part2
-		return copy;
-	}
-
 	public WarrantyProduct(String description, String name, Price price, String sku, String barcode, String warranty) {
 		super(description, name, price, sku, barcode);
 		this.warranty = warranty;
 		copies = new ArrayList<>();
 
+	}
+
+	public Copy createCopy(int copyId, String warranty, int timesReturned) {
+		Copy copy = new Copy(this, copyId, warranty, timesReturned);
+		copies.add(copy); // assc. part2
+		return copy;
 	}
 
 	private boolean addCopy(Copy c) {

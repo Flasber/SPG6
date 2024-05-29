@@ -6,7 +6,7 @@ import java.util.List;
 public class BillableItemContainer {
 
 	private static BillableItemContainer instance;
-	private List<Product> products;
+	private List<Product> products;// det er ikke en BillableItemContainer,det er ProduktContainer
 
 	private BillableItemContainer() {
 		products = new ArrayList<>();

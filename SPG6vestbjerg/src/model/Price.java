@@ -9,7 +9,6 @@ public class Price {
 	private LocalDateTime startTime;
 
 	public Price(Number price) {
-		super();
 		this.price = new BigDecimal(price.doubleValue());
 		this.startTime = LocalDateTime.now();
 	}
