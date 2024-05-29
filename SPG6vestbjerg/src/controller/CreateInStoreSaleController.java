@@ -53,4 +53,8 @@ public class CreateInStoreSaleController {
 		return lastSale;
 	}
 
+	public InStoreSale getSaleinProgress() {
+		return saleInProgress;
+	}
+
 }

@@ -6,7 +6,6 @@ import java.util.List;
 public class WarrantyProduct extends Product {
 	private String warranty;
 	private List<Copy> copies;
-	private Copy currentCopy;
 
 	public class Copy implements BillableItem {
 		private int copyId;
@@ -48,6 +47,12 @@ public class WarrantyProduct extends Product {
 
 		public String getWarranty() {
 			return warranty;
+		}
+
+		@Override
+		public String getBarcode() {
+
+			return "" + copyId;
 		}
 	}
 

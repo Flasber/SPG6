@@ -1,51 +1,50 @@
-package tui;
+/**
+ * 
+ */
+package controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import model.BasicProduct;
 import model.BillableItemContainer;
-import model.BusinessCustomer;
+import model.BillableLine;
 import model.CompositeProduct;
 import model.Customer;
 import model.CustomerContainer;
 import model.Employee;
 import model.EmployeeContainer;
+import model.InStoreSale;
 import model.Price;
 import model.PrivateCustomer;
+import model.Sale;
 import model.WarrantyProduct;
 import model.WarrantyProduct.Copy;
 
-public class TryMe {
-	EmployeeContainer employeeContainer;
-	private CustomerContainer customerContainer;
+/**
+ * 
+ */
+class CreateInStoreSaleControllerTest {
+	private CreateInStoreSaleController ctrl;
 
-	public static void main(String[] args) {
-		TryMe tryMe = new TryMe();
-		tryMe.generateTestData();
-	}
-
-	public void generateTestData() {
-
-		generateEmployees();
-		generateProducts();
-		generateCustomers();
-	}
-
-	private void generateEmployees() {
-		employeeContainer = EmployeeContainer.getinstance();
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeAll
+	public static void initialization() throws Exception {
+		EmployeeContainer employeeContainer = EmployeeContainer.getinstance();
 		Employee cashier1 = new Employee("Kasse-ekspedient 1", "kassemedarbejder", 0, 1);
-		Employee ceo = new Employee("Anders", "leder", 0, 2);
-		Employee manager1 = new Employee("Casper", "leder", 0, 3);
-		Employee manager2 = new Employee("Thomas", "leder", 0, 4);
 		Employee cashier2 = new Employee("Kasse-ekspedient 2", "kassemedarbejder", 0, 5);
-
 		employeeContainer.addEmployee(cashier1);
-		employeeContainer.addEmployee(ceo);
-		employeeContainer.addEmployee(manager1);
-		employeeContainer.addEmployee(manager2);
 		employeeContainer.addEmployee(cashier2);
-
-	}
-
-	private void generateProducts() {
 		WarrantyProduct p = new WarrantyProduct("et køleskab fra boch", "køleskab", new Price(100), "1.2.2.1", "98765",
 				"000000001");
 		WarrantyProduct s = new WarrantyProduct("en fryser fra samsung", "fryser", new Price(120), "1.2.2.2", "98764",
@@ -61,15 +60,6 @@ public class TryMe {
 		c10.addCompositeLine(c1, 1);
 		c10.addCompositeLine(c2, 1);
 		c10.addCompositeLine(c3, 5);
-		BasicProduct c4 = new BasicProduct("en borplade af marmor", "borplade", new Price(100), "1.3.1.4", "11116");
-		BasicProduct c5 = new BasicProduct("en vask af cobber", "vask", new Price(50), "1.4.1.1", "11117");
-		CompositeProduct c11 = new CompositeProduct("et komplet køkken", "køkken", new Price(250), "to be done",
-				"11118");
-		c10.addCompositeLine(c10, 2);
-		c10.addCompositeLine(c4, 2);
-		c10.addCompositeLine(c5, 1);
-		// CompositeProduct cp1 = new CompositeProduct();
-
 		Copy a = p.createCopy(202, "0000001", 5);
 		Copy b = p.createCopy(301, "0000002", 2);
 		Copy n = s.createCopy(230, "0000003", 4);
@@ -83,23 +73,71 @@ public class TryMe {
 		billableItemContainer.addProduct(c1);
 		billableItemContainer.addProduct(c2);
 		billableItemContainer.addProduct(c3);
-		billableItemContainer.addProduct(c4);
-		billableItemContainer.addProduct(c5);
-		billableItemContainer.addProduct(c10);
-		billableItemContainer.addProduct(c11);
-
-		Copy t = billableItemContainer.findCopy("98765202");
-		System.out.println(t.getWarranty());
-	}
-
-	private void generateCustomers() {
 		CustomerContainer customerContainer = CustomerContainer.getInstance();
 		Customer psycho = new PrivateCustomer("bob", "12345678", "a@b.com");
-		Customer crazy8 = new PrivateCustomer("billy", "88888888", "b@a.com");
-		Customer wack = new BusinessCustomer("billybob TømmerHandel", "87654321", "98765432", "ean1");
 		customerContainer.addCustomer(psycho);
-		customerContainer.addCustomer(wack);
-		customerContainer.addCustomer(crazy8);
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@BeforeEach
+	void setUp() throws Exception {
+		ctrl = new CreateInStoreSaleController();
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testCreateInStoreSale() {
+		ctrl.createInStoreSale(1, 5);
+		InStoreSale sale = ctrl.getSaleinProgress();
+		assertNotNull(sale);
+		assertEquals(1, sale.getRegisterNo());
+		assertEquals(5, sale.getEmployee().getEmployeeId());
+	}
+
+	@Test
+	public void testAddItemToSale() throws Exception {
+		ctrl.createInStoreSale(1, 5);
+		InStoreSale sale = ctrl.getSaleinProgress();
+		ctrl.addItemToSale("12345", 2);
+		Sale s = ctrl.isPaid();
+		ArrayList<BillableLine> b = sale.getBillableLines();
+
+		assertEquals(2, b.get(1).getQuantity());
+		assertEquals("12345", b.get(1).getItem().getBarcode());
+		assertEquals(1, b.size());
+	}
+
+	@Test
+	public void testAddCustomerToSale() {
+		ctrl.createInStoreSale(1, 5);
+		InStoreSale sale = ctrl.getSaleinProgress();
+		Customer customer = ctrl.addCustomerToSale("12345678");
+		assertNotNull(sale.getCustomer());
+		assertEquals("12345678", sale.getCustomer().getTlf());
+
+	}
+
+	@Test
+	public void testIsPaid() {
+		ctrl.createInStoreSale(1, 5);
+		InStoreSale sale = ctrl.isPaid();
+		assertNotNull(sale);
+		assertEquals(sale, ctrl.getLastSale());
 	}
 
 }

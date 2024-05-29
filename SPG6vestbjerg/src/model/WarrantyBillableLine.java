@@ -22,7 +22,7 @@ public class WarrantyBillableLine extends BillableLine {
 	}
 
 	@Override
-	protected WarrantyProduct.Copy getItem() {
+	public WarrantyProduct.Copy getItem() {
 		return copy;
 	}
 }

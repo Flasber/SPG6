@@ -10,8 +10,8 @@ public abstract class BillableLine {
 		return String.format(" %dx %s", getQuantity(), getItem().getName());
 	}
 
-	protected abstract BillableItem getItem();
+	public abstract BillableItem getItem();
 
-	protected abstract int getQuantity();
+	public abstract int getQuantity();
 
 }

@@ -107,7 +107,7 @@ public class InStoreSale implements Billable, Sale {
 	}
 
 	@Override
-	public List<BillableLine> getBillableLines() {
+	public ArrayList<BillableLine> getBillableLines() {
 		return new ArrayList<>(orderLines);
 	}
 
@@ -140,5 +140,10 @@ public class InStoreSale implements Billable, Sale {
 	@Override
 	public Employee getEmployee() {
 		return employee;
+	}
+
+	public int getRegisterNo() {
+
+		return registerNo;
 	}
 }

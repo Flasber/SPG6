@@ -31,12 +31,12 @@ public class NormalBillableLine extends BillableLine {
 	}
 
 	@Override
-	protected NonWarrantyProduct getItem() {
+	public NonWarrantyProduct getItem() {
 		return product;
 	}
 
 	@Override
-	protected int getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 }
