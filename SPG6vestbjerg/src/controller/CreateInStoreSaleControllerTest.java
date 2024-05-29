@@ -116,8 +116,7 @@ class CreateInStoreSaleControllerTest {
 		ctrl.addItemToSale("12345", 2);
 		Sale s = ctrl.isPaid();
 		ArrayList<BillableLine> b = sale.getBillableLines();
-
-		assertEquals(2, b.get(1).getQuantity());
+		assertEquals(2, b.get(0).getQuantity());
 		assertEquals("12345", b.get(1).getItem().getBarcode());
 		assertEquals(1, b.size());
 	}
