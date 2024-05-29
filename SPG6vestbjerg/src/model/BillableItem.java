@@ -7,4 +7,6 @@ public interface BillableItem {
 	public String getName();
 
 	public String getBarcode();
+
+	public void removestock(int a) throws Exception;
 }

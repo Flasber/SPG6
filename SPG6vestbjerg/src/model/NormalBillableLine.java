@@ -39,4 +39,5 @@ public class NormalBillableLine extends BillableLine {
 	public int getQuantity() {
 		return quantity;
 	}
+
 }
