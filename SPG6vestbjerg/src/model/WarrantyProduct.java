@@ -49,6 +49,12 @@ public class WarrantyProduct extends Product {
 		public String getWarranty() {
 			return warranty;
 		}
+
+		@Override
+		public String getBarcode() {
+
+			return "" + copyId;
+		}
 	}
 
 	public Copy createCopy(int copyId, String warranty, int timesReturned) {
