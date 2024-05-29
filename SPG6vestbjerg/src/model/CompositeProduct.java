@@ -33,4 +33,14 @@ public class CompositeProduct extends NonWarrantyProduct {
 			compositeLines.add(new CompositeLine(qu, p));
 		}
 	}
+
+	@Override
+	public void removestock(int a) throws Exception {
+		for (int i = 0; i < compositeLines.size(); i++) {
+			CompositeLine c = compositeLines.get(i);
+			Product p = c.getItem();
+			int amount = c.getQuantity();
+			p.removestock(amount);
+		}
+	}
 }

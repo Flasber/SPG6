@@ -88,8 +88,6 @@ public class TryMe {
 		billableItemContainer.addProduct(c10);
 		billableItemContainer.addProduct(c11);
 
-		Copy t = (Copy) billableItemContainer.findCopy("98765202");
-		System.out.println(t.getWarranty());
 	}
 
 	private void generateCustomers() {

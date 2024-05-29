@@ -55,6 +55,12 @@ public class WarrantyProduct extends Product {
 
 			return "" + copyId;
 		}
+
+		@Override
+		public void removestock(int a) {
+			// TODO Auto-generated method stub
+			System.err.println("not yet done");
+		}
 	}
 
 	public WarrantyProduct(String description, String name, Price price, String sku, String barcode, String warranty) {
@@ -104,6 +110,12 @@ public class WarrantyProduct extends Product {
 	@Override
 	public String getName() {
 		return super.getName();
+	}
+
+	@Override
+	public void removestock(int a) throws Exception {
+		// TODO Auto-generated method stub
+		throw new Exception();
 	}
 
 }

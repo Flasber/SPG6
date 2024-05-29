@@ -132,7 +132,7 @@ class CreateInStoreSaleControllerTest {
 	}
 
 	@Test
-	public void testIsPaid() {
+	public void testIsPaid() throws Exception {
 		ctrl.createInStoreSale(1, 5);
 		InStoreSale sale = ctrl.isPaid();
 		assertNotNull(sale);

@@ -127,7 +127,13 @@ public class InStoreSaleUI {
 
 	private void checkIfPaid() {
 		println("\nBetaling....");
-		InStoreSale sale = controller.isPaid();
+		InStoreSale sale = null;
+		try {
+			sale = controller.isPaid();
+		} catch (Exception e) {
+			System.err.println("can not finish sale wiht warrantyProduct");
+			e.printStackTrace();
+		}
 		if (sale != null) {
 			println("Betaling bekræftet");
 

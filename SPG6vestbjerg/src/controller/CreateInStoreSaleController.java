@@ -1,7 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.BillableContainer;
 import model.BillableItem;
+import model.BillableLine;
 import model.Customer;
 import model.Employee;
 import model.InStoreSale;
@@ -41,9 +44,10 @@ public class CreateInStoreSaleController {
 
 	// Signal to the controller that the saleInProgress has been paid for,
 	// completing the sale.
-	public InStoreSale isPaid() {
+	public InStoreSale isPaid() throws Exception {
 		BillableContainer bc = BillableContainer.getInstance();
 		bc.addSale(saleInProgress);
+		updateStockArfterSale();
 		lastSale = saleInProgress;
 		saleInProgress = null;
 		return lastSale;
@@ -57,4 +61,19 @@ public class CreateInStoreSaleController {
 		return saleInProgress;
 	}
 
+	public void updateStockArfterSale() throws Exception {
+		if (saleInProgress != null) {
+			ArrayList<BillableLine> billableLine = saleInProgress.getBillableLines();
+			for (int i = 0; i < billableLine.size(); i++) {
+				{
+					BillableLine b = billableLine.get(i);
+					BillableItem p = b.getItem();
+					int a = b.getQuantity();
+					p.removestock(a);
+
+				}
+			}
+		}
+
+	}
 }
