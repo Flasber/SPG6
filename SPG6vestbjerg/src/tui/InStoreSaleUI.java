@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.CreateInStoreSaleController;
+import exceptionHandling.AddWarrantyProductException;
+import exceptionHandling.UnexpectedClassException;
 import model.BillableItem;
 import model.BillableLine;
 import model.Customer;
 import model.InStoreSale;
-import model.InStoreSale.AddWarrantyProductException;
-import model.InStoreSale.UnexpectedClassException;
 
 public class InStoreSaleUI {
 	private CreateInStoreSaleController controller;

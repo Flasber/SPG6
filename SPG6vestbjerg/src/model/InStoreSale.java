@@ -7,7 +7,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import exceptionHandling.AddWarrantyProductException;
+import exceptionHandling.UnexpectedClassException;
+
 public class InStoreSale implements Billable, Sale {
+	private static int nextId = 0;
+
 	private int registerNo;
 	private Employee employee;
 	private Customer customer;
@@ -18,20 +23,13 @@ public class InStoreSale implements Billable, Sale {
 	public InStoreSale(int registerNo, Employee e) {
 		this.registerNo = registerNo;
 		this.employee = e;
+		this.id = nextId++;
 		orderLines = new ArrayList<>();
 		createdDate = LocalDateTime.now();
 	}
 
 	public void setCustomer(Customer c) {
 		this.customer = c;
-	}
-
-	public class AddWarrantyProductException extends Exception {
-		private static final long serialVersionUID = 7617915006698276761L;
-	}
-
-	public class UnexpectedClassException extends Exception {
-		private static final long serialVersionUID = 7194603038292464598L;
 	}
 
 	public void addItem(BillableItem i, int q) throws Exception {
@@ -43,14 +41,10 @@ public class InStoreSale implements Billable, Sale {
 		} else if (i instanceof NonWarrantyProduct) {
 			addProduct((NonWarrantyProduct) i, q);
 		} else if (i instanceof WarrantyProduct) {
-			throw new AddWarrantyProductException();
+			throw new AddWarrantyProductException("");
 		} else {
-			throw new UnexpectedClassException();
+			throw new UnexpectedClassException("");
 		}
-	}
-
-	public void addItem(BillableItem i) throws Exception {
-		addItem(i, 1);
 	}
 
 	private void addProduct(NonWarrantyProduct p, int qu) throws Exception {
@@ -60,7 +54,7 @@ public class InStoreSale implements Billable, Sale {
 		while (it.hasNext() && !isFound) {
 			BillableLine ol = it.next();
 			if (ol instanceof NormalBillableLine) {
-				NonWarrantyProduct product = ((NormalBillableLine) ol).getProduct();
+				NonWarrantyProduct product = ((NormalBillableLine) ol).getItem();
 				if (product == p) {
 					isFound = true;
 					bol = ((NormalBillableLine) ol);
@@ -74,10 +68,6 @@ public class InStoreSale implements Billable, Sale {
 		} else {
 			orderLines.add(new NormalBillableLine(qu, p));
 		}
-	}
-
-	public void addProduct(NonWarrantyProduct p) throws Exception {
-		addProduct(p, 1);
 	}
 
 	private void addCopy(WarrantyProduct.Copy c) throws Exception {

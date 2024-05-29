@@ -4,15 +4,10 @@ import java.math.BigDecimal;
 
 public class NormalBillableLine extends BillableLine {
 
-	int quantity;
-	NonWarrantyProduct product;
-
-	public NonWarrantyProduct getProduct() {
-		return product;
-	}
+	private int quantity;
+	private NonWarrantyProduct product;
 
 	public NormalBillableLine(int quantity, NonWarrantyProduct product) {
-		super();
 		this.quantity = quantity;
 		this.product = product;
 	}

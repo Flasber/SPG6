@@ -7,7 +7,8 @@ public abstract class Customer {
 	private String tlf;
 
 	public Customer(String name, String tlf) {
-		this.id = nextId++;
+		this.id = nextId;
+		nextId += 1;
 		this.name = name;
 		this.tlf = tlf;
 	}
