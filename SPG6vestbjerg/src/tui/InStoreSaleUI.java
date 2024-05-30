@@ -26,10 +26,12 @@ public class InStoreSaleUI {
 		System.out.println(s);
 	}
 
-	public void start() throws Exception {
+	public static void start() throws Exception {
+		CreateInStoreSaleController controller = new CreateInStoreSaleController();
+		InStoreSaleUI ui = new InStoreSaleUI(controller);
 		TryMe tryMe = new TryMe();
 		tryMe.generateTestData();
-		inStoreSaleUI();
+		ui.inStoreSaleUI();
 	}
 
 	private void inStoreSaleUI() throws Exception {
@@ -167,11 +169,5 @@ public class InStoreSaleUI {
 			System.out.println("Okay! Fortsat god dag!");
 		}
 
-	}
-
-	public static void main(String[] args) throws Exception {
-		CreateInStoreSaleController controller = new CreateInStoreSaleController();
-		InStoreSaleUI ui = new InStoreSaleUI(controller);
-		ui.start();
 	}
 }
