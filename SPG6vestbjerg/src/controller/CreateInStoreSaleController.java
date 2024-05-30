@@ -59,7 +59,7 @@ public class CreateInStoreSaleController {
 		return saleInProgress;
 	}
 
-	private void updateStockArfterSale() throws Exception {
+	public void updateStockArfterSale() throws Exception {
 		if (saleInProgress != null) {
 			BillableItemController bictrl = new BillableItemController();
 			for (BillableLine line : saleInProgress.getBillableLines()) {
