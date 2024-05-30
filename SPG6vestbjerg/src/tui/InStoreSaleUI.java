@@ -170,4 +170,10 @@ public class InStoreSaleUI {
 		}
 
 	}
+
+	public static void main(String[] args) throws Exception {
+		CreateInStoreSaleController controller = new CreateInStoreSaleController();
+		InStoreSaleUI ui = new InStoreSaleUI(controller);
+		ui.start();
+	}
 }
