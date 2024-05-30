@@ -45,21 +45,34 @@ class CreateInStoreSaleControllerTest {
 		Employee cashier2 = new Employee("Kasse-ekspedient 2", "kassemedarbejder", 0, 5);
 		employeeContainer.addEmployee(cashier1);
 		employeeContainer.addEmployee(cashier2);
+
 		WarrantyProduct p = new WarrantyProduct("et køleskab fra boch", "køleskab", new Price(100), "1.2.2.1", "98765",
 				"000000001");
 		WarrantyProduct s = new WarrantyProduct("en fryser fra samsung", "fryser", new Price(120), "1.2.2.2", "98764",
 				"000000002");
+
 		BasicProduct c = new BasicProduct("en hammer god til søm", "nail killer 3000", new Price(2), "1.1.1.1",
 				"12345");
+		c.addstocklocation(1000);
+
 		BasicProduct l = new BasicProduct("en hammer beder til søm", "Nail killer 4000", new Price(5.5), "1.1.1.2",
 				"12346");
-		BasicProduct c1 = new BasicProduct("låge af slål", "Låge", new Price(5), "1.3.1.1", "11112");
+		l.addstocklocation(1000);
+
+		BasicProduct c1 = new BasicProduct("låge af stål", "Låge", new Price(5), "1.3.1.1", "11112");
+		c1.addstocklocation(1000);
+
 		BasicProduct c2 = new BasicProduct("en ramme af Fyrtræ", "Ramme", new Price(50), "1.3.1.2", "11113");
+		c2.addstocklocation(1000);
+
 		BasicProduct c3 = new BasicProduct("en hylle af bambus", "hylde", new Price(5), "1.3.1.3", "11114");
+		c3.addstocklocation(1000);
+
 		CompositeProduct c10 = new CompositeProduct("skab i 7 dele", "skab", new Price(75), "to be done", "11115");
 		c10.addCompositeLine(c1, 1);
 		c10.addCompositeLine(c2, 1);
 		c10.addCompositeLine(c3, 5);
+
 		Copy a = p.createCopy(202, "0000001", 5);
 		Copy b = p.createCopy(301, "0000002", 2);
 		Copy n = s.createCopy(230, "0000003", 4);
@@ -73,6 +86,7 @@ class CreateInStoreSaleControllerTest {
 		billableItemContainer.addProduct(c1);
 		billableItemContainer.addProduct(c2);
 		billableItemContainer.addProduct(c3);
+
 		CustomerContainer customerContainer = CustomerContainer.getInstance();
 		Customer psycho = new PrivateCustomer("bob", "12345678", "a@b.com");
 		customerContainer.addCustomer(psycho);
