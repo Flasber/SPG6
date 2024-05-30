@@ -146,7 +146,7 @@ public class InStoreSaleUI {
 	}
 
 	private void printReceipt() {
-		System.out.println("Vil du have en kvittering?");
+		System.out.println("Vil du have en kvittering? (ja/nej)");
 		Scanner scanner = new Scanner(System.in);
 		String answer = scanner.next();
 
