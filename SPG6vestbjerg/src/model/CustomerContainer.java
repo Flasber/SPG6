@@ -10,7 +10,6 @@ public class CustomerContainer {
 
 	private CustomerContainer() {
 		customers = new HashMap<>();
-
 	}
 
 	public static CustomerContainer getInstance() {
@@ -25,7 +24,6 @@ public class CustomerContainer {
 	}
 
 	public Customer findCustomer(String tlf) {
-
 		return customers.get(tlf);
 	}
 }

@@ -6,18 +6,21 @@ import model.BillableItemContainer;
 public class BillableItemController {
 
 	public BillableItem findItem(String barcode) {
+		BillableItemContainer container = BillableItemContainer.getInstance();
+
 		BillableItem bi = null;
-
-		BillableItemContainer bic = BillableItemContainer.getInstance();
-
-		BillableItem copy = bic.findCopy(barcode);
+		BillableItem copy = container.findCopy(barcode);
 
 		if (copy != null) {
 			bi = copy;
 		} else {
-			bi = bic.findProduct(barcode);
+			bi = container.findProduct(barcode);
 		}
 		return bi;
+	}
+
+	public void removeStock(BillableItem item, int quantity) throws Exception {
+		item.removestock(quantity);
 	}
 
 }

@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-
 import model.BillableContainer;
 import model.BillableItem;
 import model.BillableLine;
@@ -47,7 +45,7 @@ public class CreateInStoreSaleController {
 	public InStoreSale isPaid() throws Exception {
 		BillableContainer bc = BillableContainer.getInstance();
 		bc.addSale(saleInProgress);
-		updateStockArfterSale();
+		updateStockAfterSale();
 		lastSale = saleInProgress;
 		saleInProgress = null;
 		return lastSale;
@@ -61,19 +59,12 @@ public class CreateInStoreSaleController {
 		return saleInProgress;
 	}
 
-	public void updateStockArfterSale() throws Exception {
+	public void updateStockAfterSale() throws Exception {
 		if (saleInProgress != null) {
-			ArrayList<BillableLine> billableLine = saleInProgress.getBillableLines();
-			for (int i = 0; i < billableLine.size(); i++) {
-				{
-					BillableLine b = billableLine.get(i);
-					BillableItem p = b.getItem();
-					int a = b.getQuantity();
-					p.removestock(a);
-
-				}
+			BillableItemController bictrl = new BillableItemController();
+			for (BillableLine line : saleInProgress.getBillableLines()) {
+				bictrl.removeStock(line.getItem(), line.getQuantity());
 			}
 		}
-
 	}
 }
