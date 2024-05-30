@@ -61,7 +61,7 @@ public class CreateInStoreSaleController {
 		return saleInProgress;
 	}
 
-	public void updateStockArfterSale() throws Exception {
+	private void updateStockArfterSale() throws Exception {
 		if (saleInProgress != null) {
 			ArrayList<BillableLine> billableLine = saleInProgress.getBillableLines();
 			for (int i = 0; i < billableLine.size(); i++) {
