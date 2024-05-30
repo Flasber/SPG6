@@ -99,12 +99,12 @@ public class TryMe {
 
 	private void generateCustomers() {
 		CustomerContainer customerContainer = CustomerContainer.getInstance();
-		Customer psycho = new PrivateCustomer("bob", "12345678", "a@b.com");
-		Customer crazy8 = new PrivateCustomer("billy", "88888888", "b@a.com");
-		Customer wack = new BusinessCustomer("billybob TømmerHandel", "87654321", "98765432", "ean1");
-		customerContainer.addCustomer(psycho);
-		customerContainer.addCustomer(wack);
-		customerContainer.addCustomer(crazy8);
+		Customer bob = new PrivateCustomer("bob", "12345678", "a@b.com");
+		Customer billy = new PrivateCustomer("billy", "88888888", "b@a.com");
+		Customer billybob = new BusinessCustomer("billybob TømmerHandel", "87654321", "98765432", "ean1");
+		customerContainer.addCustomer(bob);
+		customerContainer.addCustomer(billybob);
+		customerContainer.addCustomer(billy);
 	}
 
 }
