@@ -36,35 +36,17 @@ public class InStoreSaleUI {
 
 	private void inStoreSaleUI() throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		boolean saleRunning = true;
-		int step = 1;
-
-		while (saleRunning) {
-			switch (step) {
-			case 1:
+		{
+			{
 				createInStoreSale(scanner);
-				step++;
-				break;
-			case 2:
-				addItemToSale(scanner);
-				step++;
-				break;
-			case 3:
-				addCustomerToSale(scanner);
-				step++;
-				break;
-			case 4:
-				checkIfPaid();
-				step++;
-				break;
-			case 5:
-				printReceipt();
-				step++;
-				break;
-			default:
 
-				saleRunning = false;
-				break;
+				addItemToSale(scanner);
+
+				addCustomerToSale(scanner);
+
+				checkIfPaid();
+
+				printReceipt();
 			}
 		}
 
