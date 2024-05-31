@@ -16,7 +16,7 @@ public class WarrantyProduct extends Product {
 		private boolean isSold;
 
 		private Copy(WarrantyProduct product, int copyId, String warranty, int timesReturned) {
-			this.product = product; // assc. part 1
+			this.product = product;
 			this.copyId = copyId;
 			this.warranty = warranty;
 			this.timesReturned = timesReturned;
@@ -114,7 +114,6 @@ public class WarrantyProduct extends Product {
 
 	@Override
 	public void removestock(int a) throws Exception {
-		// TODO Auto-generated method stub
 		throw new Exception();
 	}
 

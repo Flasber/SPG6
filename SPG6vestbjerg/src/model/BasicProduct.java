@@ -5,7 +5,6 @@ import java.util.List;
 
 public class BasicProduct extends NonWarrantyProduct {
 
-	// how do you remove from the right stock
 	private List<Stock> StockLocations;
 
 	public BasicProduct(String description, String name, Price price, String sku, String barcode) {
