@@ -23,7 +23,7 @@ public class InStoreSaleUI {
 	}
 
 	private void print(String s) {
-		System.out.println(s);
+		System.out.print(s);
 	}
 
 	public static void start() throws Exception {
@@ -36,37 +36,12 @@ public class InStoreSaleUI {
 
 	private void inStoreSaleUI() throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		boolean saleRunning = true;
-		int step = 1;
 
-		while (saleRunning) {
-			switch (step) {
-			case 1:
-				createInStoreSale(scanner);
-				step++;
-				break;
-			case 2:
-				addItemToSale(scanner);
-				step++;
-				break;
-			case 3:
-				addCustomerToSale(scanner);
-				step++;
-				break;
-			case 4:
-				checkIfPaid();
-				step++;
-				break;
-			case 5:
-				printReceipt();
-				step++;
-				break;
-			default:
-
-				saleRunning = false;
-				break;
-			}
-		}
+		createInStoreSale(scanner);
+		addItemToSale(scanner);
+		addCustomerToSale(scanner);
+		checkIfPaid();
+		printReceipt();
 
 		println("\nSalget er lavet.");
 	}
@@ -146,19 +121,19 @@ public class InStoreSaleUI {
 	}
 
 	private void printReceipt() {
-		System.out.println("Vil du have en kvittering? (ja/nej)");
+		println("Vil du have en kvittering? (ja/nej)");
 		Scanner scanner = new Scanner(System.in);
 		String answer = scanner.next();
 
 		if (answer.toLowerCase().trim().equals("ja")) {
 			InStoreSale sale = controller.getLastSale();
 			ArrayList<BillableLine> billableLines = (ArrayList<BillableLine>) sale.getBillableLines();
-			System.out.println("\uD83D\uDD28");
+			println("\uD83D\uDD28");
 			for (BillableLine bl : billableLines) {
-				System.out.println(bl.toString() + " " + bl.getSubTotal() + " ,-");
+				println(bl.toString() + " " + bl.getSubTotal() + " ,-");
 			}
-			System.out.println("Totalbeløb: " + sale.getTotal() + " ,-");
-			System.out.println("""
+			println("Totalbeløb: " + sale.getTotal() + " ,-");
+			println("""
 					,
 					 /(  ___
 					|  >:===========`
@@ -166,7 +141,7 @@ public class InStoreSaleUI {
 					 ""
 					""");
 		} else if (answer.toLowerCase().trim().equals("nej")) {
-			System.out.println("Okay! Fortsat god dag!");
+			println("Okay! Fortsat god dag!");
 		}
 
 	}
