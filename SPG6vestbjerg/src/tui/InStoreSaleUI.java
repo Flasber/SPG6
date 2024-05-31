@@ -26,6 +26,11 @@ public class InStoreSaleUI {
 		System.out.print(s);
 	}
 
+	/**
+	 * Start of UI
+	 * 
+	 * @throws Exception if an error occurs during starting the sale process
+	 */
 	public static void start() throws Exception {
 		CreateInStoreSaleController controller = new CreateInStoreSaleController();
 		InStoreSaleUI ui = new InStoreSaleUI(controller);
@@ -34,6 +39,11 @@ public class InStoreSaleUI {
 		ui.inStoreSaleUI();
 	}
 
+	/**
+	 * the UI for inStoreSale
+	 * 
+	 * @throws Exception if an error occurs during starting the sale process
+	 */
 	private void inStoreSaleUI() throws Exception {
 		Scanner scanner = new Scanner(System.in);
 
@@ -46,6 +56,11 @@ public class InStoreSaleUI {
 		println("\nSalget er lavet.");
 	}
 
+	/**
+	 * method to create in-store sale
+	 * 
+	 * @param scanner for user input
+	 */
 	private void createInStoreSale(Scanner scanner) {
 		println("\nLaver et salg...");
 		print("Kassenummer");
@@ -55,6 +70,12 @@ public class InStoreSaleUI {
 		controller.createInStoreSale(registerNo, employeeId);
 	}
 
+	/**
+	 * The addItemToSale method
+	 * 
+	 * @param scanner for user input
+	 * @throws Exception if an error occurs during adding an item to sale
+	 */
 	private void addItemToSale(Scanner scanner) throws Exception {
 		println("\nTilføjer produkter til salget...");
 
@@ -66,10 +87,9 @@ public class InStoreSaleUI {
 			int quantity = scanner.nextInt();
 
 			try {
-				//
+
 				BillableItem addedItem = controller.addItemToSale(barcode, quantity);
 
-				//
 				if (addedItem == null) {
 					println("Produkt med stregkode " + barcode + " blev ikke fundet.");
 				} else {
@@ -89,6 +109,11 @@ public class InStoreSaleUI {
 		}
 	}
 
+	/**
+	 * Adding a customer to sale
+	 * 
+	 * @param scanner for user input
+	 */
 	private void addCustomerToSale(Scanner scanner) {
 		println("\nTilføj Kunder...");
 		print("Indtast Kundens telefonnummer: ");
@@ -102,6 +127,9 @@ public class InStoreSaleUI {
 		}
 	}
 
+	/**
+	 * Checking if the sale is paid
+	 */
 	private void checkIfPaid() {
 		println("\nBetaling....");
 		InStoreSale sale = null;
@@ -120,6 +148,9 @@ public class InStoreSaleUI {
 
 	}
 
+	/**
+	 * Method to print the receipt
+	 */
 	private void printReceipt() {
 		println("Vil du have en kvittering? (ja/nej)");
 		Scanner scanner = new Scanner(System.in);
@@ -146,9 +177,4 @@ public class InStoreSaleUI {
 
 	}
 
-	public static void main(String[] args) throws Exception {
-		CreateInStoreSaleController controller = new CreateInStoreSaleController();
-		InStoreSaleUI ui = new InStoreSaleUI(controller);
-		ui.start();
-	}
 }
