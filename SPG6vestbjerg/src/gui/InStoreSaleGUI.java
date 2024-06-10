@@ -1,11 +1,13 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -45,10 +47,13 @@ public class InStoreSaleGUI {
 	private void createInStoreSale() {
 		JPanel panel = new JPanel(new GridLayout(3, 2));
 		JLabel registerNoLabel = new JLabel("Kassenummer:");
+		registerNoLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		JTextField registerNoField = new JTextField();
 		JLabel employeeIdLabel = new JLabel("Medarbejder Nummer:");
+		employeeIdLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		JTextField employeeIdField = new JTextField();
-		JButton nextButton = new JButton("Næste");
+		JButton nextButton = new JButton("NÆSTE");
+		nextButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
 
 		panel.add(registerNoLabel);
 		panel.add(registerNoField);
@@ -57,7 +62,7 @@ public class InStoreSaleGUI {
 		panel.add(new JLabel());
 		panel.add(nextButton);
 
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.revalidate();
 		frame.repaint();
 
@@ -76,11 +81,15 @@ public class InStoreSaleGUI {
 	private void addItemToSale() {
 		JPanel panel = new JPanel(new GridLayout(3, 2));
 		JLabel barcodeLabel = new JLabel("Indtast stregkode:");
+		barcodeLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		JTextField barcodeField = new JTextField();
 		JLabel quantityLabel = new JLabel("Indtast antal:");
+		quantityLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		JTextField quantityField = new JTextField();
 		JButton addButton = new JButton("Tilføj");
+		addButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
 		JButton finishButton = new JButton("Færdig");
+		finishButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
 
 		panel.add(barcodeLabel);
 		panel.add(barcodeField);
@@ -89,7 +98,7 @@ public class InStoreSaleGUI {
 		panel.add(addButton);
 		panel.add(finishButton);
 
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.revalidate();
 		frame.repaint();
 
@@ -128,23 +137,33 @@ public class InStoreSaleGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.getContentPane().removeAll();
-				addCustomerToSale();
+				isCustomer();
 			}
 		});
 	}
 
-	private void addCustomerToSale() {
+	public void isCustomer() {
+
+		// Here we create and show the dialog
+		isCustomerDialog dialog = new isCustomerDialog(this); // 'this' refers to the current instance of InStoreSaleGUI
+		dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		dialog.setVisible(true);
+	}
+
+	public void addCustomerToSale() {
 		JPanel panel = new JPanel(new GridLayout(2, 2));
 		JLabel phoneLabel = new JLabel("Indtast Kundens telefonnummer:");
+		phoneLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		JTextField phoneField = new JTextField();
 		JButton addButton = new JButton("Tilføj");
+		addButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
 
 		panel.add(phoneLabel);
 		panel.add(phoneField);
 		panel.add(new JLabel());
 		panel.add(addButton);
 
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.revalidate();
 		frame.repaint();
 
@@ -169,14 +188,14 @@ public class InStoreSaleGUI {
 		});
 	}
 
-	private void checkIfPaid() {
+	public void checkIfPaid() {
 		JPanel panel = new JPanel(new GridLayout(2, 1));
 		JButton payButton = new JButton("Betal");
 
 		panel.add(new JLabel("Betaling..."));
 		panel.add(payButton);
 
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.revalidate();
 		frame.repaint();
 
@@ -247,7 +266,7 @@ public class InStoreSaleGUI {
 		});
 
 		panel.add(newSaleButton, BorderLayout.SOUTH);
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.revalidate();
 		frame.repaint();
 	}
