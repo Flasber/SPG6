@@ -150,7 +150,7 @@ class CreateInStoreSaleControllerTest {
 		ctrl.createInStoreSale(1, 5);
 		InStoreSale sale = ctrl.isPaid();
 		assertNotNull(sale);
-		assertEquals(sale, ctrl.getLastSale());
+		assertEquals(sale, ctrl.getSaleInProgress());
 	}
 
 }

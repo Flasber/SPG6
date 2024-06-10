@@ -157,7 +157,7 @@ public class InStoreSaleUI {
 		String answer = scanner.next();
 
 		if (answer.toLowerCase().trim().equals("ja")) {
-			InStoreSale sale = controller.getLastSale();
+			InStoreSale sale = controller.getSaleInProgress();
 			ArrayList<BillableLine> billableLines = (ArrayList<BillableLine>) sale.getBillableLines();
 			println("\uD83D\uDD28");
 			for (BillableLine bl : billableLines) {

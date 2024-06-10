@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -29,6 +30,7 @@ public class InStoreSaleGUI {
 	private JFrame frame;
 
 	public InStoreSaleGUI(CreateInStoreSaleController controller) {
+
 		this.controller = controller;
 		frame = new JFrame("InStore Sale");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -192,7 +194,11 @@ public class InStoreSaleGUI {
 		JPanel panel = new JPanel(new GridLayout(2, 1));
 		JButton payButton = new JButton("Betal");
 
-		panel.add(new JLabel("Betaling..."));
+		InStoreSale s = controller.getSaleinProgress();
+		BigDecimal b = s.getTotal();
+		String string = b.toString();
+
+		panel.add(new JLabel("Totalbeløb: " + string + " kr"));
 		panel.add(payButton);
 
 		frame.getContentPane().add(panel);
@@ -228,8 +234,8 @@ public class InStoreSaleGUI {
 		JPanel panel = new JPanel(new BorderLayout());
 		JTextArea receiptArea = new JTextArea();
 		receiptArea.setEditable(false);
+		InStoreSale sale = controller.getSaleInProgress();
 
-		InStoreSale sale = controller.getLastSale();
 		if (sale != null) {
 			StringBuilder receipt = new StringBuilder();
 			receipt.append("Kvittering\n");

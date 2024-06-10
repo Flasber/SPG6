@@ -60,6 +60,7 @@ public class isCustomerDialog extends JDialog {
 		JButton noButton = new JButton("NEJ");
 		noButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				getContentPane();
 				GUI.checkIfPaid();
 				dispose();
 			}
@@ -72,8 +73,10 @@ public class isCustomerDialog extends JDialog {
 		privateCustomerButton.setActionCommand("OK");
 		privateCustomerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				getContentPane();
 				GUI.addCustomerToSale();
 				dispose();
+
 			}
 		});
 		buttonPane.add(privateCustomerButton);
