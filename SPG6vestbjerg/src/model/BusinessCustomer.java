@@ -19,4 +19,10 @@ public class BusinessCustomer extends Customer {
 		return ean;
 	}
 
+	public void setCvr(String cvr){
+		this.cvr = cvr;
+	}
+	public void setEan(String ean){
+		this.ean = ean;
+	}
 }

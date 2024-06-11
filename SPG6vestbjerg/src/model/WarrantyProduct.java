@@ -38,6 +38,10 @@ public class WarrantyProduct extends Product {
 			return product;
 		}
 
+		public void setProduct(WarrantyProduct p){
+			product = p;
+		}
+
 		public Price getPrice() {
 			return product.getPrice();
 		}
@@ -61,6 +65,18 @@ public class WarrantyProduct extends Product {
 			// TODO Auto-generated method stub
 			System.err.println("not yet done");
 		}
+
+		public void setCopyId(int copyId) {
+			this.copyId = copyId;
+		}
+
+        public void setWarranty(String warranty) {
+            this.warranty = warranty;
+        }
+
+        public void setTimesReturned(int timesReturned) {
+            this.timesReturned = timesReturned;
+        }
 	}
 
 	public WarrantyProduct(String description, String name, Price price, String sku, String barcode, String warranty) {
@@ -85,8 +101,19 @@ public class WarrantyProduct extends Product {
 		return isAdded;
 	}
 
+	public void removeCopy(Copy c){
+		if (c!=null){
+			copies.remove(c);
+			c.setProduct(null);
+		}
+	}
+
 	public String getWarranty() {
 		return warranty;
+	}
+
+	public List<Copy> getCopies(){
+		return copies;
 	}
 
 	public Copy findCopyByCopyId(int cId) {
@@ -115,6 +142,11 @@ public class WarrantyProduct extends Product {
 	@Override
 	public void removestock(int a) throws Exception {
 		throw new Exception();
+	}
+
+	@Override
+	public int getQuantity() {
+		return copies.size();
 	}
 
 }

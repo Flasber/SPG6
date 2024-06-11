@@ -28,6 +28,10 @@ public class BillableItemContainer {
 		return addProduct;
 	}
 
+	public void removeProduct(Product p){
+		products.remove(p);
+	}
+
 	public BillableItem findCopy(String barcode) {
 		WarrantyProduct.Copy copy = null;
 		Product product = null;

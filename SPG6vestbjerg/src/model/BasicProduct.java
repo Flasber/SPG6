@@ -5,22 +5,33 @@ import java.util.List;
 
 public class BasicProduct extends NonWarrantyProduct {
 
-	private List<Stock> StockLocations;
+	private List<Stock> stockLocations;
 
 	public BasicProduct(String description, String name, Price price, String sku, String barcode) {
 		super(description, name, price, sku, barcode);
-		StockLocations = new ArrayList<>();
+		stockLocations = new ArrayList<>();
 	}
 
-	public void addstocklocation(int q) {
-		StockLocations.add(new Stock(q));
+	@Override
+	public void addStockLocation(int q) {
+		int currentStock = stockLocations.get(0).getQuantity();
+		stockLocations.add(0, new Stock(q + currentStock));
 
 	}
 
 	@Override
 	public void removestock(int a) {
 		Stock s = null;
-		s = StockLocations.get(0);
+		s = stockLocations.get(0);
 		s.lowerquantity(a);
+	}
+
+	@Override
+	public int getQuantity() {
+		int q = 0;
+		for (Stock s : stockLocations){
+			q = q + s.getQuantity();
+		}
+		return q;
 	}
 }

@@ -42,24 +42,24 @@ public class TryMe {
 				"000000002");
 		BasicProduct c = new BasicProduct("en hammer god til søm", "nail killer 3000", new Price(2), "1.1.1.1",
 				"12345");
-		c.addstocklocation(1000);
+		c.addStockLocation(1000);
 		BasicProduct l = new BasicProduct("en hammer bedre til søm", "Nail killer 4000", new Price(5.5), "1.1.1.2",
 				"12346");
-		l.addstocklocation(1000);
+		l.addStockLocation(1000);
 		BasicProduct c1 = new BasicProduct("låge af stål", "Låge", new Price(5), "1.3.1.1", "11112");
-		c1.addstocklocation(1000);
+		c1.addStockLocation(1000);
 		BasicProduct c2 = new BasicProduct("en ramme af fyrtræ", "Ramme", new Price(50), "1.3.1.2", "11113");
-		c2.addstocklocation(1000);
+		c2.addStockLocation(1000);
 		BasicProduct c3 = new BasicProduct("en hylde af bambus", "hylde", new Price(5), "1.3.1.3", "11114");
-		c3.addstocklocation(1000);
+		c3.addStockLocation(1000);
 		CompositeProduct c10 = new CompositeProduct("skab i 7 dele", "skab", new Price(75), "to be done", "11115");
 		c10.addCompositeLine(c1, 1);
 		c10.addCompositeLine(c2, 1);
 		c10.addCompositeLine(c3, 5);
 		BasicProduct c4 = new BasicProduct("en bordplade af marmor", "bordplade", new Price(100), "1.3.1.4", "11116");
-		c4.addstocklocation(1000);
+		c4.addStockLocation(1000);
 		BasicProduct c5 = new BasicProduct("en vask af kobber", "vask", new Price(50), "1.4.1.1", "11117");
-		c5.addstocklocation(1000);
+		c5.addStockLocation(1000);
 		CompositeProduct c11 = new CompositeProduct("et komplet køkken", "køkken", new Price(250), "to be done",
 				"11118");
 		c10.addCompositeLine(c10, 2);

@@ -7,4 +7,5 @@ public abstract class NonWarrantyProduct extends Product {
 		// TODO Auto-generated constructor stub
 	}
 
+	public abstract void addStockLocation(int quantity);
 }

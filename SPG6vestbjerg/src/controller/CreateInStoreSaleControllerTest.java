@@ -53,20 +53,20 @@ class CreateInStoreSaleControllerTest {
 
 		BasicProduct c = new BasicProduct("en hammer god til søm", "nail killer 3000", new Price(2), "1.1.1.1",
 				"12345");
-		c.addstocklocation(1000);
+		c.addStockLocation(1000);
 
 		BasicProduct l = new BasicProduct("en hammer beder til søm", "Nail killer 4000", new Price(5.5), "1.1.1.2",
 				"12346");
-		l.addstocklocation(1000);
+		l.addStockLocation(1000);
 
 		BasicProduct c1 = new BasicProduct("låge af stål", "Låge", new Price(5), "1.3.1.1", "11112");
-		c1.addstocklocation(1000);
+		c1.addStockLocation(1000);
 
 		BasicProduct c2 = new BasicProduct("en ramme af Fyrtræ", "Ramme", new Price(50), "1.3.1.2", "11113");
-		c2.addstocklocation(1000);
+		c2.addStockLocation(1000);
 
 		BasicProduct c3 = new BasicProduct("en hylle af bambus", "hylde", new Price(5), "1.3.1.3", "11114");
-		c3.addstocklocation(1000);
+		c3.addStockLocation(1000);
 
 		CompositeProduct c10 = new CompositeProduct("skab i 7 dele", "skab", new Price(75), "to be done", "11115");
 		c10.addCompositeLine(c1, 1);

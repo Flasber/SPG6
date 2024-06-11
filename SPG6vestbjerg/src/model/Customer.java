@@ -25,4 +25,16 @@ public abstract class Customer {
 		return tlf;
 	}
 
+	public void setId(int id){
+		this.id = id;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public void setTlf(String tlf){
+		this.tlf = tlf;
+	}
+
 }

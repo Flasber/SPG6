@@ -43,4 +43,30 @@ public class CompositeProduct extends NonWarrantyProduct {
 			p.removestock(amount);
 		}
 	}
+
+	@Override
+	public int getQuantity() {
+		int lowestQuantityBasicProduct = Integer.MAX_VALUE;
+		for (int i = 0; i < compositeLines.size(); i++) {
+			CompositeLine c = compositeLines.get(i);
+			Product p = c.getItem();
+			int ratioOfStockToNeeds = p.getQuantity() / c.getQuantity();
+			if (ratioOfStockToNeeds<lowestQuantityBasicProduct){
+				lowestQuantityBasicProduct = ratioOfStockToNeeds;
+			}
+		}
+		return lowestQuantityBasicProduct;
+	}
+
+	@Override
+	public void addStockLocation(int quantity) {
+		for (int i = 0; i < compositeLines.size(); i++) {
+			CompositeLine c = compositeLines.get(i);
+			NonWarrantyProduct p = c.getItem();
+			p.addStockLocation(c.getQuantity() * quantity);
+		}
+	}
+
+	
+	
 }

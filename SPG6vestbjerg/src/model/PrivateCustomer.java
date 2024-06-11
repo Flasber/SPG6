@@ -13,4 +13,7 @@ public class PrivateCustomer extends Customer {
 		return email;
 	}
 
+	public void setEmail(String email){
+		this.email = email;
+	}
 }
