@@ -37,14 +37,25 @@ public class BillableItemController {
 		item.addStockLocation(quantity);
 	}
 
-	public void addCopy(WarrantyProduct wp, int copyId, String warranty){
+	public void addCopy(WarrantyProduct wp, int copyId, String warranty) throws BarcodeAlreadyExistsException, WarrantyInUseException{
+		BillableItemContainer container = BillableItemContainer.getInstance();
+		if (wp.findCopyByCopyId(copyId) != null){
+			throw new BarcodeAlreadyExistsException("Barcode is already in use");
+		}
+		if (container.copyWarrantyExists(warranty)){
+			throw new WarrantyInUseException("Warranty is already in use");
+		}
 		wp.createCopy(copyId, warranty, 0);
 	}
 
-	public Product createProduct(String description, String name, Price price, String sku, String barcode, String warranty, boolean isComposite) throws BarcodeAlreadyExistsException{
+	public Product createProduct(String description, String name, Price price, String sku, String barcode, String warranty, boolean isComposite) throws BarcodeAlreadyExistsException, SkuAlreadyExistsException{
+		BillableItemContainer container = BillableItemContainer.getInstance();
 		Product p = null;
-		if (findItem(barcode) != null){
+		if (container.barcodeExists(barcode)){
 			throw new BarcodeAlreadyExistsException("barcode is already in use");
+		}
+		if (container.skuExists(sku)){
+			throw new SkuAlreadyExistsException("SKU is already in use");
 		}
 			else if (warranty == null && !isComposite){
 				p = new BasicProduct(description, name, price, sku, barcode);
@@ -54,10 +65,8 @@ public class BillableItemController {
 			}
 			else if (warranty != null){
 				p = new WarrantyProduct(description, name, price, sku, barcode, warranty);
-
 			}
 		if (p != null){
-			BillableItemContainer container = BillableItemContainer.getInstance();
 			container.addProduct(p);
 		}
 		return p;
@@ -75,10 +84,11 @@ public class BillableItemController {
 	}
 
 	public void updateProduct(Product p, String description, String name, Price price, String sku, String barcode) throws BarcodeAlreadyExistsException, SkuAlreadyExistsException{
-		if (p.getBarcode() == barcode){
+		BillableItemContainer container = BillableItemContainer.getInstance();
+		if (container.barcodeExists(barcode)){
 			throw new BarcodeAlreadyExistsException("Barcode is already in use");
 		}
-		if (p.getSku() == sku){
+		if (container.skuExists(sku)){
 			throw new SkuAlreadyExistsException("SKU is already in use");
 		}
 		p.setDescription(description);
@@ -89,16 +99,19 @@ public class BillableItemController {
 	}
 
 	public void updateCopy(Copy c, int copyId, String warranty, int timesReturned) throws BarcodeAlreadyExistsException, WarrantyInUseException{
+		BillableItemContainer container = BillableItemContainer.getInstance();
 		WarrantyProduct p = c.getProduct();
 		if (p.findCopyByCopyId(copyId) != null){
 			throw new BarcodeAlreadyExistsException("Barcode is already in use");
 		}
-		if (c.getWarranty() == warranty){
+		if (container.copyWarrantyExists(warranty)){
 			throw new WarrantyInUseException("Warranty is already in use");
 		}
 		c.setCopyId(copyId);
 		c.setWarranty(warranty);
 		c.setTimesReturned(timesReturned);
 	}
+
+
 
 }

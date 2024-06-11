@@ -73,4 +73,37 @@ public class BillableItemContainer {
 		return result;
 	}
 
+	public boolean barcodeExists(String barcode){
+		boolean barcodeFound = false;
+		for (Product p : products){
+			if (p.getBarcode().equals(barcode)){
+				barcodeFound = true;
+			}
+		}
+		return barcodeFound;
+	}
+
+	public boolean skuExists(String sku){
+		boolean skuFound = false;
+		for (Product p : products){
+			if (p.getSku().equals(sku)){
+				skuFound = true;
+			}
+		}
+		return skuFound;
+	}
+
+	public boolean copyWarrantyExists(String warranty){
+		boolean copyWarrantyFound = false;
+		for (Product p : products){
+			if (p instanceof WarrantyProduct){
+				for (WarrantyProduct.Copy c : ((WarrantyProduct) p).getCopies()){
+					if (c.getWarranty().equals(warranty)){
+						copyWarrantyFound = true;
+					}
+				}
+			}
+		}
+		return copyWarrantyFound;
+	}
 }

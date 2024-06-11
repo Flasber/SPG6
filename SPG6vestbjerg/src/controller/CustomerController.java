@@ -16,9 +16,19 @@ public class CustomerController {
 	}
 
 	public Customer createCustomer(String name, String tlf, String cvr, String ean, String email) throws Exception{
+		CustomerContainer customerContainer = CustomerContainer.getInstance();
 		Customer c = null;
 		if (findCustomer(tlf) != null){
 			throw new PhoneNumberInUseException("Phone number is already in use");
+		}
+		if (customerContainer.emailExists(email)){
+			throw new EmailInUseException("Email is already in use");
+		}
+		if (customerContainer.cvrExists(cvr)){
+			throw new CvrInUseException("Cvr is already in use");
+		}
+		if (customerContainer.eanExists(ean)){
+			throw new EanInUseException("Ean is already in use");
 		}
 			else if (email == null){
 				c = new BusinessCustomer(name, tlf, cvr, ean);
@@ -27,23 +37,23 @@ public class CustomerController {
 		}
 
 		if (c != null){
-			CustomerContainer customerContainer = CustomerContainer.getInstance();
 			customerContainer.addCustomer(c);
 		}
 		return c;
 	}
 
 	public void updateCustomer(Customer c, String name, String tlf, String cvr, String ean, String email) throws EmailInUseException, PhoneNumberInUseException, CvrInUseException, EanInUseException{
+		CustomerContainer customerContainer = CustomerContainer.getInstance();
 		if (c.getTlf() == tlf){
 			throw new PhoneNumberInUseException("Phone number is already in use");
 		}
-		if (c instanceof PrivateCustomer && ((PrivateCustomer) c).getEmail() == email){
+		if (c instanceof PrivateCustomer && customerContainer.emailExists(email)){
 			throw new EmailInUseException("Email is already in use");
 		}
-		if (c instanceof BusinessCustomer && ((BusinessCustomer) c).getCvr() == cvr){
+		if (c instanceof BusinessCustomer && customerContainer.cvrExists(cvr)){
 			throw new CvrInUseException("Cvr is already in use");
 		}
-		if (c instanceof BusinessCustomer && ((BusinessCustomer) c).getEan() == ean){
+		if (c instanceof BusinessCustomer && customerContainer.eanExists(ean)){
 			throw new EanInUseException("Ean is already in use");
 		}
 		c.setName(name);
