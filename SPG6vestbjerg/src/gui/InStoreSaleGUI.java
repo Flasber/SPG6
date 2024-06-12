@@ -29,6 +29,10 @@ public class InStoreSaleGUI {
 	private CreateInStoreSaleController controller;
 	private JFrame frame;
 
+	private int employeeID;
+	private int registerNO;
+	public boolean isLoggedIn;
+
 	public InStoreSaleGUI(CreateInStoreSaleController controller) {
 
 		this.controller = controller;
@@ -39,11 +43,21 @@ public class InStoreSaleGUI {
 		resetUI();
 	}
 
-	private void resetUI() {
+	public void resetUI() {
 		frame.getContentPane().removeAll();
-		createInStoreSale();
+		if (isLoggedIn = false) {
+			createInStoreSale();
+		} else if (isLoggedIn = true) {
+			checkIfLoggedIn();
+		}
 		frame.revalidate();
 		frame.repaint();
+	}
+
+	private void checkIfLoggedIn() {
+		controller.createInStoreSale(registerNO, employeeID);
+		addItemToSale();
+
 	}
 
 	private void createInStoreSale() {
@@ -71,16 +85,22 @@ public class InStoreSaleGUI {
 		nextButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int registerNo = Integer.parseInt(registerNoField.getText());
-				int employeeId = Integer.parseInt(employeeIdField.getText());
-				controller.createInStoreSale(registerNo, employeeId);
+				registerNO = Integer.parseInt(registerNoField.getText());
+				employeeID = Integer.parseInt(employeeIdField.getText());
+
 				frame.getContentPane().removeAll();
-				addItemToSale();
+				checkIfLoggedIn();
+				isLoggedIn = true;
+
 			}
 		});
 	}
 
 	private void addItemToSale() {
+		AddItemToSale JFrame = new AddItemToSale(this, controller);
+		JFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		JFrame.setVisible(true);
+
 		JPanel panel = new JPanel(new GridLayout(3, 2));
 		JLabel barcodeLabel = new JLabel("Indtast stregkode:");
 		barcodeLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
@@ -225,12 +245,19 @@ public class InStoreSaleGUI {
 					JOptionPane.showMessageDialog(frame, "Betaling afvist", "Fejl", JOptionPane.ERROR_MESSAGE);
 				}
 				frame.getContentPane().removeAll();
-				printReceipt();
+				receiptConfirmation();
 			}
 		});
+
 	}
 
-	private void printReceipt() {
+	public void receiptConfirmation() {
+		ReceiptConfirmation dialog = new ReceiptConfirmation(this);
+		dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		dialog.setVisible(true);
+	}
+
+	public void printReceipt() {
 		JPanel panel = new JPanel(new BorderLayout());
 		JTextArea receiptArea = new JTextArea();
 		receiptArea.setEditable(false);
@@ -275,5 +302,26 @@ public class InStoreSaleGUI {
 		frame.getContentPane().add(panel);
 		frame.revalidate();
 		frame.repaint();
+	}
+
+	public void saleConfirmation() {
+		JPanel panel = new JPanel(new GridLayout(2, 1));
+		JLabel newLabel = new JLabel("Salget er gennemført");
+		JButton okButton = new JButton("OK");
+
+		panel.add(newLabel);
+		panel.add(okButton);
+
+		okButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				resetUI();
+			}
+		});
+
+		frame.getContentPane().add(panel);
+		frame.revalidate();
+		frame.repaint();
+
 	}
 }
