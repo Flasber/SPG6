@@ -98,7 +98,7 @@ public class InStoreSaleGUI {
 
 	private void addItemToSale() {
 		AddItemToSale JFrame = new AddItemToSale(this, controller);
-		JFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		// JFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		JFrame.setVisible(true);
 
 		JPanel panel = new JPanel(new GridLayout(3, 2));

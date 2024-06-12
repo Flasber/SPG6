@@ -118,6 +118,9 @@ public class AddItemToSale extends JFrame {
 		endSaleButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				getContentPane();
+				GUI.isCustomer();
+				dispose();
 			}
 		});
 		endSaleButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
