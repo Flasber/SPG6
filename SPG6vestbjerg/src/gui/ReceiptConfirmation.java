@@ -20,31 +20,15 @@ public class ReceiptConfirmation extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	public InStoreSaleGUI GUI;
+	private InStoreSaleGUI GUI;
 
 	public ReceiptConfirmation(InStoreSaleGUI gUI) {
 		super();
-		GUI = gUI;
-
-	}
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			ReceiptConfirmation dialog = new ReceiptConfirmation();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (gUI == null) {
+			throw new IllegalArgumentException();
 		}
-	}
+		this.GUI = gUI;
 
-	/**
-	 * Create the dialog.
-	 */
-	public ReceiptConfirmation() {
 		setBounds(100, 100, 350, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -76,7 +60,6 @@ public class ReceiptConfirmation extends JDialog {
 				JButton yesButton = new JButton("JA");
 				yesButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						getContentPane();
 						GUI.printReceipt();
 						dispose();
 
@@ -96,7 +79,6 @@ public class ReceiptConfirmation extends JDialog {
 			JButton noButton = new JButton("NEJ");
 			noButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					getContentPane();
 					GUI.saleConfirmation();
 					dispose();
 

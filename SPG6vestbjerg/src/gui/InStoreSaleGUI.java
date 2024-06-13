@@ -233,6 +233,8 @@ public class InStoreSaleGUI {
 		frame.revalidate();
 		frame.repaint();
 
+		var theGui = this;
+
 		payButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -253,7 +255,7 @@ public class InStoreSaleGUI {
 					JOptionPane.showMessageDialog(frame, "Betaling afvist", "Fejl", JOptionPane.ERROR_MESSAGE);
 				}
 				frame.getContentPane().removeAll();
-				ReceiptConfirmation dialog = new ReceiptConfirmation();
+				ReceiptConfirmation dialog = new ReceiptConfirmation(theGui);
 				dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				dialog.setVisible(true);
 				resetUI();
