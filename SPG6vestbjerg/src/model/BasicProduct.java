@@ -14,8 +14,12 @@ public class BasicProduct extends NonWarrantyProduct {
 
 	@Override
 	public void addStockLocation(int q) {
-		int currentStock = stockLocations.get(0).getQuantity();
-		stockLocations.add(0, new Stock(q + currentStock));
+		if (stockLocations.isEmpty()) {
+			stockLocations.add(new Stock(q));
+		} else {
+			int currentStock = stockLocations.get(0).getQuantity();
+			stockLocations.add(0, new Stock(q + currentStock));
+		}
 
 	}
 
@@ -29,7 +33,7 @@ public class BasicProduct extends NonWarrantyProduct {
 	@Override
 	public int getQuantity() {
 		int q = 0;
-		for (Stock s : stockLocations){
+		for (Stock s : stockLocations) {
 			q = q + s.getQuantity();
 		}
 		return q;

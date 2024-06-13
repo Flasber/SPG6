@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class ReceiptConfirmation extends JDialog {
@@ -24,7 +25,7 @@ public class ReceiptConfirmation extends JDialog {
 	public ReceiptConfirmation(InStoreSaleGUI gUI) {
 		super();
 		GUI = gUI;
-		setModal(true);
+
 	}
 
 	/**
@@ -44,7 +45,7 @@ public class ReceiptConfirmation extends JDialog {
 	 * Create the dialog.
 	 */
 	public ReceiptConfirmation() {
-		setBounds(100, 100, 250, 100);
+		setBounds(100, 100, 350, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -52,8 +53,10 @@ public class ReceiptConfirmation extends JDialog {
 		{
 			JPanel panel = new JPanel();
 			contentPanel.add(panel, BorderLayout.CENTER);
+			panel.setLayout(new BorderLayout(0, 0));
 			{
 				JLabel receiptLabel = new JLabel("Ønskes kvittering printet?");
+				receiptLabel.setHorizontalAlignment(SwingConstants.CENTER);
 				receiptLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 				panel.add(receiptLabel);
 			}
@@ -93,6 +96,10 @@ public class ReceiptConfirmation extends JDialog {
 			JButton noButton = new JButton("NEJ");
 			noButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					getContentPane();
+					GUI.saleConfirmation();
+					dispose();
+
 				}
 			});
 			noButton.setFont(new Font("Arial Narrow", Font.BOLD, 10));

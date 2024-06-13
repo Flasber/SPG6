@@ -45,9 +45,9 @@ public class InStoreSaleGUI {
 
 	public void resetUI() {
 		frame.getContentPane().removeAll();
-		if (isLoggedIn = false) {
+		if (isLoggedIn == false) {
 			createInStoreSale();
-		} else if (isLoggedIn = true) {
+		} else if (isLoggedIn == true) {
 			checkIfLoggedIn();
 		}
 		frame.revalidate();
@@ -97,21 +97,20 @@ public class InStoreSaleGUI {
 	}
 
 	private void addItemToSale() {
-		AddItemToSale JFrame = new AddItemToSale(this, controller);
-		// JFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		JFrame.setVisible(true);
 
-		JPanel panel = new JPanel(new GridLayout(3, 2));
+		JPanel panel = new JPanel(new GridLayout(4, 2));
 		JLabel barcodeLabel = new JLabel("Indtast stregkode:");
 		barcodeLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		JTextField barcodeField = new JTextField();
 		JLabel quantityLabel = new JLabel("Indtast antal:");
 		quantityLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		JTextField quantityField = new JTextField();
-		JButton addButton = new JButton("Tilføj");
+		JButton addButton = new JButton("TILFØJ");
 		addButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
-		JButton finishButton = new JButton("Færdig");
+		JButton finishButton = new JButton("FÆRDIG");
 		finishButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
+		JButton logOutButton = new JButton("LOG UD");
+		logOutButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
 
 		panel.add(barcodeLabel);
 		panel.add(barcodeField);
@@ -119,6 +118,7 @@ public class InStoreSaleGUI {
 		panel.add(quantityField);
 		panel.add(addButton);
 		panel.add(finishButton);
+		panel.add(logOutButton);
 
 		frame.getContentPane().add(panel);
 		frame.revalidate();
@@ -162,6 +162,14 @@ public class InStoreSaleGUI {
 				isCustomer();
 			}
 		});
+
+		logOutButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				isLoggedIn = false;
+				resetUI();
+			}
+		});
+
 	}
 
 	public void isCustomer() {
@@ -245,16 +253,13 @@ public class InStoreSaleGUI {
 					JOptionPane.showMessageDialog(frame, "Betaling afvist", "Fejl", JOptionPane.ERROR_MESSAGE);
 				}
 				frame.getContentPane().removeAll();
-				receiptConfirmation();
-			}
+				ReceiptConfirmation dialog = new ReceiptConfirmation();
+				dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				dialog.setVisible(true);
+				resetUI();
+			};
+
 		});
-
-	}
-
-	public void receiptConfirmation() {
-		ReceiptConfirmation dialog = new ReceiptConfirmation(this);
-		dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		dialog.setVisible(true);
 	}
 
 	public void printReceipt() {
