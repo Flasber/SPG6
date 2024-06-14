@@ -28,7 +28,7 @@ public class BillableItemContainer {
 		return addProduct;
 	}
 
-	public void removeProduct(Product p){
+	public void removeProduct(Product p) {
 		products.remove(p);
 	}
 
@@ -73,32 +73,32 @@ public class BillableItemContainer {
 		return result;
 	}
 
-	public boolean barcodeExists(String barcode){
-		boolean barcodeFound = false;
-		for (Product p : products){
-			if (p.getBarcode().equals(barcode)){
-				barcodeFound = true;
+	public boolean barcodeExists(String barcodeToCheck) {
+		for (Product product : products) {
+			String barcode = product.getBarcode();
+			if (barcode != null && barcodeToCheck != null && barcode.equals(barcodeToCheck)) {
+				return true;
 			}
 		}
-		return barcodeFound;
+		return false;
 	}
 
-	public boolean skuExists(String sku){
+	public boolean skuExists(String sku) {
 		boolean skuFound = false;
-		for (Product p : products){
-			if (p.getSku().equals(sku)){
+		for (Product p : products) {
+			if (p.getSku().equals(sku)) {
 				skuFound = true;
 			}
 		}
 		return skuFound;
 	}
 
-	public boolean copyWarrantyExists(String warranty){
+	public boolean copyWarrantyExists(String warranty) {
 		boolean copyWarrantyFound = false;
-		for (Product p : products){
-			if (p instanceof WarrantyProduct){
-				for (WarrantyProduct.Copy c : ((WarrantyProduct) p).getCopies()){
-					if (c.getWarranty().equals(warranty)){
+		for (Product p : products) {
+			if (p instanceof WarrantyProduct) {
+				for (WarrantyProduct.Copy c : ((WarrantyProduct) p).getCopies()) {
+					if (c.getWarranty().equals(warranty)) {
 						copyWarrantyFound = true;
 					}
 				}

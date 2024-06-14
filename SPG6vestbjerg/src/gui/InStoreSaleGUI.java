@@ -25,7 +25,7 @@ import model.BillableLine;
 import model.Customer;
 import model.InStoreSale;
 
-public class InStoreSaleGUI {
+public class InStoreSaleGUI extends JFrame {
 	private CreateInStoreSaleController controller;
 	private JFrame frame;
 
