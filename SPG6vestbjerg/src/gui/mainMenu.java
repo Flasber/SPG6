@@ -11,31 +11,16 @@ import javax.swing.border.EmptyBorder;
 
 import controller.BillableItemController;
 import controller.CreateInStoreSaleController;
-import tui.TryMe;
 
-public class mainMenu extends JFrame {
+public class MainMenu extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private BillableItemController billableItemController;
 	private CreateInStoreSaleController createInStoreSaleController;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					mainMenu frame = new mainMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	public mainMenu() {
-		TryMe tryMe = new TryMe();
-		tryMe.generateTestData();
+	public MainMenu() {
 		this.billableItemController = new BillableItemController();
 		this.createInStoreSaleController = new CreateInStoreSaleController();
 
@@ -61,25 +46,26 @@ public class mainMenu extends JFrame {
 		contentPane.add(btnExit);
 
 		btnNewSale.addActionListener(e -> openInStoreSaleGUI());
-		btnCreateProduct.addActionListener(e -> openAdminVerificationDialog());
+		btnCreateProduct.addActionListener(e -> openProductGUI());
 	}
 
 	private void openInStoreSaleGUI() {
-		InStoreSaleGUI inStoreSaleGUI = new InStoreSaleGUI(createInStoreSaleController);
-		inStoreSaleGUI.setVisible(true);
+		new InStoreSaleGUI(createInStoreSaleController);
+		dispose();
+
 	}
 
-	private void openAdminVerificationDialog() {
-		adminVerificationDialog loginDlg = new adminVerificationDialog(this);
+	private boolean openAdminVerificationDialog() {
+		AdminVerificationDialog loginDlg = new AdminVerificationDialog(this);
 		loginDlg.setVisible(true);
 
-		if (loginDlg.isSucceeded()) {
-			openProductGUI();
-		}
-	}
+		return loginDlg.isSucceeded();
+	};
+			
 
 	private void openProductGUI() {
-		productGui productGUI = new productGui(billableItemController);
+		ProductGui productGUI = new ProductGui(billableItemController);
 		productGUI.setVisible(true);
+		dispose();
 	}
 }

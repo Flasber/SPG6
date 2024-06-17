@@ -14,11 +14,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class adminVerificationDialog extends JDialog {
+public class AdminVerificationDialog extends JDialog {
 	private boolean succeeded;
 	private JTextField adminNumberField;
 
-	public adminVerificationDialog(Frame parent) {
+	public AdminVerificationDialog(Frame parent) {
 		super(parent, "Admin Login", true);
 
 		JPanel panel = new JPanel(new GridLayout(2, 2));
@@ -31,7 +31,7 @@ public class adminVerificationDialog extends JDialog {
 		panel.add(adminNumberField);
 
 		JButton loginButton = new JButton("Login");
-		JButton cancelButton = new JButton("Cancel");
+		JButton cancelButton = new JButton("Annuller");
 
 		panel.add(loginButton);
 		panel.add(cancelButton);
@@ -41,12 +41,12 @@ public class adminVerificationDialog extends JDialog {
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (authenticate(getAdminNumber())) {
-					JOptionPane.showMessageDialog(adminVerificationDialog.this, "Login successful", "Login",
+					JOptionPane.showMessageDialog(AdminVerificationDialog.this, "Login succesfuld", "Login",
 							JOptionPane.INFORMATION_MESSAGE);
 					succeeded = true;
 					dispose();
 				} else {
-					JOptionPane.showMessageDialog(adminVerificationDialog.this, "Invalid admin number", "Login",
+					JOptionPane.showMessageDialog(AdminVerificationDialog.this, "Ugyldigt admin nummer", "Login",
 							JOptionPane.ERROR_MESSAGE);
 					adminNumberField.setText("");
 					succeeded = false;
@@ -78,3 +78,4 @@ public class adminVerificationDialog extends JDialog {
 		return adminNumber.equals("1") || adminNumber.equals("2");
 	}
 }
+

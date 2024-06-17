@@ -9,6 +9,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
@@ -22,10 +23,13 @@ import javax.swing.border.EmptyBorder;
 import controller.BillableItemController;
 import exceptionHandling.BarcodeAlreadyExistsException;
 import exceptionHandling.SkuAlreadyExistsException;
+import model.BasicProduct;
+import model.CompositeProduct;
 import model.Price;
 import model.Product;
+import model.WarrantyProduct;
 
-public class createProductDialog extends JDialog {
+public class CreateProductDialog extends JDialog {
 	private JTextField descriptionField;
 	private JTextField nameField;
 	private JTextField priceField;
@@ -36,9 +40,10 @@ public class createProductDialog extends JDialog {
 	private JButton createButton;
 	private BillableItemController controller;
 	private Runnable callback;
+    private JCheckBox compositeCheckBox;
 
-	public createProductDialog(JFrame frame, BillableItemController controller, Runnable callback) {
-		super((JDialog) null, "Opret Produkt", true);
+	public CreateProductDialog(JFrame frame, BillableItemController controller, Runnable callback) {
+		super(frame, "Opret Produkt", true);
 		this.controller = controller;
 		this.callback = callback;
 
@@ -121,24 +126,31 @@ public class createProductDialog extends JDialog {
 		cs.gridwidth = 2;
 		panel.add(barcodeField, cs);
 
+		compositeCheckBox = new JCheckBox("Samleprodukt");
+		compositeCheckBox.setFont(labelFont);
+		cs.gridx = 0;
+		cs.gridy = 5;
+		cs.gridwidth = 1;
+		panel.add(compositeCheckBox, cs);
+
 		warrantyCheckBox = new JCheckBox("Garantiprodukt");
 		warrantyCheckBox.setFont(labelFont);
 		cs.gridx = 0;
-		cs.gridy = 5;
+		cs.gridy = 6;
 		cs.gridwidth = 1;
 		panel.add(warrantyCheckBox, cs);
 
 		JLabel warrantyLabel = new JLabel("Garanti ID:");
 		warrantyLabel.setFont(labelFont);
 		cs.gridx = 0;
-		cs.gridy = 6;
+		cs.gridy = 7;
 		cs.gridwidth = 1;
 		panel.add(warrantyLabel, cs);
 
 		warrantyField = new JTextField(20);
 		warrantyField.setFont(textFieldFont);
 		cs.gridx = 1;
-		cs.gridy = 6;
+		cs.gridy = 7;
 		cs.gridwidth = 2;
 		panel.add(warrantyField, cs);
 
@@ -152,15 +164,28 @@ public class createProductDialog extends JDialog {
 			}
 		});
 
+		compositeCheckBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e){
+				boolean selected = compositeCheckBox.isSelected();
+				warrantyField.setEnabled(!selected);
+				warrantyField.setVisible(!selected);
+				warrantyCheckBox.setSelected(false);
+				warrantyCheckBox.setVisible(!selected);
+				warrantyLabel.setVisible(!selected);
+			}
+		});
+
 		createButton = new JButton("Opret");
 		createButton.setFont(new Font("Arial Narrow", Font.BOLD, 18));
 		createButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					createProduct();
-				} catch (BarcodeAlreadyExistsException | SkuAlreadyExistsException ex) {
-					JOptionPane.showMessageDialog(createProductDialog.this, "Fejl: " + ex.getMessage(), "Fejl",
-							JOptionPane.ERROR_MESSAGE);
+				} catch (BarcodeAlreadyExistsException eb) {
+					JOptionPane.showMessageDialog(CreateProductDialog.this, "Stregkode findes allerede.", "Fejl", JOptionPane.ERROR_MESSAGE);
+				} catch (SkuAlreadyExistsException es) {
+					JOptionPane.showMessageDialog(CreateProductDialog.this, "SKU findes allerede.", "Fejl", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
@@ -190,17 +215,25 @@ public class createProductDialog extends JDialog {
 		String priceStr = priceField.getText();
 		String sku = skuField.getText();
 		String barcode = barcodeField.getText();
-		String warrantyId = warrantyField.getText();
+		String warrantyId = warrantyField.getText().isEmpty() ? null : warrantyField.getText();
 
 		double priceValue = Double.parseDouble(priceStr);
 
 		Product createdProduct;
-		boolean isWarrantyProduct = warrantyCheckBox.isSelected();
+		boolean isCompositeProduct = compositeCheckBox.isSelected();
+		String successMessage = null;
 		createdProduct = controller.createProduct(description, name, new Price(priceValue), sku, barcode, warrantyId,
-				isWarrantyProduct);
+				isCompositeProduct);
 
 		if (createdProduct != null) {
-			String successMessage = isWarrantyProduct ? "Garantiprodukt oprettet: " : "Basal produkt oprettet: ";
+			if (createdProduct instanceof BasicProduct){
+				successMessage =  "Basalprodukt oprettet: ";
+			}	else if (createdProduct instanceof WarrantyProduct){
+				successMessage =  "Garantiprodukt oprettet: ";
+			}	else if (createdProduct instanceof CompositeProduct){
+				successMessage =  "Samleprodukt oprettet: ";
+			}
+			
 			JOptionPane.showMessageDialog(this, successMessage + createdProduct.toString(), "Succes",
 					JOptionPane.INFORMATION_MESSAGE);
 			dispose();
@@ -208,8 +241,7 @@ public class createProductDialog extends JDialog {
 				callback.run();
 			}
 		} else {
-			String errorMessage = isWarrantyProduct ? "Fejl ved oprettelse af garantiprodukt."
-					: "Fejl ved oprettelse af basal produkt.";
+			String errorMessage = "Fejl ved oprettelse af produkt.";
 			JOptionPane.showMessageDialog(this, errorMessage, "Fejl", JOptionPane.ERROR_MESSAGE);
 		}
 	}

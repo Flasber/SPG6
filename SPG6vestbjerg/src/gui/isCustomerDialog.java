@@ -12,37 +12,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class isCustomerDialog extends JDialog {
+public class IsCustomerDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	public InStoreSaleGUI GUI; // Ensure that InStoreSaleGUI is correctly defined elsewhere in your project.
 
 	// Constructor with GUI parameter
-	public isCustomerDialog(InStoreSaleGUI gui) {
+	public IsCustomerDialog(InStoreSaleGUI gui) {
 		this(); // Call the default constructor to set up the dialog.
 		this.GUI = gui;
 		setModal(true); // Make the dialog modal.
 	}
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			InStoreSaleGUI gui = new InStoreSaleGUI(null); // Placeholder, replace with actual initialization.
-			isCustomerDialog dialog = new isCustomerDialog(gui);
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * Create the dialog.
 	 */
-	public isCustomerDialog() {
+	public IsCustomerDialog() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,10 +55,10 @@ public class isCustomerDialog extends JDialog {
 		noButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
 		buttonPane.add(noButton);
 
-		JButton privateCustomerButton = new JButton("PRIVAT");
-		privateCustomerButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
-		privateCustomerButton.setActionCommand("OK");
-		privateCustomerButton.addActionListener(new ActionListener() {
+		JButton isCustomerButton = new JButton("JA");
+		isCustomerButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
+		isCustomerButton.setActionCommand("OK");
+		isCustomerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane();
 				GUI.addCustomerToSale();
@@ -79,16 +66,6 @@ public class isCustomerDialog extends JDialog {
 
 			}
 		});
-		buttonPane.add(privateCustomerButton);
-
-		JButton businessCustomerButton = new JButton("VIRKSOMHED");
-		businessCustomerButton.setFont(new Font("Arial Narrow", Font.BOLD, 38));
-		businessCustomerButton.setActionCommand("Cancel");
-		businessCustomerButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// TODO
-			}
-		});
-		buttonPane.add(businessCustomerButton);
+		buttonPane.add(isCustomerButton);
 	}
 }

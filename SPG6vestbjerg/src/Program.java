@@ -1,12 +1,22 @@
-import controller.CreateInStoreSaleController;
-import gui.InStoreSaleGUI;
+import gui.MainMenu;
 import tui.TryMe;
 
+import java.awt.EventQueue;
+
 public class Program {
+	
 	public static void main(String[] args) {
-		TryMe tryMe = new TryMe();
-		tryMe.generateTestData();
-		CreateInStoreSaleController controller = new CreateInStoreSaleController();
-		new InStoreSaleGUI(controller);
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainMenu frame = new MainMenu();
+					frame.setVisible(true);
+					TryMe tryMe = new TryMe();
+					tryMe.generateTestData();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }

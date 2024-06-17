@@ -17,12 +17,12 @@ import controller.BillableItemController;
 import model.BillableItem;
 import model.Product;
 
-public class deleteProductDialog extends JDialog {
+public class DeleteProductDialog extends JDialog {
 	private JTextField barcodeField;
 	private BillableItemController controller;
 
-	public deleteProductDialog(JFrame parent, BillableItemController controller) {
-		super(parent, "Delete Product", true);
+	public DeleteProductDialog(JFrame parent, BillableItemController controller) {
+		super(parent, "Slet Produkt", true);
 		this.controller = controller;
 		initialize();
 	}
@@ -35,7 +35,7 @@ public class deleteProductDialog extends JDialog {
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new FlowLayout());
 
-		JLabel barcodeLabel = new JLabel("Product Barcode:");
+		JLabel barcodeLabel = new JLabel("Produkt Stregkode:");
 		panel.add(barcodeLabel);
 
 		barcodeField = new JTextField(20);
@@ -44,7 +44,7 @@ public class deleteProductDialog extends JDialog {
 		JPanel buttonPanel = new JPanel();
 		getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
-		JButton deleteButton = new JButton("Delete");
+		JButton deleteButton = new JButton("Slet");
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				deleteProduct();
@@ -52,7 +52,7 @@ public class deleteProductDialog extends JDialog {
 		});
 		buttonPanel.add(deleteButton);
 
-		JButton cancelButton = new JButton("Cancel");
+		JButton cancelButton = new JButton("Annullér");
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -71,11 +71,11 @@ public class deleteProductDialog extends JDialog {
 
 			if (item != null && item instanceof Product) {
 				controller.deleteProduct((Product) item);
-				JOptionPane.showMessageDialog(this, "Product deleted successfully.", "Success",
+				JOptionPane.showMessageDialog(this, "Produkt slettet.", "Succes",
 						JOptionPane.INFORMATION_MESSAGE);
 				dispose();
 			} else {
-				JOptionPane.showMessageDialog(this, "Product not found.", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "Product ikke fundet.", "Fejl", JOptionPane.ERROR_MESSAGE);
 			}
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, "An error occurred: " + e.getMessage(), "Error",
