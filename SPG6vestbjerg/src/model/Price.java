@@ -28,4 +28,5 @@ public class Price {
 	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
+
 }

@@ -13,6 +13,9 @@ public class CompositeProduct extends NonWarrantyProduct {
 	}
 
 	public void addCompositeLine(NonWarrantyProduct p, int qu) {
+		if (p == this) {
+			throw new IllegalArgumentException("A composite product cannot contain itself.");
+		}
 		Iterator<CompositeLine> it = compositeLines.iterator();
 		boolean isFound = false;
 		CompositeLine result = null;
@@ -51,7 +54,7 @@ public class CompositeProduct extends NonWarrantyProduct {
 			CompositeLine c = compositeLines.get(i);
 			Product p = c.getItem();
 			int ratioOfStockToNeeds = p.getQuantity() / c.getQuantity();
-			if (ratioOfStockToNeeds<lowestQuantityBasicProduct){
+			if (ratioOfStockToNeeds < lowestQuantityBasicProduct) {
 				lowestQuantityBasicProduct = ratioOfStockToNeeds;
 			}
 		}
@@ -67,6 +70,8 @@ public class CompositeProduct extends NonWarrantyProduct {
 		}
 	}
 
-	
-	
+	public List<CompositeLine> getCompositeLines() {
+		return compositeLines;
+	}
+
 }

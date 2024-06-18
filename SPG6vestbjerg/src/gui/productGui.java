@@ -17,6 +17,7 @@ public class ProductGui extends JFrame {
 	private JButton createProductButton;
 	private JButton deleteProductButton;
 	private JButton backButton;
+	private JButton viewProductButton;
 
 	public ProductGui(BillableItemController controller) {
 		this.controller = controller;
@@ -31,7 +32,7 @@ public class ProductGui extends JFrame {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		createProductButton = new JButton("Opret Produkt");
+		createProductButton = new JButton("Opret produkt");
 		createProductButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openCreateProductDialog();
@@ -39,7 +40,7 @@ public class ProductGui extends JFrame {
 		});
 		panel.add(createProductButton);
 
-		deleteProductButton = new JButton("Slet Produkt");
+		deleteProductButton = new JButton("Slet produkt");
 		deleteProductButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openDeleteProductDialog();
@@ -53,6 +54,15 @@ public class ProductGui extends JFrame {
 				openMainMenu();
 			}
 		});
+
+		viewProductButton = new JButton("Se produkter");
+		viewProductButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openViewProducts();
+			}
+		});
+
+		panel.add(viewProductButton);
 		panel.add(backButton);
 
 		frame.pack();
@@ -60,7 +70,7 @@ public class ProductGui extends JFrame {
 	}
 
 	private void openCreateProductDialog() {
-		if (openAdminVerificationDialog()){
+		if (openAdminVerificationDialog()) {
 			CreateProductDialog dialog = new CreateProductDialog(frame, controller, new Runnable() {
 				@Override
 				public void run() {
@@ -71,7 +81,7 @@ public class ProductGui extends JFrame {
 	}
 
 	private void openDeleteProductDialog() {
-		if (openAdminVerificationDialog()){
+		if (openAdminVerificationDialog()) {
 			DeleteProductDialog dialog = new DeleteProductDialog(frame, controller);
 			dialog.setVisible(true);
 		}
@@ -93,4 +103,10 @@ public class ProductGui extends JFrame {
 
 		return loginDlg.isSucceeded();
 	}
+
+	private void openViewProducts() {
+		ReadProductsGUI rpGUI = new ReadProductsGUI();
+		rpGUI.setVisible(true);
+	}
+
 }

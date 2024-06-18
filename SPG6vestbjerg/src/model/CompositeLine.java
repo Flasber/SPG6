@@ -24,4 +24,10 @@ public class CompositeLine {
 	public NonWarrantyProduct getProduct() {
 		return product;
 	}
+
+	@Override
+	public String toString() {
+		return "Navn: " + product.getName() + ". ||          Antal brugt i samleprodukt: " + quantity;
+
+	}
 }

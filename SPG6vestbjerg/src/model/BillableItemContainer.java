@@ -73,20 +73,20 @@ public class BillableItemContainer {
 		return result;
 	}
 
-	public boolean barcodeExists(String barcodeToCheck) {
+	public boolean barcodeExists(String barcodeToCheck, Product p) {
 		for (Product product : products) {
 			String barcode = product.getBarcode();
-			if (barcode != null && barcodeToCheck != null && barcode.equals(barcodeToCheck)) {
+			if (barcode != null && barcodeToCheck != null && barcode.equals(barcodeToCheck) && product != p) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public boolean skuExists(String sku) {
+	public boolean skuExists(String sku, Product p) {
 		boolean skuFound = false;
-		for (Product p : products) {
-			if (p.getSku().equals(sku)) {
+		for (Product product : products) {
+			if (product.getSku().equals(sku) && product != p) {
 				skuFound = true;
 			}
 		}
@@ -105,5 +105,9 @@ public class BillableItemContainer {
 			}
 		}
 		return copyWarrantyFound;
+	}
+
+	public List<Product> getAllProducts() {
+		return new ArrayList<Product>(products);
 	}
 }

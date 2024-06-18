@@ -62,9 +62,9 @@ public class TryMe {
 		c5.addStockLocation(1000);
 		CompositeProduct c11 = new CompositeProduct("et komplet køkken", "køkken", new Price(250), "to be done",
 				"11118");
-		c10.addCompositeLine(c10, 2);
-		c10.addCompositeLine(c4, 2);
-		c10.addCompositeLine(c5, 1);
+		c11.addCompositeLine(c10, 2);
+		c11.addCompositeLine(c4, 2);
+		c11.addCompositeLine(c5, 1);
 
 		p.createCopy(202, "0000001", 5);
 		p.createCopy(301, "0000002", 2);

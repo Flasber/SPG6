@@ -24,10 +24,16 @@ public class DeleteProductDialog extends JDialog {
 	public DeleteProductDialog(JFrame parent, BillableItemController controller) {
 		super(parent, "Slet Produkt", true);
 		this.controller = controller;
-		initialize();
+		initialize(null);
 	}
 
-	private void initialize() {
+	public DeleteProductDialog(JFrame parent, BillableItemController controller, Product p) {
+		super(parent, "Slet Produkt", true);
+		this.controller = controller;
+		initialize(p);
+	}
+
+	private void initialize(Product p) {
 		setBounds(100, 100, 300, 150);
 		getContentPane().setLayout(new BorderLayout());
 
@@ -40,6 +46,10 @@ public class DeleteProductDialog extends JDialog {
 
 		barcodeField = new JTextField(20);
 		panel.add(barcodeField);
+
+		if (p != null) {
+			barcodeField.setText(p.getBarcode());
+		}
 
 		JPanel buttonPanel = new JPanel();
 		getContentPane().add(buttonPanel, BorderLayout.SOUTH);
@@ -71,8 +81,7 @@ public class DeleteProductDialog extends JDialog {
 
 			if (item != null && item instanceof Product) {
 				controller.deleteProduct((Product) item);
-				JOptionPane.showMessageDialog(this, "Produkt slettet.", "Succes",
-						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "Produkt slettet.", "Succes", JOptionPane.INFORMATION_MESSAGE);
 				dispose();
 			} else {
 				JOptionPane.showMessageDialog(this, "Product ikke fundet.", "Fejl", JOptionPane.ERROR_MESSAGE);

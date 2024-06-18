@@ -73,29 +73,30 @@ public abstract class Product implements BillableItem {
 		return name;
 	}
 
-	public String getSku(){
+	public String getSku() {
 		return sku;
 	}
 
 	public abstract int getQuantity();
 
+	public String getDescription() {
+		return description;
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-    public void setName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setName'");
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setSku(String sku) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setSku'");
-    }
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
 
-    public void setBarcode(String barcode) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setBarcode'");
-    }
+	public void setBarcode(String barcode) {
+		this.barcode = barcode;
+	}
 
 }

@@ -9,7 +9,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
@@ -40,7 +39,7 @@ public class CreateProductDialog extends JDialog {
 	private JButton createButton;
 	private BillableItemController controller;
 	private Runnable callback;
-    private JCheckBox compositeCheckBox;
+	private JCheckBox compositeCheckBox;
 
 	public CreateProductDialog(JFrame frame, BillableItemController controller, Runnable callback) {
 		super(frame, "Opret Produkt", true);
@@ -166,7 +165,7 @@ public class CreateProductDialog extends JDialog {
 
 		compositeCheckBox.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(ActionEvent e) {
 				boolean selected = compositeCheckBox.isSelected();
 				warrantyField.setEnabled(!selected);
 				warrantyField.setVisible(!selected);
@@ -183,9 +182,14 @@ public class CreateProductDialog extends JDialog {
 				try {
 					createProduct();
 				} catch (BarcodeAlreadyExistsException eb) {
-					JOptionPane.showMessageDialog(CreateProductDialog.this, "Stregkode findes allerede.", "Fejl", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(CreateProductDialog.this, "Stregkode findes allerede.", "Fejl",
+							JOptionPane.ERROR_MESSAGE);
 				} catch (SkuAlreadyExistsException es) {
-					JOptionPane.showMessageDialog(CreateProductDialog.this, "SKU findes allerede.", "Fejl", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(CreateProductDialog.this, "SKU findes allerede.", "Fejl",
+							JOptionPane.ERROR_MESSAGE);
+				}
+				if (frame instanceof ReadProductsGUI) {
+					((ReadProductsGUI) frame).init();
 				}
 			}
 		});
@@ -226,14 +230,14 @@ public class CreateProductDialog extends JDialog {
 				isCompositeProduct);
 
 		if (createdProduct != null) {
-			if (createdProduct instanceof BasicProduct){
-				successMessage =  "Basalprodukt oprettet: ";
-			}	else if (createdProduct instanceof WarrantyProduct){
-				successMessage =  "Garantiprodukt oprettet: ";
-			}	else if (createdProduct instanceof CompositeProduct){
-				successMessage =  "Samleprodukt oprettet: ";
+			if (createdProduct instanceof BasicProduct) {
+				successMessage = "Basalprodukt oprettet: ";
+			} else if (createdProduct instanceof WarrantyProduct) {
+				successMessage = "Garantiprodukt oprettet: ";
+			} else if (createdProduct instanceof CompositeProduct) {
+				successMessage = "Samleprodukt oprettet: ";
 			}
-			
+
 			JOptionPane.showMessageDialog(this, successMessage + createdProduct.toString(), "Succes",
 					JOptionPane.INFORMATION_MESSAGE);
 			dispose();
