@@ -110,4 +110,18 @@ public class BillableItemContainer {
 	public List<Product> getAllProducts() {
 		return new ArrayList<Product>(products);
 	}
+
+	public void addCompositeLineToProduct(CompositeProduct p, String addedProductBarcode, int quantity) {
+		if (p instanceof CompositeProduct) {
+			if (findProduct(addedProductBarcode) instanceof NonWarrantyProduct) {
+				NonWarrantyProduct apb = (NonWarrantyProduct) findProduct(addedProductBarcode);
+				p.addCompositeLine(apb, quantity);
+			}
+
+		}
+	}
+
+	public void removeCompositeLineFromProduct(CompositeProduct cp, CompositeLine cl) {
+		cp.removeCompositeLine(cl);
+	}
 }

@@ -74,4 +74,8 @@ public class CompositeProduct extends NonWarrantyProduct {
 		return compositeLines;
 	}
 
+	public void removeCompositeLine(CompositeLine cl) {
+		compositeLines.remove(cl);
+	}
+
 }

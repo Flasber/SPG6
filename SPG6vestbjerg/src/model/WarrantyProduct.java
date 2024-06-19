@@ -38,7 +38,7 @@ public class WarrantyProduct extends Product {
 			return product;
 		}
 
-		public void setProduct(WarrantyProduct p){
+		public void setProduct(WarrantyProduct p) {
 			product = p;
 		}
 
@@ -70,13 +70,18 @@ public class WarrantyProduct extends Product {
 			this.copyId = copyId;
 		}
 
-        public void setWarranty(String warranty) {
-            this.warranty = warranty;
-        }
+		public void setWarranty(String warranty) {
+			this.warranty = warranty;
+		}
 
-        public void setTimesReturned(int timesReturned) {
-            this.timesReturned = timesReturned;
-        }
+		public void setTimesReturned(int timesReturned) {
+			this.timesReturned = timesReturned;
+		}
+
+		@Override
+		public String toString() {
+			return "Kopinummer: " + copyId + ". Garantikode: " + warranty;
+		}
 	}
 
 	public WarrantyProduct(String description, String name, Price price, String sku, String barcode, String warranty) {
@@ -101,8 +106,8 @@ public class WarrantyProduct extends Product {
 		return isAdded;
 	}
 
-	public void removeCopy(Copy c){
-		if (c!=null){
+	public void removeCopy(Copy c) {
+		if (c != null) {
 			copies.remove(c);
 			c.setProduct(null);
 		}
@@ -112,7 +117,7 @@ public class WarrantyProduct extends Product {
 		return warranty;
 	}
 
-	public List<Copy> getCopies(){
+	public List<Copy> getCopies() {
 		return copies;
 	}
 

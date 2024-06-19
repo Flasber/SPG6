@@ -1,17 +1,25 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowFilter;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableRowSorter;
 
 import controller.BillableItemController;
 import model.Product;
@@ -23,6 +31,10 @@ public class ReadProductsGUI extends JFrame {
 	private JTable productTable;
 	private BillableItemController bctrl;
 	private ProductTableModel ptm;
+	private JTextField searchField;
+	private DefaultListModel listModel;
+	private DefaultListModel filteredModel;
+	private TableRowSorter rowSorter;
 
 	/**
 	 * Create the frame.
@@ -76,6 +88,33 @@ public class ReadProductsGUI extends JFrame {
 		productTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(productTable);
 
+		JPanel searchPanel = new JPanel();
+		contentPane.add(searchPanel, BorderLayout.NORTH);
+		searchPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		JLabel searchLabel = new JLabel("Søg:");
+		searchPanel.add(searchLabel);
+
+		searchField = new JTextField();
+		searchField.setColumns(10);
+		searchPanel.add(searchField);
+		searchField.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				filterTable();
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				filterTable();
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				filterTable();
+			}
+		});
+
 		init();
 	}
 
@@ -87,6 +126,17 @@ public class ReadProductsGUI extends JFrame {
 		List<Product> products = bctrl.getAllProducts();
 		ptm = new ProductTableModel(products);
 		productTable.setModel(ptm);
+		rowSorter = new TableRowSorter<>(ptm);
+		productTable.setRowSorter(rowSorter);
+	}
+
+	private void filterTable() {
+		String filter = searchField.getText();
+		if (filter.isEmpty()) {
+			rowSorter.setRowFilter(null);
+		} else {
+			rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + filter));
+		}
 	}
 
 	private boolean openAdminVerificationDialog() {

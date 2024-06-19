@@ -8,6 +8,7 @@ import exceptionHandling.WarrantyInUseException;
 import model.BasicProduct;
 import model.BillableItem;
 import model.BillableItemContainer;
+import model.CompositeLine;
 import model.CompositeProduct;
 import model.NonWarrantyProduct;
 import model.Price;
@@ -118,6 +119,20 @@ public class BillableItemController {
 	public List<Product> getAllProducts() {
 		BillableItemContainer container = BillableItemContainer.getInstance();
 		return container.getAllProducts();
+	}
+
+	public void deleteCopy(WarrantyProduct wp, WarrantyProduct.Copy c) {
+		wp.removeCopy(c);
+	}
+
+	public void addCompositeLineToProduct(CompositeProduct p, String addedProductBarcode, int quantity) {
+		BillableItemContainer container = BillableItemContainer.getInstance();
+		container.addCompositeLineToProduct(p, addedProductBarcode, quantity);
+	}
+
+	public void removeCompositeLineFromProduct(CompositeProduct p, CompositeLine cl) {
+		BillableItemContainer container = BillableItemContainer.getInstance();
+		container.removeCompositeLineFromProduct(p, cl);
 	}
 
 }
