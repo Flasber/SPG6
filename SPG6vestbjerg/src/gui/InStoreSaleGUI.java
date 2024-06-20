@@ -265,15 +265,26 @@ public class InStoreSaleGUI extends JFrame {
                             JOptionPane.ERROR_MESSAGE);
                 }
                 frame.getContentPane().removeAll();
-                checkIfPaid();
+                
+                    checkIfPaid(customer);
+                
             }
         });
     }
 
-    public void checkIfPaid() {
-		JPanel panel = new JPanel(new BorderLayout());
+    public void checkIfPaid(Customer c) {
+		if (c == null){
+            c = controller.addCustomerToSale("12345678");
+        }
+
+        final Customer finalCustomer = c;
+
+        JPanel panel = new JPanel(new BorderLayout());
 		JLabel totalLabel = new JLabel();
 		JButton payButton = new JButton("BETAL");
+        if (finalCustomer instanceof BusinessCustomer){
+            payButton.setText("SEND FAKTURA");
+        }
 		payButton.setFont(new Font("Arial Narrow", Font.BOLD, 38)); // Making the button bigger
 	
 		InStoreSale s = controller.getSaleinProgress();
@@ -309,10 +320,10 @@ public class InStoreSaleGUI extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 				}
 	
-				if (sale != null) {
+				if (sale != null && finalCustomer instanceof PrivateCustomer) {
 					JOptionPane.showMessageDialog(frame, "Betaling bekræftet", "Succes",
 							JOptionPane.INFORMATION_MESSAGE);
-				} else {
+				} else if (sale == null) {
 					JOptionPane.showMessageDialog(frame, "Betaling afvist", "Fejl", JOptionPane.ERROR_MESSAGE);
 				}
 				frame.getContentPane().removeAll();

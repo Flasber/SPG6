@@ -60,7 +60,7 @@ public class TryMe {
 		c4.addStockLocation(1000);
 		BasicProduct c5 = new BasicProduct("en vask af kobber", "vask", new Price(50), "1.4.1.1", "11117");
 		c5.addStockLocation(1000);
-		CompositeProduct c11 = new CompositeProduct("et komplet køkken", "køkken", new Price(250), "to be done",
+		CompositeProduct c11 = new CompositeProduct("et komplet køkken", "køkken", new Price(250), "to be done2",
 				"11118");
 		c11.addCompositeLine(c10, 2);
 		c11.addCompositeLine(c4, 2);

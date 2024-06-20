@@ -48,7 +48,7 @@ public class IsCustomerDialog extends JDialog {
 		noButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane();
-				GUI.checkIfPaid();
+				GUI.checkIfPaid(null);
 				dispose();
 			}
 		});
