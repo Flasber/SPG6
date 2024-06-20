@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controller.BillableItemController;
+import controller.ProductType;
 import exceptionHandling.BarcodeAlreadyExistsException;
 import exceptionHandling.SkuAlreadyExistsException;
 import model.BasicProduct;
@@ -34,12 +35,12 @@ public class CreateProductDialog extends JDialog {
 	private JTextField priceField;
 	private JTextField skuField;
 	private JTextField barcodeField;
+	private JCheckBox basicCheckBox;
+	private JCheckBox compositeCheckBox;
 	private JCheckBox warrantyCheckBox;
-	private JTextField warrantyField;
 	private JButton createButton;
 	private BillableItemController controller;
 	private Runnable callback;
-	private JCheckBox compositeCheckBox;
 
 	public CreateProductDialog(JFrame frame, BillableItemController controller, Runnable callback) {
 		super(frame, "Opret Produkt", true);
@@ -125,55 +126,46 @@ public class CreateProductDialog extends JDialog {
 		cs.gridwidth = 2;
 		panel.add(barcodeField, cs);
 
+		basicCheckBox = new JCheckBox("Basalprodukt");
+		basicCheckBox.setFont(labelFont);
+		cs.gridx = 0;
+		cs.gridy = 5;
+		cs.gridwidth = 1;
+		panel.add(basicCheckBox, cs);
+
 		compositeCheckBox = new JCheckBox("Samleprodukt");
 		compositeCheckBox.setFont(labelFont);
-		cs.gridx = 0;
+		cs.gridx = 1;
 		cs.gridy = 5;
 		cs.gridwidth = 1;
 		panel.add(compositeCheckBox, cs);
 
 		warrantyCheckBox = new JCheckBox("Garantiprodukt");
 		warrantyCheckBox.setFont(labelFont);
-		cs.gridx = 0;
-		cs.gridy = 6;
+		cs.gridx = 2;
+		cs.gridy = 5;
 		cs.gridwidth = 1;
 		panel.add(warrantyCheckBox, cs);
 
-		JLabel warrantyLabel = new JLabel("Garanti ID:");
-		warrantyLabel.setFont(labelFont);
-		cs.gridx = 0;
-		cs.gridy = 7;
-		cs.gridwidth = 1;
-		panel.add(warrantyLabel, cs);
-
-		warrantyField = new JTextField(20);
-		warrantyField.setFont(textFieldFont);
-		cs.gridx = 1;
-		cs.gridy = 7;
-		cs.gridwidth = 2;
-		panel.add(warrantyField, cs);
-
-		warrantyField.setEnabled(false);
-
-		warrantyCheckBox.addActionListener(new ActionListener() {
+		ActionListener checkBoxListener = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				boolean selected = warrantyCheckBox.isSelected();
-				warrantyField.setEnabled(selected);
+				if (e.getSource() == basicCheckBox) {
+					compositeCheckBox.setSelected(false);
+					warrantyCheckBox.setSelected(false);
+				} else if (e.getSource() == compositeCheckBox) {
+					basicCheckBox.setSelected(false);
+					warrantyCheckBox.setSelected(false);
+				} else if (e.getSource() == warrantyCheckBox) {
+					basicCheckBox.setSelected(false);
+					compositeCheckBox.setSelected(false);
+				}
 			}
-		});
+		};
 
-		compositeCheckBox.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				boolean selected = compositeCheckBox.isSelected();
-				warrantyField.setEnabled(!selected);
-				warrantyField.setVisible(!selected);
-				warrantyCheckBox.setSelected(false);
-				warrantyCheckBox.setVisible(!selected);
-				warrantyLabel.setVisible(!selected);
-			}
-		});
+		basicCheckBox.addActionListener(checkBoxListener);
+		compositeCheckBox.addActionListener(checkBoxListener);
+		warrantyCheckBox.addActionListener(checkBoxListener);
 
 		createButton = new JButton("Opret");
 		createButton.setFont(new Font("Arial Narrow", Font.BOLD, 18));
@@ -219,23 +211,34 @@ public class CreateProductDialog extends JDialog {
 		String priceStr = priceField.getText();
 		String sku = skuField.getText();
 		String barcode = barcodeField.getText();
-		String warrantyId = warrantyField.getText().isEmpty() ? null : warrantyField.getText();
+		ProductType productType;
 
 		double priceValue = Double.parseDouble(priceStr);
 
-		Product createdProduct;
-		boolean isCompositeProduct = compositeCheckBox.isSelected();
-		String successMessage = null;
-		createdProduct = controller.createProduct(description, name, new Price(priceValue), sku, barcode, warrantyId,
-				isCompositeProduct);
+		if (basicCheckBox.isSelected()) {
+			productType = ProductType.BASIC;
+		} else if (compositeCheckBox.isSelected()) {
+			productType = ProductType.COMPOSITE;
+		} else if (warrantyCheckBox.isSelected()) {
+			productType = ProductType.WARRANTY;
+		} else {
+			JOptionPane.showMessageDialog(this, "Vælg venligst en produkttype.", "Fejl", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		Product createdProduct = controller.createProduct(description, name, new Price(priceValue), sku, barcode,
+				productType);
 
 		if (createdProduct != null) {
+			String successMessage;
 			if (createdProduct instanceof BasicProduct) {
 				successMessage = "Basalprodukt oprettet: ";
 			} else if (createdProduct instanceof WarrantyProduct) {
 				successMessage = "Garantiprodukt oprettet: ";
 			} else if (createdProduct instanceof CompositeProduct) {
 				successMessage = "Samleprodukt oprettet: ";
+			} else {
+				successMessage = "Produkt oprettet: ";
 			}
 
 			JOptionPane.showMessageDialog(this, successMessage + createdProduct.toString(), "Succes",
@@ -245,8 +248,7 @@ public class CreateProductDialog extends JDialog {
 				callback.run();
 			}
 		} else {
-			String errorMessage = "Fejl ved oprettelse af produkt.";
-			JOptionPane.showMessageDialog(this, errorMessage, "Fejl", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Fejl ved oprettelse af produkt.", "Fejl", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

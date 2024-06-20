@@ -99,4 +99,8 @@ public abstract class Product implements BillableItem {
 		this.barcode = barcode;
 	}
 
+	public String toString() {
+		return "Navn: " + name + ". Stregkode: " + barcode;
+	}
+
 }

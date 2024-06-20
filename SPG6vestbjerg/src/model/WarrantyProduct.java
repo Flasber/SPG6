@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WarrantyProduct extends Product {
-	private String warranty;
 	private List<Copy> copies;
 	private Copy currentCopy;
 
@@ -84,9 +83,8 @@ public class WarrantyProduct extends Product {
 		}
 	}
 
-	public WarrantyProduct(String description, String name, Price price, String sku, String barcode, String warranty) {
+	public WarrantyProduct(String description, String name, Price price, String sku, String barcode) {
 		super(description, name, price, sku, barcode);
-		this.warranty = warranty;
 		copies = new ArrayList<>();
 
 	}
@@ -111,10 +109,6 @@ public class WarrantyProduct extends Product {
 			copies.remove(c);
 			c.setProduct(null);
 		}
-	}
-
-	public String getWarranty() {
-		return warranty;
 	}
 
 	public List<Copy> getCopies() {

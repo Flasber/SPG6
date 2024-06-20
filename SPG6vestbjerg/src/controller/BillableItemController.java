@@ -53,26 +53,36 @@ public class BillableItemController {
 	}
 
 	public Product createProduct(String description, String name, Price price, String sku, String barcode,
-			String warranty, boolean isComposite) throws BarcodeAlreadyExistsException, SkuAlreadyExistsException {
-		BillableItemContainer container = BillableItemContainer.getInstance();
-		Product p = null;
-		if (container.barcodeExists(barcode, p)) {
-			throw new BarcodeAlreadyExistsException("barcode is already in use");
-		}
-		if (container.skuExists(sku, p)) {
-			throw new SkuAlreadyExistsException("SKU is already in use");
-		} else if (warranty == null && !isComposite) {
-			p = new BasicProduct(description, name, price, sku, barcode);
-		} else if (warranty == null && isComposite) {
-			p = new CompositeProduct(description, name, price, sku, barcode);
-		} else if (warranty != null) {
-			p = new WarrantyProduct(description, name, price, sku, barcode, warranty);
-		}
-		if (p != null) {
-			container.addProduct(p);
-		}
-		return p;
-	}
+                             ProductType productType) throws BarcodeAlreadyExistsException, SkuAlreadyExistsException {
+    BillableItemContainer container = BillableItemContainer.getInstance();
+    Product p = null;
+    if (container.barcodeExists(barcode, p)) {
+        throw new BarcodeAlreadyExistsException("barcode is already in use");
+    }
+    if (container.skuExists(sku, p)) {
+        throw new SkuAlreadyExistsException("SKU is already in use");
+    }
+    
+    switch (productType) {
+        case BASIC:
+            p = new BasicProduct(description, name, price, sku, barcode);
+            break;
+        case COMPOSITE:
+            p = new CompositeProduct(description, name, price, sku, barcode);
+            break;
+        case WARRANTY:
+            p = new WarrantyProduct(description, name, price, sku, barcode);
+            break;
+        default:
+            throw new IllegalArgumentException("Unknown product type");
+    }
+    
+    if (p != null) {
+        container.addProduct(p);
+    }
+    return p;
+}
+
 
 	public void deleteProduct(Product p) {
 		BillableItemContainer container = BillableItemContainer.getInstance();
