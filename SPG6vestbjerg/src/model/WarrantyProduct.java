@@ -76,6 +76,10 @@ public class WarrantyProduct extends Product {
 		public void setTimesReturned(int timesReturned) {
 			this.timesReturned = timesReturned;
 		}
+
+		public String toString() {
+			return "Kopi ID: " + copyId + ". Garantikode: " + warranty;
+		}
 	}
 
 	public WarrantyProduct(String description, String name, Price price, String sku, String barcode) {
