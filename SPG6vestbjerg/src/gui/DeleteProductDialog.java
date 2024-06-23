@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.BillableItemController;
-import model.BillableItem;
 import model.Product;
 
 public class DeleteProductDialog extends JDialog {
@@ -77,7 +76,7 @@ public class DeleteProductDialog extends JDialog {
 	private void deleteProduct() {
 		try {
 			String barcode = barcodeField.getText();
-			BillableItem item = controller.findItem(barcode); // Using the findItem method from the controller
+			Product item = (Product) controller.findItem(barcode); // Using the findItem method from the controller
 
 			if (item != null && item instanceof Product) {
 				controller.deleteProduct((Product) item);

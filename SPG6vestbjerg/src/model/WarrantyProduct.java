@@ -79,10 +79,10 @@ public class WarrantyProduct extends Product {
 		@Override
 		public String toString() {
 			String sold = "";
-			if(isSold){ 
+			if (isSold) {
 				sold = "SOLGT";
 			}
-			return "Kopinummer: " + copyId + ". Garantikode: " + warranty + ". " + sold; 
+			return "Kopinummer: " + copyId + ". Garantikode: " + warranty + ". " + sold;
 		}
 	}
 
@@ -144,12 +144,18 @@ public class WarrantyProduct extends Product {
 	@Override
 	public int getQuantity() {
 		int quantity = 0;
-		for (Copy c : copies){
-			if (!c.isSold){
-				quantity ++;
+		for (Copy c : copies) {
+			if (!c.isSold) {
+				quantity++;
 			}
 		}
 		return quantity;
+	}
+
+	@Override
+	public void removeStock(int a) throws Exception {
+		// TODO Auto-generated method stub
+
 	}
 
 }

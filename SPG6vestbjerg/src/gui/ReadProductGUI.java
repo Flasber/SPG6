@@ -143,7 +143,7 @@ public class ReadProductGUI extends JFrame {
 			public void valueChanged(ListSelectionEvent e) {
 				if (list.isSelectionEmpty()) {
 					deleteProductButton.setText("Slet produkt");
-				} else {
+				} else if (p instanceof CompositeProduct) {
 					deleteProductButton.setText("fjern produkt fra samleprodukt");
 				}
 				if (p instanceof CompositeProduct) {
@@ -253,9 +253,12 @@ public class ReadProductGUI extends JFrame {
 		deleteProductButton = new JButton("Slet produkt");
 		deleteProductButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (p instanceof WarrantyProduct) {
+					openDeleteProductDialog(p);
+				}
 				if (list.isSelectionEmpty()) {
 					openDeleteProductDialog(p);
-				} else {
+				} else if (p instanceof CompositeProduct) {
 
 					CompositeLine cl = (CompositeLine) list.getSelectedValue();
 					removeProductClicked((CompositeProduct) p, cl);
