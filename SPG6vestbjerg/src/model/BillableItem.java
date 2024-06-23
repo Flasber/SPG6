@@ -8,5 +8,5 @@ public interface BillableItem {
 
 	public String getBarcode();
 
-	public void removestock(int a) throws Exception;
+	public void removeStock(int a) throws Exception;
 }

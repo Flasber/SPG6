@@ -115,7 +115,7 @@ class CreateInStoreSaleControllerTest {
 	@Test
 	public void testCreateInStoreSale() {
 		ctrl.createInStoreSale(1, 5);
-		InStoreSale sale = ctrl.getSaleinProgress();
+		InStoreSale sale = ctrl.getSaleInProgress();
 		assertNotNull(sale);
 		assertEquals(1, sale.getRegisterNo());
 		assertEquals(5, sale.getEmployee().getEmployeeId());
@@ -124,7 +124,7 @@ class CreateInStoreSaleControllerTest {
 	@Test
 	public void testAddItemToSale() throws Exception {
 		ctrl.createInStoreSale(1, 5);
-		InStoreSale sale = ctrl.getSaleinProgress();
+		InStoreSale sale = ctrl.getSaleInProgress();
 		ctrl.addItemToSale("12345", 2);
 		Sale s = ctrl.isPaid();
 		ArrayList<BillableLine> b = sale.getBillableLines();
@@ -136,7 +136,7 @@ class CreateInStoreSaleControllerTest {
 	@Test
 	public void testAddCustomerToSale() {
 		ctrl.createInStoreSale(1, 5);
-		InStoreSale sale = ctrl.getSaleinProgress();
+		InStoreSale sale = ctrl.getSaleInProgress();
 		Customer customer = ctrl.addCustomerToSale("12345678");
 		assertNotNull(sale.getCustomer());
 		assertEquals("12345678", sale.getCustomer().getTlf());

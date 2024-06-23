@@ -60,7 +60,7 @@ public class BillableItemContainer {
 
 	}
 
-	public BillableItem findProduct(String barcode) {
+	public Product findProduct(String barcode) {
 		Product result = null;
 		if (barcode.length() == 5) {
 			for (int i = 0; i < products.size() && result == null; i++) {

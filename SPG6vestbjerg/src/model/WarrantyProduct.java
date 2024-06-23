@@ -60,9 +60,8 @@ public class WarrantyProduct extends Product {
 		}
 
 		@Override
-		public void removestock(int a) {
-			// TODO Auto-generated method stub
-			System.err.println("not yet done");
+		public void removeStock(int a) {
+			setIsSold(true);
 		}
 
 		public void setCopyId(int copyId) {
@@ -77,8 +76,13 @@ public class WarrantyProduct extends Product {
 			this.timesReturned = timesReturned;
 		}
 
+		@Override
 		public String toString() {
-			return "Kopi ID: " + copyId + ". Garantikode: " + warranty;
+			String sold = "";
+			if(isSold){ 
+				sold = "SOLGT";
+			}
+			return "Kopinummer: " + copyId + ". Garantikode: " + warranty + ". " + sold; 
 		}
 	}
 
@@ -138,13 +142,14 @@ public class WarrantyProduct extends Product {
 	}
 
 	@Override
-	public void removestock(int a) throws Exception {
-		throw new Exception();
-	}
-
-	@Override
 	public int getQuantity() {
-		return copies.size();
+		int quantity = 0;
+		for (Copy c : copies){
+			if (!c.isSold){
+				quantity ++;
+			}
+		}
+		return quantity;
 	}
 
 }

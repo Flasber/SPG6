@@ -16,7 +16,7 @@ public class Stock {
 		this.quantity = quantity;
 	}
 
-	public void lowerquantity(int amount) {
+	public void lowerQuantity(int amount) {
 		if (quantity > amount) {
 			quantity = quantity - amount;
 			if (quantity < amount) {

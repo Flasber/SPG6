@@ -27,13 +27,13 @@ public class BillableItemController {
 		if (copy != null) {
 			bi = copy;
 		} else {
-			bi = container.findProduct(barcode);
+			bi = (BillableItem) container.findProduct(barcode);
 		}
 		return bi;
 	}
 
 	public void removeStock(BillableItem item, int quantity) throws Exception {
-		item.removestock(quantity);
+		item.removeStock(quantity);
 	}
 
 	public void addStock(NonWarrantyProduct item, int quantity) {

@@ -287,7 +287,7 @@ public class InStoreSaleGUI extends JFrame {
         }
 		payButton.setFont(new Font("Arial Narrow", Font.BOLD, 38)); // Making the button bigger
 	
-		InStoreSale s = controller.getSaleinProgress();
+		InStoreSale s = controller.getSaleInProgress();
 		BigDecimal b = s.getTotal();
 		String string = b.toString();
 		totalLabel.setText("Totalbeløb: " + string + " kr");
@@ -339,7 +339,7 @@ public class InStoreSaleGUI extends JFrame {
         JPanel panel = new JPanel(new BorderLayout());
         JTextArea receiptArea = new JTextArea();
         receiptArea.setEditable(false);
-        InStoreSale sale = controller.getSaleInProgress();
+        InStoreSale sale = controller.getLastSale();
 
         if (sale != null) {
             StringBuilder receipt = new StringBuilder();

@@ -85,7 +85,7 @@ public class CreateInStoreSaleController {
 	 * 
 	 * @return The last completed sale.
 	 */
-	public InStoreSale getSaleInProgress() {
+	public InStoreSale getLastSale() {
 		return lastSale;
 	}
 
@@ -95,7 +95,7 @@ public class CreateInStoreSaleController {
 	 * @return The sale in progress.
 	 */
 
-	public InStoreSale getSaleinProgress() {
+	public InStoreSale getSaleInProgress() {
 		return saleInProgress;
 	}
 

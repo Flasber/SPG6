@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public abstract class Product implements BillableItem {
+public abstract class Product {
 	private String description;
 	private String name;
 	private String sku;

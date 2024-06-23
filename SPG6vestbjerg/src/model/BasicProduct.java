@@ -24,10 +24,10 @@ public class BasicProduct extends NonWarrantyProduct {
 	}
 
 	@Override
-	public void removestock(int a) {
+	public void removeStock(int a) {
 		Stock s = null;
 		s = stockLocations.get(0);
-		s.lowerquantity(a);
+		s.lowerQuantity(a);
 	}
 
 	@Override
